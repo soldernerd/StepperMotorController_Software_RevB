@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name="dist/default/production\StepperMotorController_RevB.production.hex">
+    <memory name="program">
+      <units>bytes</units>
+      <length>94200</length>
+      <used>26233</used>
+      <free>67967</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>3760</length>
+      <used>1852</used>
+      <free>1908</free>
+    </memory>
+  </executable>
+</project>
