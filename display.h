@@ -13,6 +13,7 @@
 void display_init(void);
 void display_prepare(void);
 void display_update(void);
+char display_get_character(uint8_t line, uint8_t position);
 
 //uint8_t display_get_character(uint8_t line, uint8_t position);
 

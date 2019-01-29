@@ -164,12 +164,21 @@ void interrupt SYS_InterruptHigh(void)
     #if defined(USB_INTERRUPT)
         USBDeviceTasks();
     #endif
-
-    //User-defined ISR
-    tmr0_isr();
+    
+    //User-defined ISRs
+    if(PIR1bits.TMR2IF)
+    {
+        motor_isr();
+    }
         
+    if(INTCONbits.T0IF)
+    {
+        tmr0_isr();   
+    }   
 }
 #else
+
+
     void YourHighPriorityISRCode();
     void YourLowPriorityISRCode();
         

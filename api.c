@@ -229,7 +229,7 @@ static void _fill_buffer_get_display(uint8_t *outBuffer, uint8_t secondHalf)
     {
         for(position=0; position<20; ++position)
         {
-//            outBuffer[cntr] = display_get_character(line, position);
+            outBuffer[cntr] = (uint8_t) display_get_character(line, position);
             ++cntr;
         }
     }

@@ -145,9 +145,10 @@ void motor_init(void)
     motor_cue_write_index = 0;
     
     //Initialize timer 2
-    //Use timer2 for CCP1 module, timer 4 for CCP2 module
+    //Use timer2 for CCP1 module
     
     //fix this
+    CCPTMRS0bits.C2TSEL = 0b000;
 //    TCLKCONbits.T3CCP2 = 0b0;
 //    TCLKCONbits.T3CCP1 = 0b1;
     

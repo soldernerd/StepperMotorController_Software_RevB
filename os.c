@@ -9,6 +9,7 @@
 #include "fat16.h"
 #include "display.h"
 
+#define MILLISECONDS_PER_TIMESLOTS 10
 #define NUMBER_OF_TIMESLOTS 16
 
 // 1ms
@@ -21,18 +22,22 @@ void tmr0_isr(void)
     //Timer 0
     if(INTCONbits.T0IF)
     {
+        //Re-load timer: 1ms until overflow
+        TMR0H = TIMER0_LOAD_HIGH_48MHZ;
+        TMR0L = TIMER0_LOAD_LOW_48MHZ;
+
+        //Clear interrupt flag
+        INTCONbits.T0IF = 0;
+        
         //Take care of encoders
         encoder_run();
         
         //Take care of time slots
         ++os.subTimeSlot;
-        if(os.subTimeSlot>10)
+        if(os.subTimeSlot>=MILLISECONDS_PER_TIMESLOTS)
         {
             if(os.done) 
             {
-                //8ms until overflow
-                TMR0H = TIMER0_LOAD_HIGH_48MHZ;
-                TMR0L = TIMER0_LOAD_LOW_48MHZ;
                 ++os.timeSlot;
                 if(os.timeSlot==NUMBER_OF_TIMESLOTS)
                 {
@@ -41,13 +46,6 @@ void tmr0_isr(void)
                 os.subTimeSlot = 0;
                 os.done = 0;
             }
-            else //Clock stretching
-            {
-                //1ms until overflow
-                TMR0H = TIMER0_LOAD_HIGH_48MHZ;
-                TMR0L = TIMER0_LOAD_LOW_48MHZ;
-            }
-            INTCONbits.T0IF = 0;
         }
     }
 }
@@ -56,6 +54,13 @@ void tmr0_isr(void)
 
 static void _system_pin_setup(void)
 {
+    //SPI Pins
+    SPI_MISO_TRIS = PIN_INPUT;
+    SPI_MOSI_TRIS = PIN_OUTPUT;
+    SPI_SCLK_TRIS = PIN_OUTPUT;
+    SPI_SS1_TRIS = PIN_OUTPUT;
+    SPI_SS1_PIN = 1;
+
     TEMPERATURE_INTERNAL_TRIS = PIN_INPUT;
     TEMPERATURE_INTERNAL_ANCON = PIN_ANALOG;
 
@@ -84,13 +89,13 @@ static void _system_pin_setup(void)
     MOTOR_DIRECTION_PIN = 0;
 
     MOTOR_STEP_TRIS = PIN_OUTPUT;
+    MOTOR_STEP_ANCON = PIN_DIGITAL;
     MOTOR_STEP_PIN = 0;
     PPSUnLock();
     MOTOR_STEP_PPS = PPS_FUNCTION_CCP1_OUTPUT;
     PPSLock();
 
     MOTOR_ERROR_TRIS = PIN_INPUT;
-    //MOTOR_ERROR_ANCON = PIN_DIGITAL;
 
     ENCODER1_A_TRIS = PIN_INPUT;
     ENCODER1_A_ANCON = PIN_DIGITAL;
@@ -109,16 +114,14 @@ static void _system_pin_setup(void)
 
     ENCODER2_PB_TRIS = PIN_INPUT;
     ENCODER2_PB_ANCON = PIN_DIGITAL;
-    
-    //debug
-    //TRISE = 0xFF;
-    //ANCON0 = 0xFF;
 }
 
 
 
 static void _system_timer0_init(void)
 {
+    //Clock frequency after prescaler: 1.5 MHz
+    
     //Clock source = Fosc/4
     T0CONbits.T0CS = 0;
     //Operate in 16bit mode
@@ -129,7 +132,7 @@ static void _system_timer0_init(void)
     T0CONbits.T0PS0 = 0;
     //Use prescaler
     T0CONbits.PSA = 0;
-    //8ms until overflow
+    //1ms until overflow
     TMR0H = TIMER0_LOAD_HIGH_48MHZ;
     TMR0L = TIMER0_LOAD_LOW_48MHZ;
     //Turn timer0 on
@@ -190,8 +193,11 @@ void system_init(void)
     //Configure all pins as inputs/outputs analog/digital as needed
     _system_pin_setup();
     
-    //Initialize file system
-    //fat_init(); //Need external flash drive for this, so only for revision B
+    //Initialize SPI / flash
+    flash_init();
+    
+    //Initialize FAT16 file system on flash
+    fat_init();
     
     //Initialize encoders
     encoder_init();

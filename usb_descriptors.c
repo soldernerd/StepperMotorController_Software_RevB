@@ -153,14 +153,14 @@ state according to the definition in the USB specification.
 const USB_DEVICE_DESCRIPTOR device_dsc=
 {
     0x12,    // Size of this descriptor in bytes
-    USB_DESCRIPTOR_DEVICE,                // DEVICE descriptor type
+    USB_DESCRIPTOR_DEVICE,  // DEVICE descriptor type
     0x0200,                 // USB Spec Release Number in BCD format
     0x00,                   // Class Code
     0x00,                   // Subclass code
     0x00,                   // Protocol code
     USB_EP0_BUFF_SIZE,      // Max packet size for EP0, see usb_config.h
     0x04D8,                 // Vendor ID (Microchip VID)
-    0xEDCF,                 // Product ID: (PID granted by Microchip for StepperMotorController, Request #2333)
+    0xEDCF,                 // Product ID: (PID granted by Microchip for Stepper Motor Controller, Request #2333)
     0x0100,                 // Device release number in BCD format
     0x01,                   // Manufacturer string index
     0x02,                   // Product string index
@@ -253,14 +253,15 @@ const struct{uint8_t bLength;uint8_t bDscType;uint16_t string[1];}sd000={
 //Manufacturer string descriptor
 const struct{uint8_t bLength;uint8_t bDscType;uint16_t string[25];}sd001={
 sizeof(sd001),USB_DESCRIPTOR_STRING,
-{'S','o','l','d','e','r','n','e','r','d','.','c','o','m',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '}
-};
+{'S','o','l','d','e','r','n','e','r','d',
+'.','c','o','m',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '
+}};
 
 //Product string descriptor
 const struct{uint8_t bLength;uint8_t bDscType;uint16_t string[22];}sd002={
 sizeof(sd002),USB_DESCRIPTOR_STRING,
-{'S','t','e','p','p','e','r','M','o','t','o','r','C','o','n','t','r','o','l','l','e','r'}
-};
+{'S','t','e','p','p','e','r','M','o','t','o','r','C','o','n','t','r','o','l','l','e','r'
+}};
 
 //Serial number string descriptor.  Note: This should be unique for each unit 
 //built on the assembly line.  Plugging in two units simultaneously with the 

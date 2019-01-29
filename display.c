@@ -535,36 +535,36 @@ void display_prepare()
         display_content[0][4] = 'R';
     }
     
-    //DEBUG
-    if(ENCODER1_PB_PIN)
-        display_content[0][17] = '+';
-    else
-        display_content[0][17] = '-';
-    
-    if(ENCODER1_A_PIN)
-        display_content[0][18] = '+';
-    else
-        display_content[0][18] = '-';
-    
-    if(ENCODER1_B_PIN)
-        display_content[0][19] = '+';
-    else
-        display_content[0][19] = '-';
-    
-    if(ENCODER2_PB_PIN)
-        display_content[1][17] = '+';
-    else
-        display_content[1][17] = '-';
-    
-    if(ENCODER2_A_PIN)
-        display_content[1][18] = '+';
-    else
-        display_content[1][18] = '-';
-    
-    if(ENCODER2_B_PIN)
-        display_content[1][19] = '+';
-    else
-        display_content[1][19] = '-';
+//    //DEBUG
+//    if(ENCODER1_PB_PIN)
+//        display_content[0][17] = '+';
+//    else
+//        display_content[0][17] = '-';
+//    
+//    if(ENCODER1_A_PIN)
+//        display_content[0][18] = '+';
+//    else
+//        display_content[0][18] = '-';
+//    
+//    if(ENCODER1_B_PIN)
+//        display_content[0][19] = '+';
+//    else
+//        display_content[0][19] = '-';
+//    
+//    if(ENCODER2_PB_PIN)
+//        display_content[1][17] = '+';
+//    else
+//        display_content[1][17] = '-';
+//    
+//    if(ENCODER2_A_PIN)
+//        display_content[1][18] = '+';
+//    else
+//        display_content[1][18] = '-';
+//    
+//    if(ENCODER2_B_PIN)
+//        display_content[1][19] = '+';
+//    else
+//        display_content[1][19] = '-';
 }
 
 void display_update(void)
@@ -575,5 +575,10 @@ void display_update(void)
         i2c_display_cursor(line, 0);
         i2c_display_write_fixed(display_content[line], 20);
     }
+}
+
+char display_get_character(uint8_t line, uint8_t position)
+{
+    return display_content[line][position];
 }
 

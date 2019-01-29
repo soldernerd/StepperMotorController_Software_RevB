@@ -55,16 +55,16 @@ uint8_t ExternalFlash_SectorRead(void* config, uint32_t sector_addr, uint8_t* bu
 
 uint8_t ExternalFlash_SectorWrite(void* config, uint32_t sector_addr, uint8_t* buffer, uint8_t allowWriteToZero)
 {
-    uint16_t page = (uint16_t) sector_addr;
-
-    //First, error check the resulting address
-    if(sector_addr >= FLASH_NUMBER_OF_PAGES)
-    {
-        return false;
-    }  
-    
-    //Write new data to flash
-    flash_sector_write(page, buffer);
+//    uint16_t page = (uint16_t) sector_addr;
+//
+//    //First, error check the resulting address
+//    if(sector_addr >= FLASH_NUMBER_OF_PAGES)
+//    {
+//        return false;
+//    }  
+//    
+//    //Write new data to flash
+//    flash_sector_write(page, buffer);
 
     return true;
 }

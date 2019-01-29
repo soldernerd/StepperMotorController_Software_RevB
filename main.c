@@ -59,65 +59,64 @@ MAIN_RETURN main(void)
     
     SYSTEM_Initialize(SYSTEM_STATE_USB_START);
 
-    //USBDeviceInit();
-    //USBDeviceAttach();
+    USBDeviceInit();
+    USBDeviceAttach();
     
     while(1)
     {        
         //Do this as often as possible
-        //APP_DeviceMSDTasks();
+        APP_DeviceMSDTasks();
         
         if(!os.done)
         {
-            //Do this every time
-            
             //Clear watchdog timer
             ClrWdt();
             
             //Do this every time
-            //APP_DeviceCustomHIDTasks();
+            APP_DeviceCustomHIDTasks();
+            
             //Take care of state machine
             encoder_statemachine();
-            
-            //Calculate position in 0.01 degrees
-            tmp = (float) os.current_position_in_steps;
-            tmp *= 36000;
-            tmp /= config.full_circle_in_steps;
-            //tmp += 0.5; //Round correctly
-            os.current_position_in_degrees = (uint16_t) tmp;
-            if(os.current_position_in_degrees==36000)
-            {
-                //Due to rounding, this might happen under certain conditions...
-                os.current_position_in_degrees = 0;
-            }
-                  
-            
-            display_prepare();
-            display_update();
+
             //Run any pending motor commands
             motor_process_cue();
             
-            //Take care of beep
-            if(os.beep_count)
-            {
-                --os.beep_count;
-                if(!os.beep_count)
-                {
-                    BUZZER_ENABLE_PIN = 0;
-                }
+            //Run periodic tasks
+            switch(os.timeSlot)
+            {     
+                case 5:
+                    //Calculate position in 0.01 degrees
+                    tmp = (float) os.current_position_in_steps;
+                    tmp *= 36000;
+                    tmp /= config.full_circle_in_steps;
+                    //tmp += 0.5; //Round correctly
+                    os.current_position_in_degrees = (uint16_t) tmp;
+                    if(os.current_position_in_degrees==36000)
+                    {
+                        //Due to rounding, this might happen under certain conditions...
+                        os.current_position_in_degrees = 0;
+                    }
+                    
+                case 6: 
+                    display_prepare();
+                    break;
+                    
+                case 7:
+                    display_update();
+                    break;
+                    
+                case 0:
+                    //BUZZER_ENABLE_PIN = 1; 
+                    break;
+                    
+                case 1:
+                    //BUZZER_ENABLE_PIN = 0; 
+                    break;
             }
             
-            //Run periodic tasks
-            switch(os.timeSlot&0b00001111)
-            {       
-                case 0: 
-                    break;
-                case 8:
-                    //PORTBbits.RB3 = 1;
-                    break;
-            }
             os.done = 1;
-        }
+            
+        } //if(!os.done)
 
     }//end while(1)
 }//end main

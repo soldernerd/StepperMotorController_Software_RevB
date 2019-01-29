@@ -117,6 +117,16 @@ void encoder_run(void)
         //Save current state
         enc2 = ENCODER2_PORT & ENCODER2_MASK; 
     }
+    
+    //Take care of beep
+    if(os.beep_count)
+    {
+        --os.beep_count;
+        if(!os.beep_count)
+        {
+            BUZZER_ENABLE_PIN = 0;
+        }
+    }
 }
 
 void encoder_statemachine(void)
