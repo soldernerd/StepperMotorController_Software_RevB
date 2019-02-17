@@ -235,6 +235,7 @@ void system_init(void)
     config.full_circle_in_steps = CONFIG_FULL_CIRCLE_IN_STEPS;
     config.inverse_direction = CONFIG_INVERSE_DIRECTION;
     config.overshoot_in_steps = CONFIG_OVERSHOOT_IN_STEPS;
+    config.overshoot_cost_in_steps = CONFIG_OVERSHOOT_COST_IN_STEPS;
     config.minimum_speed = CONFIG_MINIMUM_SPEED;
     config.maximum_speed = CONFIG_MAXIMUM_SPEED;
     config.maximum_speed_arc = CONFIG_MAXIMUM_SPEED_ARC;

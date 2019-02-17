@@ -427,3 +427,88 @@ void motor_change_speed(uint16_t new_speed)
 {
     motor_maximum_speed = new_speed;
 }
+
+void motor_go_to_steps_position(uint32_t target_position)
+{
+    uint32_t distance_cw;
+    uint32_t overhead_cw;
+    uint32_t distance_ccw;
+    uint32_t overhead_ccw;
+ 
+    //Don't try to do this while the motor is moving
+    if(os.busy)
+    {
+        return;
+    }
+    
+    //Nothing to do
+    if(os.current_position_in_steps == target_position)
+    {
+        return;
+    }
+    
+    //Calculate distance and overhead if traveled clockwise
+    overhead_cw = 0;
+    distance_cw = target_position - os.current_position_in_steps;
+    if(distance_cw>config.full_circle_in_steps)
+    {
+        distance_cw += config.full_circle_in_steps;
+    }
+    if(os.approach_direction==MOTOR_DIRECTION_CCW)
+    {
+        distance_cw += config.overshoot_in_steps;
+        overhead_cw += config.overshoot_in_steps;
+        overhead_cw += config.overshoot_cost_in_steps;
+    }
+    
+    //Calculate distance and overhead if traveled counter-clockwise
+    overhead_ccw = 0;
+    distance_ccw = os.current_position_in_steps - target_position;
+    if(distance_ccw>config.full_circle_in_steps)
+    {
+        distance_ccw += config.full_circle_in_steps;
+    }
+    if(os.approach_direction==MOTOR_DIRECTION_CW)
+    {
+        distance_ccw += config.overshoot_in_steps;
+        overhead_ccw += config.overshoot_in_steps;
+        overhead_ccw += config.overshoot_cost_in_steps;
+    }
+    
+    //Move the shorter of the two distances
+    if((distance_cw+overhead_cw) < (distance_ccw+overhead_ccw))
+    {
+        if(os.approach_direction==MOTOR_DIRECTION_CW)
+        {
+            //It's shorter clockwise and this is our preferred direction
+            motor_schedule_command(MOTOR_DIRECTION_CW, distance_cw, 0);
+        }
+        else
+        {
+            //It's shorter clockwise but we need to overshoot and return
+            motor_schedule_command(MOTOR_DIRECTION_CW, distance_cw, 0);
+            motor_schedule_command(MOTOR_DIRECTION_CCW, config.overshoot_in_steps, 0);
+        }
+    }
+    else
+    {
+        if(os.approach_direction==MOTOR_DIRECTION_CCW)
+        {
+            //It's shorter counter-clockwise and this is our preferred direction
+            motor_schedule_command(MOTOR_DIRECTION_CCW, distance_ccw, 0);
+        }
+        else
+        {
+            //It's shorter clockwise but we need to overshoot and return
+            motor_schedule_command(MOTOR_DIRECTION_CCW, distance_ccw, 0);
+            motor_schedule_command(MOTOR_DIRECTION_CW, config.overshoot_in_steps, 0);
+        }
+    }
+}
+
+void motor_go_to_degrees_position(float target_position)
+{
+    target_position *= (float) config.full_circle_in_steps;
+    target_position /= 360.0;
+    motor_go_to_steps_position((uint32_t) target_position);
+}

@@ -25,6 +25,7 @@
     #define CONFIG_FULL_CIRCLE_IN_STEPS 576000
     #define CONFIG_INVERSE_DIRECTION 1
     #define CONFIG_OVERSHOOT_IN_STEPS 6400
+    #define CONFIG_OVERSHOOT_COST_IN_STEPS 3000
     #define CONFIG_MINIMUM_SPEED 1
     #define CONFIG_MAXIMUM_SPEED 380
     #define CONFIG_INITIAL_SPEED_ARC 30
@@ -115,6 +116,10 @@ typedef struct
     uint16_t manual_speed;
     motorDirection_t manual_direction;
     uint8_t beep_count;
+    int16_t internal_temperature;
+    int16_t external_temperature;
+    uint8_t fan_on;
+    uint8_t brake_on;
 } os_t;
 
 typedef struct
@@ -122,6 +127,7 @@ typedef struct
     uint32_t full_circle_in_steps;
     uint8_t inverse_direction;
     uint16_t overshoot_in_steps;
+    uint16_t overshoot_cost_in_steps;
     uint16_t minimum_speed;
     uint16_t maximum_speed;
     uint16_t initial_speed_arc;

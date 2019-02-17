@@ -330,20 +330,31 @@ void encoder_statemachine(void)
                     if(target_divide_position>=os.division)
                         target_divide_position += os.division;
                 }
-
-                //Calculate target position in terms of steps
-                tmp = (float) config.full_circle_in_steps;
-                tmp *= target_divide_position;
-                tmp /= os.division;
-                target_position_in_steps = (uint32_t) tmp;
                 
-                //Calculate shortest distance to target
-                distance_to_target_in_steps = target_position_in_steps - os.current_position_in_steps;
-                distance_to_target_in_steps += config.full_circle_in_steps; // now it is certainly positive
-                while(distance_to_target_in_steps>((int32_t)(config.full_circle_in_steps>>1)))
-                {
-                    distance_to_target_in_steps -= config.full_circle_in_steps;
-                }
+                //Calculate target position in terms of degrees
+                tmp = (float) target_divide_position;
+                tmp *= 360.0;
+                tmp /= (float) os.division;
+                
+                //Run motor
+                motor_go_to_degrees_position(tmp);
+                
+                //Set new divide position
+                os.divide_position = target_divide_position;
+
+//                //Calculate target position in terms of steps
+//                tmp = (float) config.full_circle_in_steps;
+//                tmp *= target_divide_position;
+//                tmp /= os.division;
+//                target_position_in_steps = (uint32_t) tmp;
+//                
+//                //Calculate shortest distance to target
+//                distance_to_target_in_steps = target_position_in_steps - os.current_position_in_steps;
+//                distance_to_target_in_steps += config.full_circle_in_steps; // now it is certainly positive
+//                while(distance_to_target_in_steps>((int32_t)(config.full_circle_in_steps>>1)))
+//                {
+//                    distance_to_target_in_steps -= config.full_circle_in_steps;
+//                }
 //                if(distance_to_target_in_steps>(config.full_circle_in_steps>>1))
 //                {
 //                    distance_to_target_in_steps -= config.full_circle_in_steps;
@@ -366,34 +377,33 @@ void encoder_statemachine(void)
 //                    if(distance_to_target_in_steps>=((int32_t)(config.full_circle_in_steps-config.overshoot_in_steps)))
 //                        distance_to_target_in_steps -= config.full_circle_in_steps;
 //                }
+//                
+//                //Run motor
+//                if(distance_to_target_in_steps<0)
+//                {
+//                    if(os.approach_direction==MOTOR_DIRECTION_CCW)
+//                    {
+//                        motor_schedule_command(MOTOR_DIRECTION_CCW, (uint32_t)(-distance_to_target_in_steps), 0);
+//                    }
+//                    else
+//                    {
+//                        motor_schedule_command(MOTOR_DIRECTION_CCW, ((uint32_t)(-distance_to_target_in_steps))+config.overshoot_in_steps, 0);
+//                        motor_schedule_command(MOTOR_DIRECTION_CW, config.overshoot_in_steps, 0);
+//                    }
+//                }
+//                else
+//                {
+//                    if(os.approach_direction==MOTOR_DIRECTION_CW)
+//                    {
+//                        motor_schedule_command(MOTOR_DIRECTION_CW, (uint32_t) distance_to_target_in_steps, 0);
+//                    }
+//                    else
+//                    {
+//                        motor_schedule_command(MOTOR_DIRECTION_CW, (uint32_t) distance_to_target_in_steps+config.overshoot_in_steps, 0);
+//                        motor_schedule_command(MOTOR_DIRECTION_CCW, config.overshoot_in_steps, 0);
+//                    }
+//                }    
                 
-                //Run motor
-                if(distance_to_target_in_steps<0)
-                {
-                    if(os.approach_direction==MOTOR_DIRECTION_CCW)
-                    {
-                        motor_schedule_command(MOTOR_DIRECTION_CCW, (uint32_t)(-distance_to_target_in_steps), 0);
-                    }
-                    else
-                    {
-                        motor_schedule_command(MOTOR_DIRECTION_CCW, ((uint32_t)(-distance_to_target_in_steps))+config.overshoot_in_steps, 0);
-                        motor_schedule_command(MOTOR_DIRECTION_CW, config.overshoot_in_steps, 0);
-                    }
-                }
-                else
-                {
-                    if(os.approach_direction==MOTOR_DIRECTION_CW)
-                    {
-                        motor_schedule_command(MOTOR_DIRECTION_CW, (uint32_t) distance_to_target_in_steps, 0);
-                    }
-                    else
-                    {
-                        motor_schedule_command(MOTOR_DIRECTION_CW, (uint32_t) distance_to_target_in_steps+config.overshoot_in_steps, 0);
-                        motor_schedule_command(MOTOR_DIRECTION_CCW, config.overshoot_in_steps, 0);
-                    }
-                }    
-                //Set new divide position
-                os.divide_position = target_divide_position;
             }
             if(os.encoder2Count>0)
             {
@@ -513,39 +523,15 @@ void encoder_statemachine(void)
             if(os.button2==1)
             {
                 //Drive to zero
-                if(os.current_position_in_steps==0)
-                {
-                    //do nothing
-                }
-                else if(os.current_position_in_steps<=(config.full_circle_in_steps>>1))
-                {
-                    if(os.approach_direction==MOTOR_DIRECTION_CCW)
-                    {
-                        motor_schedule_command(MOTOR_DIRECTION_CCW, os.current_position_in_steps, 0);
-                    }
-                    else
-                    {
-                        motor_schedule_command(MOTOR_DIRECTION_CCW, os.current_position_in_steps+config.overshoot_in_steps, 0);
-                        motor_schedule_command(MOTOR_DIRECTION_CW, config.overshoot_in_steps, 0);
-                    }
-                }
-                else
-                {
-                    if(os.approach_direction==MOTOR_DIRECTION_CW)
-                    {
-                        motor_schedule_command(MOTOR_DIRECTION_CW, (config.full_circle_in_steps-os.current_position_in_steps), 0);
-                    }
-                    else
-                    {
-                        motor_schedule_command(MOTOR_DIRECTION_CW, (config.full_circle_in_steps-os.current_position_in_steps+config.overshoot_in_steps), 0);
-                        motor_schedule_command(MOTOR_DIRECTION_CCW, config.overshoot_in_steps, 0);
-                    }
-                }
+                motor_go_to_steps_position(0);
+                //Take care of menu and variables
                 os.displayState = DISPLAY_STATE_MAIN_ZERO;
                 os.divide_position = 0;
             }
             if(os.button1==1)
+            {
                 os.displayState = DISPLAY_STATE_MAIN_ZERO;  
+            }
             break;
 
         case DISPLAY_STATE_MANUAL:

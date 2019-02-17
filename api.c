@@ -19,12 +19,13 @@
 
 static void _fill_buffer_get_status(uint8_t *outBuffer);
 static void _fill_buffer_get_display(uint8_t *outBuffer, uint8_t secondHalf);
-static void _fill_buffer_get_bootloader_details(uint8_t *outBuffer);
+static void _fill_buffer_get_mode_details(uint8_t *outBuffer);
 
 static void _parse_command_short(uint8_t cmd);
 static uint8_t _parse_command_long(uint8_t *data, uint8_t *out_buffer, uint8_t *out_idx_ptr);
 
-static uint8_t _parse_format_drive(uint8_t *data, uint8_t *out_buffer, uint8_t *out_idx_ptr);
+//static uint8_t _parse_format_drive(uint8_t *data, uint8_t *out_buffer, uint8_t *out_idx_ptr);
+static uint8_t _parse_jump_steps(uint8_t *data, uint8_t *out_buffer, uint8_t *out_idx_ptr);
 
 /******************************************************************************
  * Public functions implementation
@@ -70,9 +71,9 @@ void api_prepare(uint8_t *inBuffer, uint8_t *outBuffer)
                 _fill_buffer_get_display(outBuffer, 1);
                 break;
                 
-            case DATAREQUEST_GET_BOOTLOADER_DETAILS:
-                //Call function to fill the buffer with bootloader details
-                _fill_buffer_get_bootloader_details(outBuffer);
+            case DATAREQUEST_GET_MODE_DETAILS:
+                //Call function to fill the buffer with mode-specific details
+                _fill_buffer_get_mode_details(outBuffer);
                 break;
                 
             case DATAREQUEST_GET_ECHO:
@@ -118,8 +119,8 @@ void api_parse(uint8_t *inBuffer, uint8_t receivedDataLength, uint8_t *outBuffer
         outBuffer[0] = DATAREQUEST_GET_COMMAND_RESPONSE;
     
         //Firmware signature
-        outBuffer[1] = FIRMWARE_SIGNATURE >> 8; //MSB
-        outBuffer[2] = (uint8_t) FIRMWARE_SIGNATURE; //LSB
+        outBuffer[1] = LOW_BYTE(FIRMWARE_SIGNATURE);
+        outBuffer[2] = HIGH_BYTE(FIRMWARE_SIGNATURE);
         
         //Set out_idx, also indicating that we want to provide feedback on the command's execution
         out_idx = 3;
@@ -146,7 +147,7 @@ void api_parse(uint8_t *inBuffer, uint8_t receivedDataLength, uint8_t *outBuffer
                 ++in_idx;
                 break;
                 
-            case 0x50:
+            case 0x90:
                 in_idx += _parse_command_long(&inBuffer[in_idx], outBuffer, out_idx_ptr);
                 break;
                 
@@ -169,28 +170,56 @@ static void _fill_buffer_get_status(uint8_t *outBuffer)
     //Echo back to the host PC the command we are fulfilling in the first uint8_t
     outBuffer[0] = DATAREQUEST_GET_STATUS;
     
-    //Bootloader signature
-    outBuffer[1] = FIRMWARE_SIGNATURE >> 8; //MSB
-    outBuffer[2] = (uint8_t) FIRMWARE_SIGNATURE; //LSB
-    
-    //Flash busy or not
-    outBuffer[3] = (uint8_t) flash_is_busy();
+    //Firmware signature
+    outBuffer[1] = LOW_BYTE(FIRMWARE_SIGNATURE);
+    outBuffer[2] = HIGH_BYTE(FIRMWARE_SIGNATURE);
     
     //Firmware version
-    outBuffer[4] = FIRMWARE_VERSION_MAJOR;
-    outBuffer[5] = FIRMWARE_VERSION_MINOR;
-    outBuffer[6] = FIRMWARE_VERSION_FIX;
+    outBuffer[3] = FIRMWARE_VERSION_MAJOR;
+    outBuffer[4] = FIRMWARE_VERSION_MINOR;
+    outBuffer[5] = FIRMWARE_VERSION_FIX;
     
-    //Display status, display off, startup etc
-//    outBuffer[7] = ui_get_status();
+    //General status information
+    outBuffer[6] = os.subTimeSlot;
+    outBuffer[7] = os.timeSlot;
+    outBuffer[8] = os.done;
+    outBuffer[9] = os.encoder1Count;
+    outBuffer[10] = os.button1;
+    outBuffer[11] = os.encoder2Count;
+    outBuffer[12] = os.button2;
+    memcpy(&outBuffer[13], &os.current_position_in_steps, 4);
+//    outBuffer[13] = LOW_WORD(LOW_BYTE(os.current_position_in_steps));
+//    outBuffer[14] = LOW_WORD(HIGH_BYTE(os.current_position_in_steps));
+//    outBuffer[15] = HIGH_WORD(LOW_BYTE(os.current_position_in_steps));
+//    outBuffer[16] = HIGH_WORD(HIGH_BYTE(os.current_position_in_steps)); 
+    memcpy(&outBuffer[17], &os.current_position_in_degrees, 4);
+//    outBuffer[17] = LOW_WORD(LOW_BYTE(os.current_position_in_degrees));
+//    outBuffer[18] = LOW_WORD(HIGH_BYTE(os.current_position_in_degrees));
+//    outBuffer[19] = HIGH_WORD(LOW_BYTE(os.current_position_in_degrees));
+//    outBuffer[20] = HIGH_WORD(HIGH_BYTE(os.current_position_in_degrees));
+    outBuffer[21] = os.displayState;
+    outBuffer[22] = os.beep_count;
+    outBuffer[23] = LOW_BYTE(os.internal_temperature);
+    outBuffer[24] = HIGH_BYTE(os.internal_temperature);
+    outBuffer[25] = LOW_BYTE(os.external_temperature);
+    outBuffer[26] = HIGH_BYTE(os.external_temperature);
+    outBuffer[27] = os.fan_on;
+    outBuffer[28] = os.brake_on;
+    outBuffer[29] = os.busy;
     
-    //Entire os struct
-//    outBuffer[8] = os.encoderCount;
-//    outBuffer[9] = os.buttonCount;
-//    outBuffer[10] = os.timeSlot;
-//    outBuffer[11] = os.done;
-//    outBuffer[12] = os.bootloader_mode;
-//    outBuffer[13] = os.display_mode;
+    //Full copy of config:
+    //42-45:    uint32_t full_circle_in_steps
+    //46:       uint8_t inverse_direction
+    //47-48:    uint16_t overshoot_in_steps
+    //49-50:    uint16_t overshoot_cost_in_steps
+    //51-52:    uint16_t minimum_speed
+    //53-54:    uint16_t maximum_speed
+    //55-56:    uint16_t initial_speed_arc
+    //57-58:    uint16_t maximum_speed_arc
+    //59-60:    uint16_t initial_speed_manual
+    //61-62:    uint16_t maximum_speed_manual
+    //63:       uint8_t beep_duration 
+    memcpy(&outBuffer[42], &config, 22);
 }
 
 //Fill buffer with display content
@@ -211,9 +240,9 @@ static void _fill_buffer_get_display(uint8_t *outBuffer, uint8_t secondHalf)
         outBuffer[0] = DATAREQUEST_GET_DISPLAY_1;
     }
    
-    //Bootloader signature
-    outBuffer[1] = FIRMWARE_SIGNATURE >> 8; //MSB
-    outBuffer[2] = (uint8_t) FIRMWARE_SIGNATURE; //LSB
+    //Firmware signature
+    outBuffer[1] = LOW_BYTE(FIRMWARE_SIGNATURE);
+    outBuffer[2] = HIGH_BYTE(FIRMWARE_SIGNATURE);
    
     //Get display data
     cntr = 3;
@@ -235,99 +264,145 @@ static void _fill_buffer_get_display(uint8_t *outBuffer, uint8_t secondHalf)
     }
 }
 
-static void _fill_buffer_get_bootloader_details(uint8_t *outBuffer)
+static void _fill_buffer_get_mode_details(uint8_t *outBuffer)
 {
-    uint8_t cntr;
-    uint8_t data_length;
-    uint16_t buffer_small;
-    uint32_t buffer_large;
-    
     //Echo back to the host PC the command we are fulfilling in the first uint8_t
-    outBuffer[0] = DATAREQUEST_GET_BOOTLOADER_DETAILS;
+    outBuffer[0] = DATAREQUEST_GET_MODE_DETAILS;
     
-    //Bootloader signature
-    outBuffer[1] = HIGH_BYTE(FIRMWARE_SIGNATURE); //MSB
-    outBuffer[2] = LOW_BYTE(FIRMWARE_SIGNATURE); //LSB
-   
-//    //Bootloader information (high level)
-//    buffer_large = bootloader_get_file_size();
-//    outBuffer[3] = HIGH_BYTE(HIGH_WORD(buffer_large));
-//    outBuffer[4] = LOW_BYTE(HIGH_WORD(buffer_large));
-//    outBuffer[5] = HIGH_BYTE(LOW_WORD(buffer_large));
-//    outBuffer[6] = LOW_BYTE(LOW_WORD(buffer_large));
-//    
-//    buffer_small = bootloader_get_entries();
-//    outBuffer[7] = HIGH_BYTE(buffer_small);
-//    outBuffer[8] = LOW_BYTE(buffer_small);
-//    
-//    buffer_small = bootloader_get_total_entries();
-//    outBuffer[9] = HIGH_BYTE(buffer_small);
-//    outBuffer[10] = LOW_BYTE(buffer_small);
-//    
-//    outBuffer[11] = (uint8_t) bootloader_get_error();
-//    
-//    buffer_small = bootloader_get_flashPagesWritten();
-//    outBuffer[12] = HIGH_BYTE(buffer_small);
-//    outBuffer[13] = LOW_BYTE(buffer_small);
-//    
-//    //Bootloader information (last record)
-//    buffer_small = bootloader_get_rec_dataLength();
-//    outBuffer[14] = HIGH_BYTE(buffer_small);
-//    outBuffer[15] = LOW_BYTE(buffer_small);
-//    
-//    buffer_small = bootloader_get_rec_address();
-//    outBuffer[16] = HIGH_BYTE(buffer_small);
-//    outBuffer[17] = LOW_BYTE(buffer_small);
-//    
-//    outBuffer[18] = (uint8_t) bootloader_get_rec_recordType();
-//    outBuffer[19] = bootloader_get_rec_checksum();
-//    outBuffer[20] = bootloader_get_rec_checksumCheck();
-//
-//    data_length = (uint8_t) bootloader_get_rec_dataLength();
-//    if(data_length>43)
-//    {
-//        //More will not fit into our 64byte buffer
-//        data_length = 43;
-//    }
-//    for(cntr=0; cntr<data_length; ++cntr)
-//    {
-//        outBuffer[21+cntr] = bootloader_get_rec_data(cntr);
-//    }
+    //Firmware signature
+    outBuffer[1] = LOW_BYTE(FIRMWARE_SIGNATURE);
+    outBuffer[2] = HIGH_BYTE(FIRMWARE_SIGNATURE);
+    
+    //What mode are we in?
+    outBuffer[3] = os.displayState;
+    
+    switch(os.displayState & 0x0F)
+    {
+        case DISPLAY_STATE_MAIN:
+            break;
+            
+        case DISPLAY_STATE_SETUP1:
+        case DISPLAY_STATE_SETUP2:
+            outBuffer[4] = os.setup_step_size;  
+            break;
+            
+        case DISPLAY_STATE_DIVIDE1:
+        case DISPLAY_STATE_DIVIDE2:
+            
+            outBuffer[4] = os.divide_step_size;
+            outBuffer[5] = HIGH_BYTE(os.division);
+            outBuffer[6] = LOW_BYTE(os.division);
+            outBuffer[7] = HIGH_BYTE(os.divide_jump_size);
+            outBuffer[8] = LOW_BYTE(os.divide_jump_size);
+            outBuffer[9] = HIGH_BYTE(os.divide_position);
+            outBuffer[10] = LOW_BYTE(os.divide_position);
+            break;
+
+        case DISPLAY_STATE_ARC1:
+        case DISPLAY_STATE_ARC2:
+            outBuffer[4] = HIGH_BYTE(os.arc_step_size);
+            outBuffer[5] = LOW_BYTE(os.arc_step_size);
+            outBuffer[6] = os.arc_direction;
+            outBuffer[7] = HIGH_BYTE(os.arc_speed);
+            outBuffer[8] = LOW_BYTE(os.arc_speed);
+            break;
+            
+        case DISPLAY_STATE_ZERO:
+            break;
+            
+        case DISPLAY_STATE_MANUAL:
+            outBuffer[4] = os.manual_direction;
+            outBuffer[5] = HIGH_BYTE(os.manual_speed);
+            outBuffer[6] = LOW_BYTE(os.manual_speed);
+            break;
+    }
 }
 
 static void _parse_command_short(uint8_t cmd)
 {
     switch(cmd)
     {
-        case COMMAND_REBOT:
-            i2c_eeprom_writeByte(EEPROM_BOOTLOADER_BYTE_ADDRESS, 0x00); //0x00 is a neutral value
-//            system_delay_ms(10); //ensure data has been written before rebooting
-            reboot();
+//        case COMMAND_REBOT:
+//            i2c_eeprom_writeByte(EEPROM_BOOTLOADER_BYTE_ADDRESS, 0x00); //0x00 is a neutral value
+//            reboot();
+//            break;
+//            
+//        case COMMAND_REBOT_BOOTLOADER_MODE:
+//            i2c_eeprom_writeByte(EEPROM_BOOTLOADER_BYTE_ADDRESS, BOOTLOADER_BYTE_FORCE_BOOTLOADER_MODE);
+//            reboot();
+//            break;
+//                
+//        case COMMAND_REBOT_NORMAL_MODE:
+//            i2c_eeprom_writeByte(EEPROM_BOOTLOADER_BYTE_ADDRESS, BOOTLOADER_BYTE_FORCE_NORMAL_MODE);
+//            reboot();
+//            break;
+        
+        case COMMAND_MAIN_MENU:
+            os.displayState = DISPLAY_STATE_MAIN_SETUP;
             break;
             
-        case COMMAND_REBOT_BOOTLOADER_MODE:
-            i2c_eeprom_writeByte(EEPROM_BOOTLOADER_BYTE_ADDRESS, BOOTLOADER_BYTE_FORCE_BOOTLOADER_MODE);
-//            system_delay_ms(10); //ensure data has been written before rebooting
-            reboot();
+        case COMMAND_SETUP_MENU:
+            os.displayState = DISPLAY_STATE_SETUP1;
             break;
-                
-        case COMMAND_REBOT_NORMAL_MODE:
-            i2c_eeprom_writeByte(EEPROM_BOOTLOADER_BYTE_ADDRESS, BOOTLOADER_BYTE_FORCE_NORMAL_MODE);
-//            system_delay_ms(10); //ensure data has been written before rebooting
-            reboot();
+            
+        case COMMAND_DIVIDE_MENU:
+            os.displayState = DISPLAY_STATE_DIVIDE1_CONFIRM;
             break;
+            
+        case COMMAND_ARC_MENU:
+            os.displayState = DISPLAY_STATE_ARC1_CONFIRM;
+            break;
+            
+        case COMMAND_MANUAL_MENU:
+            os.displayState = DISPLAY_STATE_MANUAL_CANCEL;
+            break;
+            
+        case COMMAND_GO2ZERO_MENU:
+            os.displayState = DISPLAY_STATE_ZERO_NORMAL;
+            break;
+            
+        case COMMAND_SET_ZERO_CCW:
+            os.current_position_in_steps = 0;
+            os.divide_position = 0;
+            motor_schedule_command(MOTOR_DIRECTION_CW, config.overshoot_in_steps, 0);
+            motor_schedule_command(MOTOR_DIRECTION_CCW, config.overshoot_in_steps, 0);
+            os.approach_direction = MOTOR_DIRECTION_CCW;
+            break;
+            
+        case COMMAND_SET_ZERO_CW:
+            os.current_position_in_steps = 0;
+            os.divide_position = 0;
+            motor_schedule_command(MOTOR_DIRECTION_CCW, config.overshoot_in_steps, 0);
+            motor_schedule_command(MOTOR_DIRECTION_CW, config.overshoot_in_steps, 0);
+            os.approach_direction = MOTOR_DIRECTION_CW;
+            break;
+            
+        case COMMAND_GO_TO_ZERO:
+            motor_go_to_steps_position(0);
                 
-//        case COMMAND_ENCODER_CCW:
-//            --os.encoderCount;
-//            break;
-//            
-//        case COMMAND_ENCODER_CW:
-//            ++os.encoderCount;
-//            break;
-//            
-//        case COMMAND_ENCODER_PUSH:
-//            ++os.buttonCount;
-//            break;
+        case COMMAND_LEFT_ENCODER_CCW:
+            --os.encoder2Count;
+            break;
+            
+        case COMMAND_LEFT_ENCODER_CW:
+            ++os.encoder2Count;
+            break;
+            
+        case COMMAND_LEFT_ENCODER_PUSH:
+            ++os.button2;
+            break;
+            
+        case COMMAND_RIGHT_ENCODER_CCW:
+            --os.encoder1Count;
+            break;
+            
+        case COMMAND_RIGHT_ENCODER_CW:
+            ++os.encoder1Count;
+            break;
+            
+        case COMMAND_RIGHT_ENCODER_PUSH:
+            ++os.button1;
+            break;
     }
 }
 
@@ -337,33 +412,74 @@ static uint8_t _parse_command_long(uint8_t *data, uint8_t *out_buffer, uint8_t *
     
     switch(data[0])
     {          
-        case COMMAND_FORMAT_DRIVE:
-            length = _parse_format_drive(data, out_buffer, out_idx_ptr);
+//        case COMMAND_FORMAT_DRIVE:
+//            length = _parse_format_drive(data, out_buffer, out_idx_ptr);
+//            break;
+        
+        case COMMAND_JUMP_STEPS:
+            length = _parse_jump_steps(data, out_buffer, out_idx_ptr);
             break;
     }    
+    
+    
     
     return length;
 }
 
-static uint8_t _parse_format_drive(uint8_t *data, uint8_t *out_buffer, uint8_t *out_idx_ptr)
+//static uint8_t _parse_format_drive(uint8_t *data, uint8_t *out_buffer, uint8_t *out_idx_ptr)
+//{
+//    //0x56: Format drive. Parameters: none, 0xDA22
+//    
+//    uint8_t return_value;
+//    
+//    if((data[0]!=COMMAND_FORMAT_DRIVE) || (data[1]!=0xDA) || (data[2]!=0x22))
+//    {
+//        return 3;
+//    }
+//    
+//    return_value = fat_format();
+//    
+//    //Return confirmation if desired
+//    if(((*out_idx_ptr)>0) && ((*out_idx_ptr)<63))
+//    {
+//        out_buffer[(*out_idx_ptr)++] = COMMAND_FORMAT_DRIVE;
+//        out_buffer[(*out_idx_ptr)++] = return_value;
+//    }
+//    
+//    return 3;
+//} 
+
+static uint8_t _parse_jump_steps(uint8_t *data, uint8_t *out_buffer, uint8_t *out_idx_ptr)
 {
-    //0x56: Format drive. Parameters: none, 0xDA22
+    //0x90: Jump steps. Parameters: int32_t NumberOfSteps
     
     uint8_t return_value;
+    int32_t number_of_steps;
     
-    if((data[0]!=COMMAND_FORMAT_DRIVE) || (data[1]!=0xDA) || (data[2]!=0x22))
+    number_of_steps = data[1];
+    number_of_steps <<= 8;
+    number_of_steps |= data[2];
+    number_of_steps <<= 8;
+    number_of_steps |= data[3];
+    number_of_steps <<= 8;
+    number_of_steps |= data[4];
+    
+    if(number_of_steps>0)
     {
-        return 3;
+        return_value = motor_schedule_command(MOTOR_DIRECTION_CW, (uint32_t) number_of_steps, 0);
     }
-    
-    return_value = fat_format();
+    else
+    {
+        number_of_steps = -number_of_steps;
+        return_value = motor_schedule_command(MOTOR_DIRECTION_CCW, (uint32_t) number_of_steps, 0);
+    }
     
     //Return confirmation if desired
     if(((*out_idx_ptr)>0) && ((*out_idx_ptr)<63))
     {
-        out_buffer[(*out_idx_ptr)++] = COMMAND_FORMAT_DRIVE;
+        out_buffer[(*out_idx_ptr)++] = COMMAND_JUMP_STEPS;
         out_buffer[(*out_idx_ptr)++] = return_value;
     }
     
-    return 3;
+    return 5;
 } 
