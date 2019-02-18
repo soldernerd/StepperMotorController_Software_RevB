@@ -154,6 +154,7 @@ config_t config;
 void tmr0_isr(void);
 void system_init(void);
 void reboot(void);
+void os_read_temperature(void);
 
 #endif	/* OS_H */
 

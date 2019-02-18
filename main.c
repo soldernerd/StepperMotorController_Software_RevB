@@ -84,6 +84,14 @@ MAIN_RETURN main(void)
             //Run periodic tasks
             switch(os.timeSlot)
             {     
+                case 0:
+                    os_read_temperature();
+                    break;
+                    
+                case 1:
+                    //BUZZER_ENABLE_PIN = 0; 
+                    break;
+                
                 case 5:
                     //Calculate position in 0.01 degrees
                     tmp = (float) os.current_position_in_steps;
@@ -103,14 +111,6 @@ MAIN_RETURN main(void)
                     
                 case 7:
                     display_update();
-                    break;
-                    
-                case 0:
-                    //BUZZER_ENABLE_PIN = 1; 
-                    break;
-                    
-                case 1:
-                    //BUZZER_ENABLE_PIN = 0; 
                     break;
             }
             

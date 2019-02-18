@@ -175,7 +175,12 @@ static void _backlight_init(void)
 //    CCPR2L = 150;
 }
 
-static void init_buzzer(void)
+static void _adc_init(void)
+{
+    //to be implemented
+}
+
+static void _init_buzzer(void)
 {
     TRISAbits.TRISA1 = 0;
     PORTAbits.RA1 = 1;
@@ -192,6 +197,9 @@ void system_init(void)
 {
     //Configure all pins as inputs/outputs analog/digital as needed
     _system_pin_setup();
+    
+    //Configure analog digital converter
+    _adc_init();
     
     //Initialize SPI / flash
     flash_init();
@@ -250,5 +258,10 @@ void reboot(void)
 {
     //Just wait 2 seconds until the WDT resets the device
     while(1);
+}
+
+void os_read_temperature(void)
+{
+    //to be implemented
 }
 

@@ -64,6 +64,18 @@ uint16_t _motor_get_speed_in_degrees(uint16_t speed_index)
     return (uint16_t) speed;
 }
 
+uint32_t _step_position_from_divide_position(int16_t divide_position)
+{
+    float target_position;
+    
+    //Calculate target position in terms of steps
+    target_position = (float) config.full_circle_in_steps;
+    target_position *= (float) divide_position;
+    target_position /= (float) os.division;
+    
+    return (uint32_t) target_position;
+}
+
 uint16_t motor_get_maximum_speed(void)
 {
     return _motor_get_speed_in_degrees(motor_maximum_speed);
@@ -511,4 +523,65 @@ void motor_go_to_degrees_position(float target_position)
     target_position *= (float) config.full_circle_in_steps;
     target_position /= 360.0;
     motor_go_to_steps_position((uint32_t) target_position);
+}
+
+void motor_divide_jump(void)
+{
+    int16_t target_divide_position;
+    uint32_t target_position_in_steps;
+    
+    //Calculate target position
+    if(os.divide_jump_size>0)
+    {
+        target_divide_position = os.divide_position + os.divide_jump_size;
+        if(target_divide_position>=os.division)
+        {
+            target_divide_position -= os.division;
+        }
+    }
+    else
+    {
+        target_divide_position = os.divide_position + os.divide_jump_size;
+        if(target_divide_position<0)
+        {
+            target_divide_position += os.division;
+        }
+    }
+
+    //Calculate target position in terms of steps
+    target_position_in_steps = _step_position_from_divide_position(target_divide_position);
+    
+    //Move motor and save position
+    os.divide_position = target_divide_position;
+    motor_go_to_steps_position(target_position_in_steps);
+}
+
+void motor_divide_jump_to_nearest(void)
+{
+    float divide_position_float;
+    int16_t nearest_divide_position;
+    uint32_t nearest_position_in_steps;
+    
+    divide_position_float = (float) os.current_position_in_steps;
+    divide_position_float *= (float) os.division;
+    divide_position_float /= (float) config.full_circle_in_steps;
+    divide_position_float += 0.5;
+    nearest_divide_position = (int16_t) divide_position_float;
+    
+    //Calculate target position in terms of steps
+    nearest_position_in_steps = _step_position_from_divide_position(nearest_divide_position);
+    
+    //Move motor and save position
+    os.divide_position = nearest_divide_position;
+    motor_go_to_steps_position(nearest_position_in_steps);
+}
+
+void motor_arc_move(motorDirection_t direction)
+{
+    float arc_in_steps;
+    
+    arc_in_steps = (float) os.arc_size;
+    arc_in_steps *= (float) config.full_circle_in_steps;
+    arc_in_steps /= (float) 36000;
+    motor_schedule_command(direction, (uint32_t ) arc_in_steps, os.arc_speed);
 }

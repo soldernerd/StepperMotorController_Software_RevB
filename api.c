@@ -342,7 +342,7 @@ static void _parse_command_short(uint8_t cmd)
             break;
             
         case COMMAND_SETUP_MENU:
-            os.displayState = DISPLAY_STATE_SETUP1;
+            os.displayState = DISPLAY_STATE_SETUP1_CONFIRM;
             break;
             
         case COMMAND_DIVIDE_MENU:
