@@ -8,6 +8,7 @@
 #include "flash.h"
 #include "fat16.h"
 #include "display.h"
+#include "adc.h"
 
 #define MILLISECONDS_PER_TIMESLOTS 10
 #define NUMBER_OF_TIMESLOTS 16
@@ -175,10 +176,7 @@ static void _backlight_init(void)
 //    CCPR2L = 150;
 }
 
-static void _adc_init(void)
-{
-    //to be implemented
-}
+
 
 static void _init_buzzer(void)
 {
@@ -199,7 +197,7 @@ void system_init(void)
     _system_pin_setup();
     
     //Configure analog digital converter
-    _adc_init();
+    adc_init();
     
     //Initialize SPI / flash
     flash_init();
@@ -260,8 +258,5 @@ void reboot(void)
     while(1);
 }
 
-void os_read_temperature(void)
-{
-    //to be implemented
-}
+
 

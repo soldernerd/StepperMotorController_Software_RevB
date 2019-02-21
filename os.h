@@ -116,8 +116,9 @@ typedef struct
     uint16_t manual_speed;
     motorDirection_t manual_direction;
     uint8_t beep_count;
-    int16_t internal_temperature;
-    int16_t external_temperature;
+    int16_t temperature[2];
+    uint16_t external_temperature_adc_sum;
+    uint8_t external_temperature_count;
     uint8_t fan_on;
     uint8_t brake_on;
 } os_t;
@@ -154,7 +155,7 @@ config_t config;
 void tmr0_isr(void);
 void system_init(void);
 void reboot(void);
-void os_read_temperature(void);
+
 
 #endif	/* OS_H */
 

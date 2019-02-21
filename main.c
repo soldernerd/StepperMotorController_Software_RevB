@@ -28,11 +28,7 @@
 #include "flash.h"
 #include "fat16.h"
 #include "motor.h"
-
-
-static void _calculate_adc_sum(void);
-static void _calculate_db_value(void);
-static void _calculate_s_value(void);
+#include "adc.h"
 
 /********************************************************************
  * Function:        void main(void)
@@ -81,11 +77,13 @@ MAIN_RETURN main(void)
             //Run any pending motor commands
             motor_process_cue();
             
+            //Read ADC result
+            adc_read_temperature();
+            
             //Run periodic tasks
             switch(os.timeSlot)
             {     
                 case 0:
-                    os_read_temperature();
                     break;
                     
                 case 1:

@@ -10,6 +10,7 @@
 #include "fat16.h"
 #include "flash.h"
 #include "application_config.h"
+#include "adc.h"
 
 
 
@@ -199,10 +200,10 @@ static void _fill_buffer_get_status(uint8_t *outBuffer)
 //    outBuffer[20] = HIGH_WORD(HIGH_BYTE(os.current_position_in_degrees));
     outBuffer[21] = os.displayState;
     outBuffer[22] = os.beep_count;
-    outBuffer[23] = LOW_BYTE(os.internal_temperature);
-    outBuffer[24] = HIGH_BYTE(os.internal_temperature);
-    outBuffer[25] = LOW_BYTE(os.external_temperature);
-    outBuffer[26] = HIGH_BYTE(os.external_temperature);
+    outBuffer[23] = LOW_BYTE(os.temperature[TEMPERATURE_SOURCE_INTERNAL]);
+    outBuffer[24] = HIGH_BYTE(os.temperature[TEMPERATURE_SOURCE_INTERNAL]);
+    outBuffer[25] = LOW_BYTE(os.temperature[TEMPERATURE_SOURCE_EXTERNAL]);
+    outBuffer[26] = HIGH_BYTE(os.temperature[TEMPERATURE_SOURCE_EXTERNAL]);
     outBuffer[27] = os.fan_on;
     outBuffer[28] = os.brake_on;
     outBuffer[29] = os.busy;

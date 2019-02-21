@@ -38,7 +38,7 @@
 
 // CONFIG3H
 #pragma config IOL1WAY = OFF    // IOLOCK One-Way Set Enable bit (The IOLOCK bit (PPSCON<0>) can be set and cleared as needed)
-#pragma config ADCSEL = BIT10   // ADC 10 or 12 Bit Select (10 - Bit ADC Enabled)
+#pragma config ADCSEL = BIT12   // ADC 10 or 12 Bit Select (12 - Bit ADC Enabled)
 #pragma config MSSP7B_EN = MSK7 // MSSP address masking (7 Bit address masking mode)
 
 // CONFIG4L
