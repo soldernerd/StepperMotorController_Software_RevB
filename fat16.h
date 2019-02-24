@@ -66,7 +66,7 @@
 #define FBR_SIGNATURE 0X55AA
 
 //A hello world file
-#define ROOT_DRIVE_NAME "SolarChargr"
+#define ROOT_DRIVE_NAME "StepperCtrl"
 #define ROOT_FILE_NAME "FILE    "
 #define ROOT_FILE_EXTENSION "TXT"
 #define ROOT_FILE_CONTENT "hello world!"

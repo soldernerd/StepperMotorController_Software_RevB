@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=usb_device.c usb_device_hid.c usb_device_msd.c usb_descriptors.c usb_events.c main.c system.c app_device_custom_hid.c app_device_msd.c os.c i2c.c display.c flash.c external_flash.c fat16.c spi.c api.c motor.c encoder.c adc.c
+SOURCEFILES_QUOTED_IF_SPACED=usb_device.c usb_device_hid.c usb_device_msd.c usb_descriptors.c usb_events.c main.c system.c app_device_custom_hid.c app_device_msd.c os.c i2c.c display.c flash.c external_flash.c fat16.c spi.c api.c motor.c encoder.c adc.c config_file.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/usb_device.p1 ${OBJECTDIR}/usb_device_hid.p1 ${OBJECTDIR}/usb_device_msd.p1 ${OBJECTDIR}/usb_descriptors.p1 ${OBJECTDIR}/usb_events.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/system.p1 ${OBJECTDIR}/app_device_custom_hid.p1 ${OBJECTDIR}/app_device_msd.p1 ${OBJECTDIR}/os.p1 ${OBJECTDIR}/i2c.p1 ${OBJECTDIR}/display.p1 ${OBJECTDIR}/flash.p1 ${OBJECTDIR}/external_flash.p1 ${OBJECTDIR}/fat16.p1 ${OBJECTDIR}/spi.p1 ${OBJECTDIR}/api.p1 ${OBJECTDIR}/motor.p1 ${OBJECTDIR}/encoder.p1 ${OBJECTDIR}/adc.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/usb_device.p1.d ${OBJECTDIR}/usb_device_hid.p1.d ${OBJECTDIR}/usb_device_msd.p1.d ${OBJECTDIR}/usb_descriptors.p1.d ${OBJECTDIR}/usb_events.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/system.p1.d ${OBJECTDIR}/app_device_custom_hid.p1.d ${OBJECTDIR}/app_device_msd.p1.d ${OBJECTDIR}/os.p1.d ${OBJECTDIR}/i2c.p1.d ${OBJECTDIR}/display.p1.d ${OBJECTDIR}/flash.p1.d ${OBJECTDIR}/external_flash.p1.d ${OBJECTDIR}/fat16.p1.d ${OBJECTDIR}/spi.p1.d ${OBJECTDIR}/api.p1.d ${OBJECTDIR}/motor.p1.d ${OBJECTDIR}/encoder.p1.d ${OBJECTDIR}/adc.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/usb_device.p1 ${OBJECTDIR}/usb_device_hid.p1 ${OBJECTDIR}/usb_device_msd.p1 ${OBJECTDIR}/usb_descriptors.p1 ${OBJECTDIR}/usb_events.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/system.p1 ${OBJECTDIR}/app_device_custom_hid.p1 ${OBJECTDIR}/app_device_msd.p1 ${OBJECTDIR}/os.p1 ${OBJECTDIR}/i2c.p1 ${OBJECTDIR}/display.p1 ${OBJECTDIR}/flash.p1 ${OBJECTDIR}/external_flash.p1 ${OBJECTDIR}/fat16.p1 ${OBJECTDIR}/spi.p1 ${OBJECTDIR}/api.p1 ${OBJECTDIR}/motor.p1 ${OBJECTDIR}/encoder.p1 ${OBJECTDIR}/adc.p1 ${OBJECTDIR}/config_file.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/usb_device.p1.d ${OBJECTDIR}/usb_device_hid.p1.d ${OBJECTDIR}/usb_device_msd.p1.d ${OBJECTDIR}/usb_descriptors.p1.d ${OBJECTDIR}/usb_events.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/system.p1.d ${OBJECTDIR}/app_device_custom_hid.p1.d ${OBJECTDIR}/app_device_msd.p1.d ${OBJECTDIR}/os.p1.d ${OBJECTDIR}/i2c.p1.d ${OBJECTDIR}/display.p1.d ${OBJECTDIR}/flash.p1.d ${OBJECTDIR}/external_flash.p1.d ${OBJECTDIR}/fat16.p1.d ${OBJECTDIR}/spi.p1.d ${OBJECTDIR}/api.p1.d ${OBJECTDIR}/motor.p1.d ${OBJECTDIR}/encoder.p1.d ${OBJECTDIR}/adc.p1.d ${OBJECTDIR}/config_file.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/usb_device.p1 ${OBJECTDIR}/usb_device_hid.p1 ${OBJECTDIR}/usb_device_msd.p1 ${OBJECTDIR}/usb_descriptors.p1 ${OBJECTDIR}/usb_events.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/system.p1 ${OBJECTDIR}/app_device_custom_hid.p1 ${OBJECTDIR}/app_device_msd.p1 ${OBJECTDIR}/os.p1 ${OBJECTDIR}/i2c.p1 ${OBJECTDIR}/display.p1 ${OBJECTDIR}/flash.p1 ${OBJECTDIR}/external_flash.p1 ${OBJECTDIR}/fat16.p1 ${OBJECTDIR}/spi.p1 ${OBJECTDIR}/api.p1 ${OBJECTDIR}/motor.p1 ${OBJECTDIR}/encoder.p1 ${OBJECTDIR}/adc.p1
+OBJECTFILES=${OBJECTDIR}/usb_device.p1 ${OBJECTDIR}/usb_device_hid.p1 ${OBJECTDIR}/usb_device_msd.p1 ${OBJECTDIR}/usb_descriptors.p1 ${OBJECTDIR}/usb_events.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/system.p1 ${OBJECTDIR}/app_device_custom_hid.p1 ${OBJECTDIR}/app_device_msd.p1 ${OBJECTDIR}/os.p1 ${OBJECTDIR}/i2c.p1 ${OBJECTDIR}/display.p1 ${OBJECTDIR}/flash.p1 ${OBJECTDIR}/external_flash.p1 ${OBJECTDIR}/fat16.p1 ${OBJECTDIR}/spi.p1 ${OBJECTDIR}/api.p1 ${OBJECTDIR}/motor.p1 ${OBJECTDIR}/encoder.p1 ${OBJECTDIR}/adc.p1 ${OBJECTDIR}/config_file.p1
 
 # Source Files
-SOURCEFILES=usb_device.c usb_device_hid.c usb_device_msd.c usb_descriptors.c usb_events.c main.c system.c app_device_custom_hid.c app_device_msd.c os.c i2c.c display.c flash.c external_flash.c fat16.c spi.c api.c motor.c encoder.c adc.c
+SOURCEFILES=usb_device.c usb_device_hid.c usb_device_msd.c usb_descriptors.c usb_events.c main.c system.c app_device_custom_hid.c app_device_msd.c os.c i2c.c display.c flash.c external_flash.c fat16.c spi.c api.c motor.c encoder.c adc.c config_file.c
 
 
 CFLAGS=
@@ -233,6 +233,13 @@ ${OBJECTDIR}/adc.p1: adc.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"." -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file -mcodeoffset=0x9000  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c90 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/adc.p1 adc.c 
 	@${FIXDEPS} ${OBJECTDIR}/adc.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/config_file.p1: config_file.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/config_file.p1.d 
+	@${RM} ${OBJECTDIR}/config_file.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"." -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file -mcodeoffset=0x9000  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c90 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/config_file.p1 config_file.c 
+	@${FIXDEPS} ${OBJECTDIR}/config_file.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/usb_device.p1: usb_device.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -373,6 +380,13 @@ ${OBJECTDIR}/adc.p1: adc.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/adc.p1 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"." -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file -mcodeoffset=0x9000  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c90 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/adc.p1 adc.c 
 	@${FIXDEPS} ${OBJECTDIR}/adc.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/config_file.p1: config_file.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/config_file.p1.d 
+	@${RM} ${OBJECTDIR}/config_file.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"." -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file -mcodeoffset=0x9000  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c90 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/config_file.p1 config_file.c 
+	@${FIXDEPS} ${OBJECTDIR}/config_file.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

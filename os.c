@@ -9,6 +9,7 @@
 #include "fat16.h"
 #include "display.h"
 #include "adc.h"
+#include "config_file.h"
 
 #define MILLISECONDS_PER_TIMESLOTS 10
 #define NUMBER_OF_TIMESLOTS 16
@@ -247,6 +248,9 @@ void system_init(void)
     config.maximum_speed_arc = CONFIG_MAXIMUM_SPEED_ARC;
     config.maximum_speed_manual = CONFIG_MAXIMUM_SPEED_MANUAL;
     config.beep_duration = CONFIG_BEEP_DURATION;
+    
+    //Read & write config file
+    configFile_write();
 
     //Set up timer0 for timeSlots
     _system_timer0_init();
