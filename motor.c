@@ -4,6 +4,8 @@
 #include "motor.h"
 #include "motor_config.h"
 #include "hardware_config.h"
+#include "i2c.h"
+#include "application_config.h"
 #include "os.h"
 
 motorCommand_t motor_command_cue[MOTOR_COMMAND_CUE_SIZE];
@@ -30,6 +32,13 @@ motorMode_t motor_get_mode(void)
 uint32_t motor_steps_from_degrees(uint16_t degrees)
 {
     float steps;
+    
+    //Safeguard against rounding issues
+    if(degrees==0)
+    {
+        return 0;
+    }
+    
     steps = (float) degrees;
     steps *= config.full_circle_in_steps;
     steps /= 36000;
@@ -45,6 +54,22 @@ uint32_t motor_nonzero_steps_from_degrees(uint16_t degrees)
     if(steps==0)
         steps = 1;
     return steps;
+}
+
+void motor_calculate_position_in_degrees(void)
+{
+    float tmp;
+    //Calculate position in 0.01 degrees
+    tmp = (float) os.current_position_in_steps;
+    tmp *= 36000;
+    tmp /= config.full_circle_in_steps;
+    //tmp += 0.5; //Round correctly
+    os.current_position_in_degrees = (uint16_t) tmp;
+    if(os.current_position_in_degrees==36000)
+    {
+        //Due to rounding, this might happen under certain conditions...
+        os.current_position_in_degrees = 0;
+    }
 }
 
 uint16_t _motor_get_speed_in_degrees(uint16_t speed_index)
@@ -176,6 +201,9 @@ void motor_init(void)
 
 static void _motor_run(motorDirection_t direction, uint32_t distance_in_steps, uint16_t speed)
 {
+    uint16_t maximum_distance_in_degrees;
+    uint32_t maximum_distance_in_steps;
+    
     //Save direction
     motor_direction = direction;
     
@@ -183,12 +211,70 @@ static void _motor_run(motorDirection_t direction, uint32_t distance_in_steps, u
     if(distance_in_steps==0)
     {
         //Essentially infinity. This will take a day to reach even at high speeds
-        motor_final_stepcount = 0xFFFFFF00;
+        motor_final_stepcount = 0xFF000000;
     }
     else
     {
         motor_final_stepcount = distance_in_steps;
-        //motor_final_stepcount <<= FULL_STEP_SHIFT;
+    }
+    
+    //Make sure that no limits are violated (negative limit)
+    if((motor_direction==MOTOR_DIRECTION_CCW) && config.use_ccw_limit)
+    //if(motor_direction==MOTOR_DIRECTION_CCW)
+    {
+        //We first need to know where we are
+        motor_calculate_position_in_degrees();
+        
+        //How far can we still travel
+        if(os.current_position_in_degrees >= config.ccw_limit)
+        {
+            maximum_distance_in_degrees = os.current_position_in_degrees - config.ccw_limit;
+        }
+        else
+        {
+            //Need to add a full rotation
+            maximum_distance_in_degrees = 36000 + os.current_position_in_degrees - config.ccw_limit;
+        }
+        //Translate this to steps
+        maximum_distance_in_steps = motor_steps_from_degrees(maximum_distance_in_degrees);
+        //Reduce number of steps to travel if necessary
+        if(maximum_distance_in_steps<motor_final_stepcount)
+        {
+            motor_final_stepcount = maximum_distance_in_steps;
+        }
+    }
+    
+    //Make sure that no limits are violated (positive limit)
+    if((motor_direction==MOTOR_DIRECTION_CW) && config.use_cw_limit)
+    //if(motor_direction==MOTOR_DIRECTION_CW)
+    {
+        //We first need to know where we are
+        motor_calculate_position_in_degrees();
+        
+        //How far can we still travel
+        if(config.cw_limit >= os.current_position_in_degrees)
+        {
+            maximum_distance_in_degrees = config.cw_limit - os.current_position_in_degrees;
+        }
+        else
+        {
+            //Need to add a full rotation
+            maximum_distance_in_degrees = 36000 + config.cw_limit - os.current_position_in_degrees;
+        }
+        //Translate this to steps
+        maximum_distance_in_steps = motor_steps_from_degrees(maximum_distance_in_degrees);
+        //Reduce number of steps to travel if necessary
+        if(maximum_distance_in_steps<motor_final_stepcount)
+        {
+            motor_final_stepcount = maximum_distance_in_steps;
+        }
+    }
+    
+    //If motor_final_stepcount is zero, we are done.
+    //Do not start the motor if we don't want to move...
+    if(motor_final_stepcount==0)
+    {
+        return;
     }
     
     //Maximum speed
@@ -296,6 +382,9 @@ void motor_isr(void)
                 //MOTOR_ENABLE_PIN = 1; //disable
                 PIR1bits.TMR2IF = 0;
                 PIE1bits.TMR2IE = 0;
+                //Write new position to EEPROM
+                i2c_eeprom_writeUint32(EEPROM_CURRENT_POSITION, os.current_position_in_steps);
+                //Indicate that the motor is now idle
                 os.busy = 0;
             }
             

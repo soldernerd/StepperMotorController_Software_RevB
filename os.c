@@ -9,7 +9,9 @@
 #include "fat16.h"
 #include "display.h"
 #include "adc.h"
+#include "motor.h"
 #include "config_file.h"
+#include "application_config.h"
 
 #define MILLISECONDS_PER_TIMESLOTS 10
 #define NUMBER_OF_TIMESLOTS 16
@@ -156,27 +158,7 @@ static void _system_timer0_init(void)
 static void _backlight_init(void)
 {
     DISP_BACKLIGHT_PIN = 1;
-//    //Initialize timer 4
-//    //Use timer2 for CCP1 module, timer 4 for CCP2 module
-//    TCLKCONbits.T3CCP2 = 0b0;
-//    TCLKCONbits.T3CCP1 = 0b1;
-//    
-//    //Prescaler = 1
-//    T4CONbits.T4CKPS = 0b00;
-//    
-//    //Enable timer 4
-//    T4CONbits.TMR4ON = 1;
-//    
-//    //Single output mode
-//    CCP2CONbits.P2M = 0b00;
-//    //PWM mode both outputs active high
-//    CCP2CONbits.CCP2M = 0b1100;
-//    //Duty cycle LSBs
-//    CCP2CONbits.DC2B = 0b00;
-//    //Duty cycle high MSBs
-//    CCPR2L = 150;
 }
-
 
 
 static void _init_buzzer(void)
@@ -220,10 +202,19 @@ void system_init(void)
     //Configure timer2 and CCCP1 module to control stepper motor
     motor_init();
     
+    //Populate config with default values
+    configFile_readDefault();
+    
+    //Read config file
+    configFile_read();
+    
+    //Write file with used config parameters
+    configFile_write();
+    
     //Initialize variables
     os.displayState = DISPLAY_STATE_MAIN_SETUP;
     os.busy = 0;
-    os.current_position_in_steps = 0;
+    //os.current_position_in_steps = 0;
     os.last_approach_direction = MOTOR_DIRECTION_CW;
     os.setup_step_size = 1000;
     os.approach_direction = MOTOR_DIRECTION_CW;
@@ -233,25 +224,20 @@ void system_init(void)
     os.divide_jump_size = 1;
     os.arc_step_size = 1000;
     os.arc_size = 1000;
-    os.arc_speed = CONFIG_INITIAL_SPEED_ARC;
+    os.arc_speed = config.initial_speed_arc;
     os.arc_direction = MOTOR_DIRECTION_CW;
-    os.manual_speed = CONFIG_INITIAL_SPEED_MANUAL;
+    os.manual_speed = config.initial_speed_manual;
     os.manual_direction = MOTOR_DIRECTION_CW;
     os.beep_count = 0;
-
-    config.full_circle_in_steps = CONFIG_FULL_CIRCLE_IN_STEPS;
-    config.inverse_direction = CONFIG_INVERSE_DIRECTION;
-    config.overshoot_in_steps = CONFIG_OVERSHOOT_IN_STEPS;
-    config.overshoot_cost_in_steps = CONFIG_OVERSHOOT_COST_IN_STEPS;
-    config.minimum_speed = CONFIG_MINIMUM_SPEED;
-    config.maximum_speed = CONFIG_MAXIMUM_SPEED;
-    config.maximum_speed_arc = CONFIG_MAXIMUM_SPEED_ARC;
-    config.maximum_speed_manual = CONFIG_MAXIMUM_SPEED_MANUAL;
-    config.beep_duration = CONFIG_BEEP_DURATION;
     
-    //Read & write config file
-    configFile_write();
-
+    //Read back last position from EEPROM
+    os.current_position_in_steps = i2c_eeprom_readUint32(EEPROM_CURRENT_POSITION);
+    if(os.current_position_in_steps>config.full_circle_in_steps)
+    {
+        os.current_position_in_steps = 0;
+    }
+    motor_calculate_position_in_degrees();
+    
     //Set up timer0 for timeSlots
     _system_timer0_init();
 }

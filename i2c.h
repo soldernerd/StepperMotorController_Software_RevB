@@ -34,6 +34,10 @@ void i2c_init(void);
 
 void i2c_eeprom_writeByte(uint16_t address, uint8_t data);
 uint8_t i2c_eeprom_readByte(uint16_t address);
+void i2c_eeprom_writeUint16(uint16_t address, uint16_t data);
+uint16_t i2c_eeprom_readUint16(uint16_t address);
+void i2c_eeprom_writeUint32(uint16_t address, uint32_t data);
+uint32_t i2c_eeprom_readUint32(uint16_t address);
 void i2c_eeprom_write(uint16_t address, uint8_t *data, uint8_t length);
 void i2c_eeprom_read(uint16_t address, uint8_t *data, uint8_t length);
 

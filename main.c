@@ -20,6 +20,7 @@
 #include "app_device_msd.h"
 
 //User defined code
+#include "application_config.h"
 #include "hardware_config.h"
 #include "os.h"
 #include "i2c.h"
@@ -48,7 +49,7 @@
 MAIN_RETURN main(void)
 {
     uint8_t startup_timer;
-    float tmp;
+    //float tmp;
     
     //This is a user defined function
     system_init();
@@ -57,6 +58,17 @@ MAIN_RETURN main(void)
 
     USBDeviceInit();
     USBDeviceAttach();
+    
+    //Startup delay
+    startup_timer = STARTUP_DELAY;
+    while(startup_timer)
+    {
+        if(!os.done)
+        {
+            --startup_timer;
+            os.done = 1;
+        }
+    }
     
     while(1)
     {        
@@ -92,16 +104,7 @@ MAIN_RETURN main(void)
                 
                 case 5:
                     //Calculate position in 0.01 degrees
-                    tmp = (float) os.current_position_in_steps;
-                    tmp *= 36000;
-                    tmp /= config.full_circle_in_steps;
-                    //tmp += 0.5; //Round correctly
-                    os.current_position_in_degrees = (uint16_t) tmp;
-                    if(os.current_position_in_degrees==36000)
-                    {
-                        //Due to rounding, this might happen under certain conditions...
-                        os.current_position_in_degrees = 0;
-                    }
+                    motor_calculate_position_in_degrees();
                     
                 case 6: 
                     display_prepare();

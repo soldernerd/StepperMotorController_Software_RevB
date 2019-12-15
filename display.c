@@ -7,7 +7,9 @@
 #include "i2c.h"
 #include "os.h"
 #include "hardware_config.h"
+#include "application_config.h"
 
+char display_content[4][20];
 
 #define DISPLAY_CC_VERTICALBAR_ADDRESS 0x00
 #define DISPLAY_CC_VERTICALBAR_BIT_PATTERN {0b00000100,0b00000100,0b00000100,0b00000100,0b00000100,0b00000100,0b00000100,0b00000100}
@@ -23,9 +25,9 @@ const uint8_t bit_pattern_ae[8] = DISPLAY_CC_ae_BIT_PATTERN;
 
 #define DISPLAY_STARTUP_0 {'*',' ',' ','S','t','e','p','p','e','r',' ','M','o','t','o','r',' ',' ',' ','*'}
 #define DISPLAY_STARTUP_1 {'*',' ',' ',' ',' ','C','o','n','t','r','o','l','l','e','r',' ',' ',' ',' ','*'}
-#define DISPLAY_STARTUP_2 {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'}
+#define DISPLAY_STARTUP_2 {'*',' ',' ',' ',' ','v',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'}
 #define DISPLAY_STARTUP_3 {'*',' ',' ','s','o','l','d','e','r','n','e','r','d','.','c','o','m',' ',' ','*'}
-char display_content[4][20] = {DISPLAY_STARTUP_0, DISPLAY_STARTUP_1, DISPLAY_STARTUP_2, DISPLAY_STARTUP_3};
+char dc_startup[4][20] = {DISPLAY_STARTUP_0, DISPLAY_STARTUP_1, DISPLAY_STARTUP_2, DISPLAY_STARTUP_3};
 #define DISPLAY_MAIN_0 {'M','a','i','n',' ','M','e','n','u',':',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '}
 #define DISPLAY_MAIN_1 {' ','S','e','t','u','p',' ',' ',' ',' ','D','i','v','i','d','e',' ',' ',' ',' '}
 #define DISPLAY_MAIN_2 {' ','A','r','c',' ',' ',' ',' ',' ',' ','M','a','n','u','a','l',' ',' ',' ',' '}
@@ -72,11 +74,13 @@ const char dc_zero[4][20] = {DISPLAY_ZERO_0, DISPLAY_ZERO_1, DISPLAY_ZERO_2, DIS
 #define DISPLAY_MANUAL_3 {'S','t','a','r','t',' ',' ',' ',' ',DISPLAY_CC_VERTICALBAR_ADDRESS, ' ',' ',' ',' ',' ',' ',' ',' ',' ', ' '}
 const char dc_manual[4][20] = {DISPLAY_MANUAL_0, DISPLAY_MANUAL_1, DISPLAY_MANUAL_2, DISPLAY_MANUAL_3};
 
+static void _display_start(void);
 static void _display_clear(void);
 static void _display_padded_itoa(int16_t value, uint8_t length, char *text);
 static void _display_signed_itoa(int16_t value, char *text);
 static void _display_itoa(int16_t value, uint8_t decimals, char *text);
 static void _display_itoa_long(int32_t value, uint8_t decimals, char *text);
+static uint8_t _display_itoa_u16(uint16_t value,  char *text);
 
 static void _display_clear(void)
 {
@@ -219,12 +223,56 @@ static void _display_itoa_long(int32_t value, uint8_t decimals, char *text)
     }
 }
 
+static uint8_t _display_itoa_u16(uint16_t value,  char *text)
+{
+    itoa(text, value, 10);
+    if(value>9999)
+    {
+        *(text+5) = ' ';
+        return 5;
+    }
+    else if (value>999)
+    {
+        *(text+4) = ' ';
+        return 4;
+    }
+    else if (value>99)
+    {
+        *(text+3) = ' ';
+        return 3;
+    }
+    else if (value>9)
+    {
+        *(text+2) = ' ';
+        return 2;
+    }
+    else
+    {
+        *(text+1) = ' ';
+        return 1;
+    }
+}
+
 void display_init(void)
 {
     i2c_display_init();
     i2c_display_program_custom_character(DISPLAY_CC_VERTICALBAR_ADDRESS, bit_pattern_verticalbar); 
     i2c_display_program_custom_character(DISPLAY_CC_DEGREE_ADDRESS, bit_pattern_degree);
-    i2c_display_program_custom_character(DISPLAY_CC_ae_ADDRESS, bit_pattern_ae);
+    i2c_display_program_custom_character(DISPLAY_CC_ae_ADDRESS, bit_pattern_ae); 
+    //Show startup screen including firmware version
+    _display_start();
+}
+
+static void _display_start(void)
+{
+    uint8_t cntr;
+    memcpy(display_content, dc_startup, sizeof display_content);
+    cntr = 6;
+    cntr += _display_itoa_u16(FIRMWARE_VERSION_MAJOR, &display_content[2][cntr]);
+    display_content[2][cntr++] = '.';
+    cntr += _display_itoa_u16(FIRMWARE_VERSION_MINOR, &display_content[2][cntr]);
+    display_content[2][cntr++] = '.';
+    cntr += _display_itoa_u16(FIRMWARE_VERSION_FIX, &display_content[2][cntr]);
 }
 
 void display_prepare()

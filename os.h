@@ -28,10 +28,14 @@
     #define CONFIG_OVERSHOOT_COST_IN_STEPS 3000
     #define CONFIG_MINIMUM_SPEED 1
     #define CONFIG_MAXIMUM_SPEED 380
-    #define CONFIG_INITIAL_SPEED_ARC 30
+    #define CONFIG_INITIAL_SPEED_ARC 47
     #define CONFIG_MAXIMUM_SPEED_ARC 305
-    #define CONFIG_INITIAL_SPEED_MANUAL 30
+    #define CONFIG_INITIAL_SPEED_MANUAL 99
     #define CONFIG_MAXIMUM_SPEED_MANUAL 305
+    #define CONFIG_USE_CCW_LIMIT 0
+    #define CONFIG_CCW_LIMIT 35500
+    #define CONFIG_USE_CW_LIMIT 0
+    #define CONFIG_CW_LIMIT 500
     #define CONFIG_BEEP_DURATION 10
 #endif /*ROTARY_TABLE_180_16*/
 
@@ -136,6 +140,10 @@ typedef struct
     uint16_t initial_speed_manual;
     uint16_t maximum_speed_manual;
     uint8_t beep_duration;
+    uint8_t use_cw_limit;
+    uint16_t cw_limit;
+    uint8_t use_ccw_limit;
+    uint16_t ccw_limit;
 } config_t;
 
 
