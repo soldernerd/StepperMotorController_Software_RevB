@@ -20,7 +20,7 @@
 
 #define FIRMWARE_VERSION_MAJOR 0x00
 #define FIRMWARE_VERSION_MINOR 0x05
-#define FIRMWARE_VERSION_FIX 0x00
+#define FIRMWARE_VERSION_FIX 0x02
 
 /*
  * Application specific settings

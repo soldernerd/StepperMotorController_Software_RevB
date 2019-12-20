@@ -315,10 +315,7 @@ void encoder_statemachine(void)
                 case DISPLAY_STATE_SETUP2_CCW:
                     if(os.button1==1 || os.button2==1)
                     {
-                        motor_schedule_command(MOTOR_DIRECTION_CW, config.overshoot_in_steps, 0);
-                        motor_schedule_command(MOTOR_DIRECTION_CCW, config.overshoot_in_steps, 0);
-                        os.approach_direction = MOTOR_DIRECTION_CCW;
-                        os.displayState = DISPLAY_STATE_MAIN_SETUP;
+                        motor_set_zero(MOTOR_DIRECTION_CCW);
                     }
                     if(os.encoder1Count+os.encoder2Count>0)
                         os.displayState = DISPLAY_STATE_SETUP2_CW;
@@ -328,10 +325,7 @@ void encoder_statemachine(void)
                 case DISPLAY_STATE_SETUP2_CW:
                     if(os.button1==1 || os.button2==1)
                     {
-                        motor_schedule_command(MOTOR_DIRECTION_CCW, config.overshoot_in_steps, 0);
-                        motor_schedule_command(MOTOR_DIRECTION_CW, config.overshoot_in_steps, 0);
-                        os.approach_direction = MOTOR_DIRECTION_CW;
-                        os.displayState = DISPLAY_STATE_MAIN_SETUP;
+                        motor_set_zero(MOTOR_DIRECTION_CW);
                     }
                     if(os.encoder1Count+os.encoder2Count>0)
                         os.displayState = DISPLAY_STATE_SETUP2_CCW;
@@ -513,20 +507,11 @@ void encoder_statemachine(void)
         case DISPLAY_STATE_MANUAL:
             if(os.encoder1Count>0)
             {
-                if(os.manual_speed<config.maximum_speed_manual)
-                {
-                    ++os.manual_speed;
-                    motor_change_speed(os.manual_speed);
-                }
-                    
+                motor_increase_manual_speed();
             }
             if(os.encoder1Count<0)
             {
-                if(os.manual_speed>config.minimum_speed)
-                {
-                    --os.manual_speed;
-                    motor_change_speed(os.manual_speed);
-                }       
+                motor_decrease_manual_speed();      
             }
             switch(os.displayState)
             {
@@ -552,7 +537,6 @@ void encoder_statemachine(void)
                     {
                         os.displayState = DISPLAY_STATE_MANUAL_BUSY;
                         motor_schedule_command(MOTOR_DIRECTION_CW, 0, os.manual_speed);
-                        
                     }
                     if(os.encoder2Count<0)
                         os.displayState = DISPLAY_STATE_MANUAL_CANCEL;

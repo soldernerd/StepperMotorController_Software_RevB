@@ -35,10 +35,13 @@
  *  0x33: Turn left encoder CCW
  *  0x34: Turn left encoder CW
  *  0x35: Press left push button
+ *  0x36: Turn manual CCW
+ *  0x37: Turn manual CW
  *  0x99: Stop parsing (there are no more commands in this buffer)
  *
  * Multi byte commands (unprotected)
  *  0x90: Jump steps. Parameters: int32_t NumberOfSteps
+ *  0x91: Set manual speed. Parameters: uint16_t NewSpeed
  * 
  * Multi byte commands (followed by a 16 bit constant to prevent unintended use)
  *  0x56: Format drive. Parameters: none, 0xDA22
@@ -78,9 +81,13 @@ typedef enum
     COMMAND_RIGHT_ENCODER_CCW = 0x33,
     COMMAND_RIGHT_ENCODER_CW = 0x34,
     COMMAND_RIGHT_ENCODER_PUSH = 0x35,
+    COMMAND_TURN_MANUAL_CCW = 0x36,
+    COMMAND_TURN_MANUAL_CW = 0x37,
+    COMMAND_STOP_MOTOR_MANUAL = 0x38,
     COMMAND_STOP_PARSING = 0x99,
     //COMMAND_FORMAT_DRIVE = 0x56,     
-    COMMAND_JUMP_STEPS = 0x90
+    COMMAND_JUMP_STEPS = 0x90,
+    COMMAND_SET_MANUAL_SPEED = 0x91
 } apiCommand_t;
 
 

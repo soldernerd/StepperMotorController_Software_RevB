@@ -150,6 +150,12 @@ uint8_t motor_schedule_command(motorDirection_t direction, uint32_t distance_in_
     }
 }
 
+void motor_clear_command_cue(void)
+{
+    //This means that there are no more elements in the cue
+    motor_cue_write_index = motor_cue_read_index;
+}
+
 void motor_process_cue(void)
 {
     if(motor_items_in_cue()==0)
@@ -524,6 +530,39 @@ void motor_stop(void)
     motor_final_stepcount = motor_current_stepcount + motor_steps_lookup[motor_current_speed];
 }
 
+void motor_increase_manual_speed(void)
+{
+    if(os.manual_speed<=0xFFFF)
+    {
+        motor_set_manual_speed(os.manual_speed+1);
+    }
+}
+
+void motor_decrease_manual_speed(void)
+{
+    if(os.manual_speed>0)
+    {
+        motor_set_manual_speed(os.manual_speed-1);
+    }
+}
+
+void motor_set_manual_speed(uint16_t new_speed)
+{
+    if(new_speed>config.maximum_speed_manual)
+    {
+        os.manual_speed = config.maximum_speed_manual;
+    }
+    else if(new_speed<config.minimum_speed)
+    {
+        os.manual_speed = config.minimum_speed;
+    }
+    else
+    {
+        os.manual_speed = new_speed;
+    }
+    motor_change_speed(new_speed);
+}
+
 void motor_change_speed(uint16_t new_speed)
 {
     motor_maximum_speed = new_speed;
@@ -588,7 +627,10 @@ void motor_go_to_steps_position(uint32_t target_position)
         {
             //It's shorter clockwise but we need to overshoot and return
             motor_schedule_command(MOTOR_DIRECTION_CW, distance_cw, 0);
-            motor_schedule_command(MOTOR_DIRECTION_CCW, config.overshoot_in_steps, 0);
+            if(config.overshoot_in_steps!=0)
+            {
+                motor_schedule_command(MOTOR_DIRECTION_CCW, config.overshoot_in_steps, 0);
+            }
         }
     }
     else
@@ -602,7 +644,10 @@ void motor_go_to_steps_position(uint32_t target_position)
         {
             //It's shorter clockwise but we need to overshoot and return
             motor_schedule_command(MOTOR_DIRECTION_CCW, distance_ccw, 0);
-            motor_schedule_command(MOTOR_DIRECTION_CW, config.overshoot_in_steps, 0);
+            if(config.overshoot_in_steps!=0)
+            {
+                motor_schedule_command(MOTOR_DIRECTION_CW, config.overshoot_in_steps, 0);
+            }
         }
     }
 }
@@ -673,4 +718,25 @@ void motor_arc_move(motorDirection_t direction)
     arc_in_steps *= (float) config.full_circle_in_steps;
     arc_in_steps /= (float) 36000;
     motor_schedule_command(direction, (uint32_t ) arc_in_steps, os.arc_speed);
+}
+
+void motor_set_zero(motorDirection_t direction)
+{
+    if(config.overshoot_in_steps!=0)
+    {
+        if(direction==MOTOR_DIRECTION_CW)
+        {
+            motor_schedule_command(MOTOR_DIRECTION_CCW, config.overshoot_in_steps, 0);
+            motor_schedule_command(MOTOR_DIRECTION_CW, config.overshoot_in_steps, 0);
+        }
+        else
+        {
+            motor_schedule_command(MOTOR_DIRECTION_CW, config.overshoot_in_steps, 0);
+            motor_schedule_command(MOTOR_DIRECTION_CCW, config.overshoot_in_steps, 0);
+        }
+    }
+    os.approach_direction = direction;
+    os.displayState = DISPLAY_STATE_MAIN_SETUP;
+    os.current_position_in_steps = 0;
+    os.divide_position = 0;
 }

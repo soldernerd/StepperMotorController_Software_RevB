@@ -44,6 +44,10 @@ uint16_t motor_get_maximum_speed(void);
 //For the display
 uint16_t motor_speed_from_index(uint16_t speed_index);
 
+void motor_increase_manual_speed(void);
+void motor_decrease_manual_speed(void);
+void motor_set_manual_speed(uint16_t new_speed);
+
 void startup(void);
 void motor_start(motorDirection_t direction);
 void motor_stop(void);
@@ -55,6 +59,7 @@ void motor_calculate_position_in_degrees(void);
 
 //Main tools
 uint8_t motor_schedule_command(motorDirection_t direction, uint32_t distance_in_steps, uint16_t speed);
+void motor_clear_command_cue(void);
 void motor_go_to_steps_position(uint32_t target_position);
 void motor_go_to_degrees_position(float target_position);
 void motor_divide_jump(void);
@@ -62,6 +67,7 @@ void motor_divide_jump_to_nearest(void);
 void motor_arc_move(motorDirection_t direction);
 void motor_process_cue(void);
 uint8_t motor_items_in_cue(void);
+void motor_set_zero(motorDirection_t direction);
 
 
 #endif	/* MOTOR_H */

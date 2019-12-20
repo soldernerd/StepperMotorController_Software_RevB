@@ -27,6 +27,7 @@ static uint8_t _parse_command_long(uint8_t *data, uint8_t *out_buffer, uint8_t *
 
 //static uint8_t _parse_format_drive(uint8_t *data, uint8_t *out_buffer, uint8_t *out_idx_ptr);
 static uint8_t _parse_jump_steps(uint8_t *data, uint8_t *out_buffer, uint8_t *out_idx_ptr);
+static uint8_t _parse_set_manual_speed(uint8_t *data, uint8_t *out_buffer, uint8_t *out_idx_ptr);
 
 /******************************************************************************
  * Public functions implementation
@@ -208,6 +209,9 @@ static void _fill_buffer_get_status(uint8_t *outBuffer)
     outBuffer[28] = os.brake_on;
     outBuffer[29] = os.busy;
     
+    outBuffer[30] = LOW_BYTE(os.manual_speed);
+    outBuffer[31] = HIGH_BYTE(os.manual_speed);
+    
     //Full copy of config:
     //42-45:    uint32_t full_circle_in_steps
     //46:       uint8_t inverse_direction
@@ -363,23 +367,18 @@ static void _parse_command_short(uint8_t cmd)
             break;
             
         case COMMAND_SET_ZERO_CCW:
-            os.current_position_in_steps = 0;
-            os.divide_position = 0;
-            motor_schedule_command(MOTOR_DIRECTION_CW, config.overshoot_in_steps, 0);
-            motor_schedule_command(MOTOR_DIRECTION_CCW, config.overshoot_in_steps, 0);
-            os.approach_direction = MOTOR_DIRECTION_CCW;
+            motor_set_zero(MOTOR_DIRECTION_CCW);
             break;
             
         case COMMAND_SET_ZERO_CW:
-            os.current_position_in_steps = 0;
-            os.divide_position = 0;
-            motor_schedule_command(MOTOR_DIRECTION_CCW, config.overshoot_in_steps, 0);
-            motor_schedule_command(MOTOR_DIRECTION_CW, config.overshoot_in_steps, 0);
-            os.approach_direction = MOTOR_DIRECTION_CW;
+            motor_set_zero(MOTOR_DIRECTION_CW);
             break;
             
         case COMMAND_GO_TO_ZERO:
             motor_go_to_steps_position(0);
+            //Take care of menu and variables
+            os.displayState = DISPLAY_STATE_MAIN_ZERO;
+            os.divide_position = 0;
                 
         case COMMAND_LEFT_ENCODER_CCW:
             --os.encoder2Count;
@@ -404,6 +403,31 @@ static void _parse_command_short(uint8_t cmd)
         case COMMAND_RIGHT_ENCODER_PUSH:
             ++os.button1;
             break;
+            
+        case COMMAND_TURN_MANUAL_CCW:
+            if(!os.busy)
+            {
+                os.displayState = DISPLAY_STATE_MANUAL_BUSY;
+                motor_schedule_command(MOTOR_DIRECTION_CCW, 0, os.manual_speed);
+            }
+            break;
+        
+        case COMMAND_TURN_MANUAL_CW:
+            if(!os.busy)
+            {
+                os.displayState = DISPLAY_STATE_MANUAL_BUSY;
+                motor_schedule_command(MOTOR_DIRECTION_CW, 0, os.manual_speed);
+            }
+            break;
+            
+        case COMMAND_STOP_MOTOR_MANUAL:
+            if(os.busy)
+            {
+                motor_stop();
+                motor_clear_command_cue();
+                os.displayState = DISPLAY_STATE_MANUAL_CANCEL;
+            }
+            break;
     }
 }
 
@@ -419,6 +443,10 @@ static uint8_t _parse_command_long(uint8_t *data, uint8_t *out_buffer, uint8_t *
         
         case COMMAND_JUMP_STEPS:
             length = _parse_jump_steps(data, out_buffer, out_idx_ptr);
+            break;
+            
+        case COMMAND_SET_MANUAL_SPEED:
+            length = _parse_set_manual_speed(data, out_buffer, out_idx_ptr);
             break;
     }    
     
@@ -476,11 +504,32 @@ static uint8_t _parse_jump_steps(uint8_t *data, uint8_t *out_buffer, uint8_t *ou
     }
     
     //Return confirmation if desired
-    if(((*out_idx_ptr)>0) && ((*out_idx_ptr)<63))
+    if(((*out_idx_ptr)>0) && ((*out_idx_ptr)<62))
     {
         out_buffer[(*out_idx_ptr)++] = COMMAND_JUMP_STEPS;
         out_buffer[(*out_idx_ptr)++] = return_value;
     }
     
     return 5;
+} 
+
+static uint8_t _parse_set_manual_speed(uint8_t *data, uint8_t *out_buffer, uint8_t *out_idx_ptr)
+{
+    //0x91: Set manual speed. Parameters: uint16_t NewSpeed
+    
+    uint16_t new_speed;
+    
+    new_speed = data[1];
+    new_speed <<= 8;
+    new_speed |= data[2];
+    
+    motor_set_manual_speed(new_speed);
+    
+    //Return confirmation if desired
+    if(((*out_idx_ptr)>0) && ((*out_idx_ptr)<63))
+    {
+        out_buffer[(*out_idx_ptr)++] = COMMAND_SET_MANUAL_SPEED;
+    }
+    
+    return 3;
 } 
