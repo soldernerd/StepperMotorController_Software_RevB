@@ -2683,7 +2683,7 @@ MOTOR_DIRECTION_CW 1
 {
 "51
 [v main@startup_timer startup_timer `uc  1 a 1 157 ]
-"123
+"130
 } 0
 "177 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.c
 [v _system_init system_init `(v  1 e 1 0 ]

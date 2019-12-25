@@ -63,11 +63,18 @@ MAIN_RETURN main(void)
     startup_timer = STARTUP_DELAY;
     while(startup_timer)
     {
+        //Do this as often as possible
+        APP_DeviceMSDTasks();
+        
         if(!os.done)
         {
+            //Do this every time
+            APP_DeviceCustomHIDTasks();
+            
             --startup_timer;
             os.done = 1;
         }
+        
     }
     
     while(1)
