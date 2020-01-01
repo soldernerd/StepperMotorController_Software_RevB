@@ -930,7 +930,7 @@ MOTOR_DIRECTION_CW 1
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
 "39 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\config_file.c
 [v __add_item _add_item `(uc  1 e 1 0 ]
-"67
+"68
 [v __get_item _get_item `(uc  1 e 1 0 ]
 "108
 [v __parse_item _parse_item `(uc  1 e 1 0 ]
@@ -3182,7 +3182,7 @@ MOTOR_DIRECTION_CW 1
 [v __add_item@item_string item_string `*.32uc  1 p 2 36 ]
 [v __add_item@value value `l  1 p 4 38 ]
 [v __add_item@buffer buffer `*.39uc  1 p 2 42 ]
-"65
+"66
 } 0
 "7 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\ltoa.c
 [v _ltoa ltoa `(*.39uc  1 e 2 0 ]
@@ -3521,14 +3521,14 @@ MOTOR_DIRECTION_CW 1
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
 "53
 } 0
-"67 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\config_file.c
+"68 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\config_file.c
 [v __get_item _get_item `(uc  1 e 1 0 ]
 {
-"69
-[v __get_item@item_ctr item_ctr `uc  1 a 1 10 ]
 "70
+[v __get_item@item_ctr item_ctr `uc  1 a 1 10 ]
+"71
 [v __get_item@value_ctr value_ctr `uc  1 a 1 9 ]
-"67
+"68
 [v __get_item@item_string item_string `*.39uc  1 p 2 0 ]
 [v __get_item@value_string value_string `*.39uc  1 p 2 2 ]
 [v __get_item@buffer buffer `*.39uc  1 p 2 4 ]

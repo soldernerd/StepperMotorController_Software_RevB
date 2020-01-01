@@ -58,6 +58,7 @@ uint8_t _add_item(char *item_string, int32_t value, uint8_t *buffer)
     }
     
     //Add line break
+    buffer[length++] = '\r';
     buffer[length++] = '\n';
     
     //Return length of string written
@@ -93,15 +94,14 @@ uint8_t _get_item(char *item_string, char *value_string, uint8_t *buffer)
     }
     value_string[value_ctr++] = 0;
     
-    //Continue while white space or line break continues 
-    if((buffer[item_ctr+value_ctr]=='\r') || (buffer[item_ctr+value_ctr]=='\n'))
+    //Continue while white space or line break continues
+    while((buffer[item_ctr+value_ctr]=='\r') || (buffer[item_ctr+value_ctr]=='\n') || (buffer[item_ctr+value_ctr]=='\t') || (buffer[item_ctr+value_ctr]==' '))
     {
-        return (item_ctr+value_ctr+1);
+        ++value_ctr;
     }
-    else
-    {
-        return (item_ctr+value_ctr);
-    }
+    
+    //Return start of next item (might be beyond file end...)
+    return (item_ctr+value_ctr);
 }
 
 
