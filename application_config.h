@@ -20,7 +20,7 @@
 
 #define FIRMWARE_VERSION_MAJOR 0x00
 #define FIRMWARE_VERSION_MINOR 0x05
-#define FIRMWARE_VERSION_FIX 0x05
+#define FIRMWARE_VERSION_FIX 0x06
 
 /*
  * Application specific settings
@@ -28,6 +28,7 @@
 
 #define NUMBER_OF_TIMESLOTS 16
 #define STARTUP_DELAY 150
+//#define FORMAT_DRIVE_AT_STARTUP_IF_NECESSARY
 
 //Page 1 (0x100 to 0x1FF) reserved for bootloader
 #define EEPROM_BOOTLOADER_BYTE_ADDRESS 0x100

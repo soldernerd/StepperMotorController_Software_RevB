@@ -5,6 +5,7 @@
 #include "os.h"
 #include "fat16.h"
 #include "flash.h"
+#include "application_config.h"
 
 #ifdef REAL_TIME_CLOCK_AVAILABLE   
 #include "rtcc.h"
@@ -1317,6 +1318,27 @@ formatStatus_t fat_get_format_status(void)
     return DRIVE_FORMATED;
 }
 
+uint8_t fat_restore_mbr_fbr(void)
+{
+    uint16_t cntr;
+    
+    //Write MBR
+    for(cntr=0; cntr<BYTES_PER_SECTOR; ++cntr)
+    {
+        buffer[cntr] = _get_mbr(cntr);
+    }
+    flash_sector_write(MBR_SECTOR, buffer);
+    
+    //Write FBR
+    for(cntr=0; cntr<BYTES_PER_SECTOR; ++cntr)
+    {
+        buffer[cntr] = _get_fbr(cntr);
+    }
+    flash_sector_write(FBR_SECTOR, buffer);
+    
+    return 0x00;
+}
+
 uint8_t fat_format(void)
 {
     uint16_t cntr;
@@ -1369,12 +1391,12 @@ uint8_t fat_format(void)
         flash_sector_write(cntr, buffer);
     }
     
-    //Write Data of hello world file
-    for(cntr=0; cntr<BYTES_PER_SECTOR; ++cntr)
-    {
-        buffer[cntr] = _get_data(cntr);
-    }
-    flash_sector_write(DATA_FIRST_SECTOR, buffer);
+//    //Write Data of hello world file
+//    for(cntr=0; cntr<BYTES_PER_SECTOR; ++cntr)
+//    {
+//        buffer[cntr] = _get_data(cntr);
+//    }
+//    flash_sector_write(DATA_FIRST_SECTOR, buffer);
     
     return 0x00;
 }
@@ -1384,8 +1406,16 @@ void fat_init(void)
     //Format flash if necessary
     if(fat_get_format_status()==DRIVE_NOT_FORMATED)
     {
-        fat_format();
-    }
+        #ifdef FORMAT_DRIVE_AT_STARTUP_IF_NECESSARY
+            //Perform a full format
+            fat_format();
+        #endif /* FORMAT_DRIVE_AT_STARTUP_IF_NECESSARY */
+
+        #ifndef FORMAT_DRIVE_AT_STARTUP_IF_NECESSARY
+            //Only restore MBR and FBR sectors
+            fat_restore_mbr_fbr();
+        #endif /* FORMAT_DRIVE_AT_STARTUP_IF_NECESSARY */
+    }   
 }
 
 uint8_t fat_get_file_information(uint8_t file_number, rootEntry_t *data)
