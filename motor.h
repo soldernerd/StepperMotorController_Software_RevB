@@ -23,11 +23,18 @@ typedef enum
     MOTOR_MODE_PWM
 }motorMode_t;
 
+typedef enum
+{
+    MOTOR_MOVE_TYPE_NORMAL,
+    MOTOR_MOVE_TYPE_OVERSHOOT
+} motorMoveType_t;
+
 typedef struct
 {
     motorDirection_t direction;
     uint32_t distance;
     uint16_t speed;
+    motorMoveType_t type;
 } motorCommand_t;
 
 #define MOTOR_COMMAND_CUE_SIZE 8
@@ -58,7 +65,7 @@ uint32_t motor_nonzero_steps_from_degrees(uint16_t degrees);
 void motor_calculate_position_in_degrees(void);
 
 //Main tools
-uint8_t motor_schedule_command(motorDirection_t direction, uint32_t distance_in_steps, uint16_t speed);
+uint8_t motor_schedule_command(motorDirection_t direction, uint32_t distance_in_steps, uint16_t speed, motorMoveType_t type);
 void motor_clear_command_cue(void);
 void motor_go_to_steps_position(uint32_t target_position);
 void motor_go_to_degrees_position(float target_position);
@@ -68,7 +75,7 @@ void motor_arc_move(motorDirection_t direction);
 void motor_process_cue(void);
 uint8_t motor_items_in_cue(void);
 void motor_set_zero(motorDirection_t direction);
-
+void motor_move_steps_with_overshoot(motorDirection_t direction, uint32_t distance);
 
 #endif	/* MOTOR_H */
 

@@ -41,7 +41,8 @@
  *
  * Multi byte commands (unprotected)
  *  0x90: Jump steps. Parameters: int32_t NumberOfSteps
- *  0x91: Set manual speed. Parameters: uint16_t NewSpeed
+ *  0x91: Jump steps with overshoot. Parameters: int32_t NumberOfSteps
+ *  0x92: Set manual speed. Parameters: uint16_t NewSpeed
  * 
  * Multi byte commands (followed by a 16 bit constant to prevent unintended use)
  *  0x56: Format drive. Parameters: none, 0xDA22
@@ -87,7 +88,8 @@ typedef enum
     COMMAND_STOP_PARSING = 0x99,
     //COMMAND_FORMAT_DRIVE = 0x56,     
     COMMAND_JUMP_STEPS = 0x90,
-    COMMAND_SET_MANUAL_SPEED = 0x91
+    COMMAND_JUMP_STEPS_WITH_OVERSHOOT = 0x91,
+    COMMAND_SET_MANUAL_SPEED = 0x92
 } apiCommand_t;
 
 

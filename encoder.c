@@ -299,13 +299,13 @@ void encoder_statemachine(void)
             {
                 //increase position by step size
                 if(!os.busy)
-                    motor_schedule_command(MOTOR_DIRECTION_CW, motor_nonzero_steps_from_degrees(os.setup_step_size), 0);
+                    motor_schedule_command(MOTOR_DIRECTION_CW, motor_nonzero_steps_from_degrees(os.setup_step_size), 0, MOTOR_MOVE_TYPE_NORMAL);
             }
             if(os.encoder2Count<0)
             {
                 //decrease position by step size
                 if(!os.busy)
-                    motor_schedule_command(MOTOR_DIRECTION_CCW, motor_nonzero_steps_from_degrees(os.setup_step_size), 0);
+                    motor_schedule_command(MOTOR_DIRECTION_CCW, motor_nonzero_steps_from_degrees(os.setup_step_size), 0, MOTOR_MOVE_TYPE_NORMAL);
             }
             break;
 
@@ -518,7 +518,7 @@ void encoder_statemachine(void)
                 case DISPLAY_STATE_MANUAL_CCW:
                     if(os.button2==1)
                     {  
-                        motor_schedule_command(MOTOR_DIRECTION_CCW, 0, os.manual_speed);
+                        motor_schedule_command(MOTOR_DIRECTION_CCW, 0, os.manual_speed, MOTOR_MOVE_TYPE_NORMAL);
                         os.displayState = DISPLAY_STATE_MANUAL_BUSY;
                     }
                     if(os.encoder2Count>0)
@@ -536,7 +536,7 @@ void encoder_statemachine(void)
                     if(os.button2==1)
                     {
                         os.displayState = DISPLAY_STATE_MANUAL_BUSY;
-                        motor_schedule_command(MOTOR_DIRECTION_CW, 0, os.manual_speed);
+                        motor_schedule_command(MOTOR_DIRECTION_CW, 0, os.manual_speed, MOTOR_MOVE_TYPE_NORMAL);
                     }
                     if(os.encoder2Count<0)
                         os.displayState = DISPLAY_STATE_MANUAL_CANCEL;

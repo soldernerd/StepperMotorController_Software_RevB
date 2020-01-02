@@ -21,7 +21,7 @@ volatile uint32_t motor_current_stepcount;
 volatile uint32_t motor_final_stepcount;
 volatile uint32_t motor_next_speed_check;
 
-static void _motor_run(motorDirection_t direction, uint32_t distance_in_steps, uint16_t speed);
+static void _motor_run(motorDirection_t direction, uint32_t distance_in_steps, uint16_t speed, motorMoveType_t type);
 
 motorMode_t motor_get_mode(void)
 {
@@ -121,13 +121,13 @@ uint8_t motor_items_in_cue(void)
     return ((motor_cue_write_index-motor_cue_read_index) & MOTOR_COMMAND_CUE_MASK);
 }
 
-uint8_t motor_schedule_command(motorDirection_t direction, uint32_t distance_in_steps, uint16_t speed)
+uint8_t motor_schedule_command(motorDirection_t direction, uint32_t distance_in_steps, uint16_t speed, motorMoveType_t type)
 {
     if((motor_items_in_cue()==0) && (os.busy==0))
     {
         //Cue is empty and motor is not busy
         //Run command directly
-        _motor_run(direction, distance_in_steps, speed);
+        _motor_run(direction, distance_in_steps, speed, type);
         //Indicate success
         return 1;
     }
@@ -143,6 +143,7 @@ uint8_t motor_schedule_command(motorDirection_t direction, uint32_t distance_in_
         motor_command_cue[motor_cue_write_index].direction = direction;
         motor_command_cue[motor_cue_write_index].distance = distance_in_steps;
         motor_command_cue[motor_cue_write_index].speed = speed;
+        motor_command_cue[motor_cue_write_index].type = type;
         //Increment write index
         ++motor_cue_write_index;
         //Indicate success
@@ -174,7 +175,8 @@ void motor_process_cue(void)
         _motor_run(
             motor_command_cue[motor_cue_read_index].direction,
             motor_command_cue[motor_cue_read_index].distance,
-            motor_command_cue[motor_cue_read_index].speed
+            motor_command_cue[motor_cue_read_index].speed,
+            motor_command_cue[motor_cue_read_index].type
         );
         //Inrement read index
         ++motor_cue_read_index;
@@ -205,7 +207,7 @@ void motor_init(void)
     MOTOR_ENABLE_PIN = 0;
 }
 
-static void _motor_run(motorDirection_t direction, uint32_t distance_in_steps, uint16_t speed)
+static void _motor_run(motorDirection_t direction, uint32_t distance_in_steps, uint16_t speed, motorMoveType_t type)
 {
     uint16_t maximum_distance_in_degrees;
     uint32_t maximum_distance_in_steps;
@@ -226,7 +228,6 @@ static void _motor_run(motorDirection_t direction, uint32_t distance_in_steps, u
     
     //Make sure that no limits are violated (negative limit)
     if((motor_direction==MOTOR_DIRECTION_CCW) && config.use_ccw_limit)
-    //if(motor_direction==MOTOR_DIRECTION_CCW)
     {
         //We first need to know where we are
         motor_calculate_position_in_degrees();
@@ -243,6 +244,11 @@ static void _motor_run(motorDirection_t direction, uint32_t distance_in_steps, u
         }
         //Translate this to steps
         maximum_distance_in_steps = motor_steps_from_degrees(maximum_distance_in_degrees);
+        //Add overshoot to permissible distance if this is an overshoot move
+        if(type==MOTOR_MOVE_TYPE_OVERSHOOT)
+        {
+            maximum_distance_in_steps += config.overshoot_in_steps;
+        }
         //Reduce number of steps to travel if necessary
         if(maximum_distance_in_steps<motor_final_stepcount)
         {
@@ -621,15 +627,15 @@ void motor_go_to_steps_position(uint32_t target_position)
         if(os.approach_direction==MOTOR_DIRECTION_CW)
         {
             //It's shorter clockwise and this is our preferred direction
-            motor_schedule_command(MOTOR_DIRECTION_CW, distance_cw, 0);
+            motor_schedule_command(MOTOR_DIRECTION_CW, distance_cw, 0, MOTOR_MOVE_TYPE_NORMAL);
         }
         else
         {
             //It's shorter clockwise but we need to overshoot and return
-            motor_schedule_command(MOTOR_DIRECTION_CW, distance_cw, 0);
+            motor_schedule_command(MOTOR_DIRECTION_CW, distance_cw, 0, MOTOR_MOVE_TYPE_OVERSHOOT);
             if(config.overshoot_in_steps!=0)
             {
-                motor_schedule_command(MOTOR_DIRECTION_CCW, config.overshoot_in_steps, 0);
+                motor_schedule_command(MOTOR_DIRECTION_CCW, config.overshoot_in_steps, 0, MOTOR_MOVE_TYPE_NORMAL);
             }
         }
     }
@@ -638,15 +644,15 @@ void motor_go_to_steps_position(uint32_t target_position)
         if(os.approach_direction==MOTOR_DIRECTION_CCW)
         {
             //It's shorter counter-clockwise and this is our preferred direction
-            motor_schedule_command(MOTOR_DIRECTION_CCW, distance_ccw, 0);
+            motor_schedule_command(MOTOR_DIRECTION_CCW, distance_ccw, 0, MOTOR_MOVE_TYPE_NORMAL);
         }
         else
         {
             //It's shorter clockwise but we need to overshoot and return
-            motor_schedule_command(MOTOR_DIRECTION_CCW, distance_ccw, 0);
+            motor_schedule_command(MOTOR_DIRECTION_CCW, distance_ccw, 0, MOTOR_MOVE_TYPE_OVERSHOOT);
             if(config.overshoot_in_steps!=0)
             {
-                motor_schedule_command(MOTOR_DIRECTION_CW, config.overshoot_in_steps, 0);
+                motor_schedule_command(MOTOR_DIRECTION_CW, config.overshoot_in_steps, 0, MOTOR_MOVE_TYPE_NORMAL);
             }
         }
     }
@@ -717,7 +723,7 @@ void motor_arc_move(motorDirection_t direction)
     arc_in_steps = (float) os.arc_size;
     arc_in_steps *= (float) config.full_circle_in_steps;
     arc_in_steps /= (float) 36000;
-    motor_schedule_command(direction, (uint32_t ) arc_in_steps, os.arc_speed);
+    motor_schedule_command(direction, (uint32_t ) arc_in_steps, os.arc_speed, MOTOR_MOVE_TYPE_NORMAL);
 }
 
 void motor_set_zero(motorDirection_t direction)
@@ -726,17 +732,34 @@ void motor_set_zero(motorDirection_t direction)
     {
         if(direction==MOTOR_DIRECTION_CW)
         {
-            motor_schedule_command(MOTOR_DIRECTION_CCW, config.overshoot_in_steps, 0);
-            motor_schedule_command(MOTOR_DIRECTION_CW, config.overshoot_in_steps, 0);
+            motor_schedule_command(MOTOR_DIRECTION_CCW, config.overshoot_in_steps, 0, MOTOR_MOVE_TYPE_OVERSHOOT);
+            motor_schedule_command(MOTOR_DIRECTION_CW, config.overshoot_in_steps, 0, MOTOR_MOVE_TYPE_NORMAL);
         }
         else
         {
-            motor_schedule_command(MOTOR_DIRECTION_CW, config.overshoot_in_steps, 0);
-            motor_schedule_command(MOTOR_DIRECTION_CCW, config.overshoot_in_steps, 0);
+            motor_schedule_command(MOTOR_DIRECTION_CW, config.overshoot_in_steps, 0, MOTOR_MOVE_TYPE_OVERSHOOT);
+            motor_schedule_command(MOTOR_DIRECTION_CCW, config.overshoot_in_steps, 0, MOTOR_MOVE_TYPE_NORMAL);
         }
     }
     os.approach_direction = direction;
     os.displayState = DISPLAY_STATE_MAIN_SETUP;
     os.current_position_in_steps = 0;
     os.divide_position = 0;
+}
+
+void motor_move_steps_with_overshoot(motorDirection_t direction, uint32_t distance)
+{
+    if(direction==os.approach_direction)
+    {
+        //This is our preferred direction, no overshoot necessary
+        motor_schedule_command(direction, distance, 0, MOTOR_MOVE_TYPE_NORMAL);
+    }
+    else
+    {
+        //We need to overshoot first
+        distance += config.overshoot_in_steps;
+        motor_schedule_command(direction, distance, 0, MOTOR_MOVE_TYPE_OVERSHOOT);
+        //Then return from overshoot
+        motor_schedule_command(os.approach_direction, config.overshoot_in_steps, 0, MOTOR_MOVE_TYPE_NORMAL);
+    }
 }
