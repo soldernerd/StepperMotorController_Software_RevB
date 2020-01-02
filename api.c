@@ -446,6 +446,10 @@ static uint8_t _parse_command_long(uint8_t *data, uint8_t *out_buffer, uint8_t *
             length = _parse_jump_steps(data, out_buffer, out_idx_ptr);
             break;
             
+        case COMMAND_JUMP_STEPS_WITH_OVERSHOOT:
+            length = _parse_jump_steps_with_overshoot(data, out_buffer, out_idx_ptr);
+            break;
+            
         case COMMAND_SET_MANUAL_SPEED:
             length = _parse_set_manual_speed(data, out_buffer, out_idx_ptr);
             break;
