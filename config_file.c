@@ -36,6 +36,8 @@ uint8_t _add_item(char *item_string, int32_t value, uint8_t *buffer);
 uint8_t _get_item(char *item_string, char *value_string, uint8_t *buffer);
 uint8_t _parse_item(char *item_string, char *value_string);
 
+int32_t _steps_from_degrees(int32_t degrees);
+
 uint8_t _add_item(char *item_string, int32_t value, uint8_t *buffer)
 {
     uint8_t length = 0;
@@ -188,6 +190,7 @@ uint8_t _parse_item(char *item_string, char *value_string)
     if(stricmp(item_string, cw_limit_string)==0)
     {
         config.cw_limit = atol(value_string);
+        config.cw_limit_in_steps = _steps_from_degrees(config.cw_limit);
         return 14;
     }
     
@@ -200,10 +203,42 @@ uint8_t _parse_item(char *item_string, char *value_string)
     if(stricmp(item_string, ccw_limit_string)==0)
     {
         config.ccw_limit = atol(value_string);
+        config.ccw_limit_in_steps = _steps_from_degrees(config.ccw_limit);
         return 16;
     }
     
     return 0;
+}
+
+int32_t _steps_from_degrees(int32_t degrees)
+{
+    double temp;
+    
+    //Make sure we're returning zero when the input is zero
+    if(degrees==0)
+    {
+        return 0;
+    }
+    
+    //Convert input to a floating point number
+    temp = (float) degrees;
+    
+    //Calculate number of steps
+    temp *= (float) config.full_circle_in_steps;
+    temp /= 36000.0;
+    
+    //Check if value is beyond int32_t range
+    if(((int32_t)temp)<-2147483648.0)
+    {
+        return -2147483648;
+    }
+    if(((int32_t)temp)>2147483647.0)
+    {
+        return 2147483647;
+    }
+    
+    //Return value as integer
+    return (int32_t) temp;
 }
 
 void configFile_readDefault(void)

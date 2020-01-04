@@ -31,15 +31,24 @@ void i2c_init(void);
 
 #define I2C_EEPROM_LCD_CONFIG_ADDRESS 0x0000
 
-
+//Uint8
 void i2c_eeprom_writeByte(uint16_t address, uint8_t data);
 uint8_t i2c_eeprom_readByte(uint16_t address);
+//Uint16
 void i2c_eeprom_writeUint16(uint16_t address, uint16_t data);
 uint16_t i2c_eeprom_readUint16(uint16_t address);
+//Uint32
 void i2c_eeprom_writeUint32(uint16_t address, uint32_t data);
 uint32_t i2c_eeprom_readUint32(uint16_t address);
+//Int16
+void i2c_eeprom_writeInt16(uint16_t address, int16_t data);
+int16_t i2c_eeprom_readInt16(uint16_t address);
+
 void i2c_eeprom_write(uint16_t address, uint8_t *data, uint8_t length);
 void i2c_eeprom_read(uint16_t address, uint8_t *data, uint8_t length);
+
+void i2c_eeprom_save_position(void);
+void i2c_eeprom_recover_position(void);
 
 void i2c_display_init(void);
 void i2c_display_program_custom_character(uint8_t address, uint8_t *bit_pattern);

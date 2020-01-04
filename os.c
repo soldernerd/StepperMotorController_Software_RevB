@@ -212,11 +212,20 @@ void system_init(void)
     configFile_write();
     
     //Initialize variables
+    os.subTimeSlot = 0;
+    os.timeSlot = 0;
+    os.done = 0;
+    os.encoder1Count = 0;
+    os.button1 = 0;
+    os.encoder2Count = 0;
+    os.button2 = 0;
+    os.current_position_in_steps = 0;
+    os.absolute_position = 0;
+    os.current_position_in_degrees = 0;
     os.displayState = DISPLAY_STATE_MAIN_SETUP;
     os.busy = 0;
-    //os.current_position_in_steps = 0;
     os.last_approach_direction = MOTOR_DIRECTION_CW;
-    os.setup_step_size = 1000;
+    os.setup_step_size = 0;
     os.approach_direction = MOTOR_DIRECTION_CW;
     os.division = 36;
     os.divide_step_size = 10;
@@ -229,12 +238,19 @@ void system_init(void)
     os.manual_speed = config.initial_speed_manual;
     os.manual_direction = MOTOR_DIRECTION_CW;
     os.beep_count = 0;
+    os.temperature[0] = 0;
+    os.temperature[1] = 0;
+    os.external_temperature_adc_sum = 0;
+    os.external_temperature_count = 0;
+    os.fan_on = 0;
+    os.brake_on = 0;
     
     //Read back last position from EEPROM
-    os.current_position_in_steps = i2c_eeprom_readUint32(EEPROM_CURRENT_POSITION);
+    i2c_eeprom_recover_position();
     if(os.current_position_in_steps>config.full_circle_in_steps)
     {
         os.current_position_in_steps = 0;
+        os.absolute_position = 0;
     }
     motor_calculate_position_in_degrees();
     

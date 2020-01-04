@@ -1,5 +1,7 @@
 #include <xc.h>
+#include <string.h>
 #include "hardware_config.h"
+#include "application_config.h"
 #include "i2c.h"
 #include "os.h"
 
@@ -10,6 +12,8 @@
 
 #define I2C_ADC_SLAVE_ADDRESS 0b11010000
 #define I2C_EEPROM_SLAVE_ADDRESS 0b10100000
+
+uint8_t i2c_buffer[6];
 
 //eeprom_write_task_t task_list[16];
 //uint8_t task_list_read_index = 0;
@@ -239,6 +243,18 @@ uint32_t i2c_eeprom_readUint32(uint16_t address)
     return data;
 }
 
+void i2c_eeprom_writeInt16(uint16_t address, int16_t data)
+{
+    i2c_eeprom_write(address, &data, 2);
+}
+
+int16_t i2c_eeprom_readInt16(uint16_t address)
+{
+    int16_t data;
+    i2c_eeprom_read(address, &data, 2);
+    return data;
+}
+
 void i2c_eeprom_write(uint16_t address, uint8_t *data, uint8_t length)
 {
     uint8_t cntr;
@@ -274,6 +290,30 @@ void i2c_eeprom_read(uint16_t address, uint8_t *data, uint8_t length)
     
     _i2c_write(slave_address, &addr, 1);
     _i2c_read(slave_address, &data[0], length);
+}
+
+void i2c_eeprom_save_position(void)
+{
+//    //Prepare data
+//    memcpy(&i2c_buffer[0], &os.current_position_in_steps, 4);
+//    memcpy(&i2c_buffer[4], &os.absolute_position, 2);
+//    
+//    //Write all at once
+//    i2c_eeprom_write(EEPROM_CURRENT_POSITION, &i2c_buffer[0], 6);
+    
+    i2c_eeprom_write(EEPROM_CURRENT_POSITION, &os.current_position_in_steps, 6);
+}
+
+void i2c_eeprom_recover_position(void)
+{
+//    //Read from eeprom
+//    i2c_eeprom_read(EEPROM_CURRENT_POSITION, &i2c_buffer[0], 6);
+//    
+//    //Restore values
+//    memcpy(&os.current_position_in_steps, &i2c_buffer[0], 4);
+//    memcpy(&os.absolute_position, &i2c_buffer[4], 2);
+    
+    i2c_eeprom_read(EEPROM_CURRENT_POSITION, &os.current_position_in_steps, 6);
 }
 
 

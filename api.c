@@ -212,6 +212,8 @@ static void _fill_buffer_get_status(uint8_t *outBuffer)
     
     outBuffer[30] = LOW_BYTE(os.manual_speed);
     outBuffer[31] = HIGH_BYTE(os.manual_speed);
+    outBuffer[32] = LOW_BYTE(os.absolute_position);
+    outBuffer[33] = HIGH_BYTE(os.absolute_position);
     
     //Full copy of config:
     //42-45:    uint32_t full_circle_in_steps
@@ -376,7 +378,7 @@ static void _parse_command_short(uint8_t cmd)
             break;
             
         case COMMAND_GO_TO_ZERO:
-            motor_go_to_steps_position(0);
+            motor_goto_steps(MOTOR_DIRECTION_SHORTEST, 0, 0xFFFF, MOTOR_OVERSHOOT_WITH_OVERSHOOT);
             //Take care of menu and variables
             os.displayState = DISPLAY_STATE_MAIN_ZERO;
             os.divide_position = 0;
@@ -409,7 +411,7 @@ static void _parse_command_short(uint8_t cmd)
             if(!os.busy)
             {
                 os.displayState = DISPLAY_STATE_MANUAL_BUSY;
-                motor_schedule_command(MOTOR_DIRECTION_CCW, 0, os.manual_speed, MOTOR_MOVE_TYPE_NORMAL);
+                motor_move_endless(MOTOR_DIRECTION_CCW, os.manual_speed);
             }
             break;
         
@@ -417,7 +419,7 @@ static void _parse_command_short(uint8_t cmd)
             if(!os.busy)
             {
                 os.displayState = DISPLAY_STATE_MANUAL_BUSY;
-                motor_schedule_command(MOTOR_DIRECTION_CW, 0, os.manual_speed, MOTOR_MOVE_TYPE_NORMAL);
+                motor_move_endless(MOTOR_DIRECTION_CW, os.manual_speed);
             }
             break;
             
@@ -500,12 +502,12 @@ static uint8_t _parse_jump_steps(uint8_t *data, uint8_t *out_buffer, uint8_t *ou
     
     if(number_of_steps>0)
     {
-        return_value = motor_schedule_command(MOTOR_DIRECTION_CW, (uint32_t) number_of_steps, 0, MOTOR_MOVE_TYPE_NORMAL);
+        return_value = motor_move_steps(MOTOR_DIRECTION_CW, (uint32_t) number_of_steps, 0xFFFF, MOTOR_OVERSHOOT_NO_OVERSHOOT);
     }
     else
     {
         number_of_steps = -number_of_steps;
-        return_value = motor_schedule_command(MOTOR_DIRECTION_CCW, (uint32_t) number_of_steps, 0, MOTOR_MOVE_TYPE_NORMAL);
+        return_value = motor_move_steps(MOTOR_DIRECTION_CCW, (uint32_t) number_of_steps, 0xFFFF, MOTOR_OVERSHOOT_NO_OVERSHOOT);
     }
     
     //Return confirmation if desired
@@ -521,7 +523,7 @@ static uint8_t _parse_jump_steps(uint8_t *data, uint8_t *out_buffer, uint8_t *ou
 static uint8_t _parse_jump_steps_with_overshoot(uint8_t *data, uint8_t *out_buffer, uint8_t *out_idx_ptr)
 {
     //0x91: Jump steps with overshoot. Parameters: int32_t NumberOfSteps
-    
+    uint8_t return_value;
     int32_t number_of_steps;
     
     number_of_steps = data[1];
@@ -534,18 +536,19 @@ static uint8_t _parse_jump_steps_with_overshoot(uint8_t *data, uint8_t *out_buff
     
     if(number_of_steps>0)
     {
-        motor_move_steps_with_overshoot(MOTOR_DIRECTION_CW, (uint32_t) number_of_steps);
+        motor_move_steps(MOTOR_DIRECTION_CW, (uint32_t) number_of_steps, 0xFFFF, MOTOR_OVERSHOOT_WITH_OVERSHOOT);
     }
     else
     {
         number_of_steps = -number_of_steps;
-        motor_move_steps_with_overshoot(MOTOR_DIRECTION_CCW, (uint32_t) number_of_steps);
+        motor_move_steps(MOTOR_DIRECTION_CCW, (uint32_t) number_of_steps, 0xFFFF, MOTOR_OVERSHOOT_WITH_OVERSHOOT);
     }
     
     //Return confirmation if desired
-    if(((*out_idx_ptr)>0) && ((*out_idx_ptr)<63))
+    if(((*out_idx_ptr)>0) && ((*out_idx_ptr)<62))
     {
         out_buffer[(*out_idx_ptr)++] = COMMAND_JUMP_STEPS_WITH_OVERSHOOT;
+        out_buffer[(*out_idx_ptr)++] = return_value;
     }
     
     return 5;

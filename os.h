@@ -103,6 +103,7 @@ typedef struct
     volatile int8_t encoder2Count;
     volatile int8_t button2;
     volatile uint32_t current_position_in_steps;
+    volatile int16_t absolute_position;
     uint16_t current_position_in_degrees;
     displayState_t displayState;
     uint8_t busy;
@@ -141,9 +142,11 @@ typedef struct
     uint16_t maximum_speed_manual;
     uint8_t beep_duration;
     uint8_t use_cw_limit;
-    uint16_t cw_limit;
+    int32_t cw_limit;
+    int32_t cw_limit_in_steps;
     uint8_t use_ccw_limit;
-    uint16_t ccw_limit;
+    int32_t ccw_limit;
+    int32_t ccw_limit_in_steps;
 } config_t;
 
 

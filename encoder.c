@@ -299,13 +299,13 @@ void encoder_statemachine(void)
             {
                 //increase position by step size
                 if(!os.busy)
-                    motor_schedule_command(MOTOR_DIRECTION_CW, motor_nonzero_steps_from_degrees(os.setup_step_size), 0, MOTOR_MOVE_TYPE_NORMAL);
+                    motor_move_degrees_int(MOTOR_DIRECTION_CW, os.setup_step_size, 0xFFFF, MOTOR_OVERSHOOT_NO_OVERSHOOT);
             }
             if(os.encoder2Count<0)
             {
                 //decrease position by step size
                 if(!os.busy)
-                    motor_schedule_command(MOTOR_DIRECTION_CCW, motor_nonzero_steps_from_degrees(os.setup_step_size), 0, MOTOR_MOVE_TYPE_NORMAL);
+                    motor_move_degrees_int(MOTOR_DIRECTION_CCW, os.setup_step_size, 0xFFFF, MOTOR_OVERSHOOT_NO_OVERSHOOT);
             }
             break;
 
@@ -493,7 +493,7 @@ void encoder_statemachine(void)
             if(os.button2==1)
             {
                 //Drive to zero
-                motor_go_to_steps_position(0);
+                motor_goto_steps(MOTOR_DIRECTION_SHORTEST, 0, 0xFFFF, MOTOR_OVERSHOOT_WITH_OVERSHOOT);
                 //Take care of menu and variables
                 os.displayState = DISPLAY_STATE_MAIN_ZERO;
                 os.divide_position = 0;
@@ -518,7 +518,7 @@ void encoder_statemachine(void)
                 case DISPLAY_STATE_MANUAL_CCW:
                     if(os.button2==1)
                     {  
-                        motor_schedule_command(MOTOR_DIRECTION_CCW, 0, os.manual_speed, MOTOR_MOVE_TYPE_NORMAL);
+                        motor_move_endless(MOTOR_DIRECTION_CCW, os.manual_speed);
                         os.displayState = DISPLAY_STATE_MANUAL_BUSY;
                     }
                     if(os.encoder2Count>0)
@@ -536,7 +536,7 @@ void encoder_statemachine(void)
                     if(os.button2==1)
                     {
                         os.displayState = DISPLAY_STATE_MANUAL_BUSY;
-                        motor_schedule_command(MOTOR_DIRECTION_CW, 0, os.manual_speed, MOTOR_MOVE_TYPE_NORMAL);
+                        motor_move_endless(MOTOR_DIRECTION_CW, os.manual_speed);
                     }
                     if(os.encoder2Count<0)
                         os.displayState = DISPLAY_STATE_MANUAL_CANCEL;
