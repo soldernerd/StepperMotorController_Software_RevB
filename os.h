@@ -37,6 +37,7 @@
     #define CONFIG_USE_CW_LIMIT 0
     #define CONFIG_CW_LIMIT 500
     #define CONFIG_BEEP_DURATION 10
+    #define CONFIG_POSITION_DISPLAY_180 0
 #endif /*ROTARY_TABLE_180_16*/
 
 #ifdef ROTARY_TABLE_4_16
@@ -146,6 +147,7 @@ typedef struct
     uint8_t use_ccw_limit;
     int32_t ccw_limit;
     int32_t ccw_limit_in_steps;
+    uint8_t position_display_180;
 } config_t;
 
 

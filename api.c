@@ -215,6 +215,8 @@ static void _fill_buffer_get_status(uint8_t *outBuffer)
     outBuffer[32] = LOW_BYTE(os.absolute_position);
     outBuffer[33] = HIGH_BYTE(os.absolute_position);
     
+    outBuffer[34] = config.position_display_180;
+    
     //Full copy of config:
     //42-45:    uint32_t full_circle_in_steps
     //46:       uint8_t inverse_direction

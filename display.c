@@ -76,6 +76,7 @@ const char dc_manual[4][20] = {DISPLAY_MANUAL_0, DISPLAY_MANUAL_1, DISPLAY_MANUA
 
 static void _display_start(void);
 static void _display_clear(void);
+static int32_t _display_position_in_degrees(void);
 static void _display_padded_itoa(int16_t value, uint8_t length, char *text);
 static void _display_signed_itoa(int16_t value, char *text);
 static void _display_itoa(int16_t value, uint8_t decimals, char *text);
@@ -253,6 +254,23 @@ static uint8_t _display_itoa_u16(uint16_t value,  char *text)
     }
 }
 
+//Format position in the range 0...359.99 or -179.99...180.00 as desired
+static int32_t _display_position_in_degrees(void)
+{
+    int32_t position;
+    position = (int32_t) os.current_position_in_degrees;
+    
+    if(config.position_display_180==1)
+    {
+        if(position>18000)
+        {
+            position -= 36000;
+        }
+    }
+    
+    return position;
+}
+
 void display_init(void)
 {
     i2c_display_init();
@@ -396,7 +414,7 @@ void display_prepare()
             //Write current position (in degrees)
             display_content[1][cntr+6] = '(';
             space = cntr + 7;
-            _display_itoa_long(os.current_position_in_degrees, 2, temp);
+            _display_itoa_long(_display_position_in_degrees(), 2, temp);
             for(cntr=0; temp[cntr]; ++cntr)
             {
                 display_content[1][cntr+space] = temp[cntr];
@@ -468,7 +486,7 @@ void display_prepare()
             display_content[0][10+cntr] = DISPLAY_CC_DEGREE_ADDRESS;
             
             //Write current position
-            _display_itoa_long(os.current_position_in_degrees, 2, temp);
+            _display_itoa_long(_display_position_in_degrees(), 2, temp);
             space = 6-strlen(temp);
             for(cntr=0; temp[cntr]; ++cntr)
             {
@@ -495,7 +513,7 @@ void display_prepare()
             memcpy(display_content, dc_zero, sizeof display_content);
             
             //Write current position
-            _display_itoa_long(os.current_position_in_degrees, 2, temp);
+            _display_itoa_long(_display_position_in_degrees(), 2, temp);
             for(cntr=0; temp[cntr]; ++cntr)
             {
                 display_content[1][13+cntr] = temp[cntr];
@@ -523,7 +541,7 @@ void display_prepare()
             }
             
             //Write current position
-            _display_itoa_long(os.current_position_in_degrees, 2, temp);
+            _display_itoa_long(_display_position_in_degrees(), 2, temp);
             space = 7-strlen(temp);
             for(cntr=0; temp[cntr]; ++cntr)
             {

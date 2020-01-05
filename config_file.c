@@ -31,6 +31,7 @@ const char use_cw_limit_string[] = "USE_CW_LIMIT";
 const char cw_limit_string[] = "CW_LIMIT";
 const char use_ccw_limit_string[] = "USE_CCW_LIMIT";
 const char ccw_limit_string[] = "CCW_LIMIT";
+const char position_display_180_string[] = "POSITION_DISPLAY_180";
 
 uint8_t _add_item(char *item_string, int32_t value, uint8_t *buffer);
 uint8_t _get_item(char *item_string, char *value_string, uint8_t *buffer);
@@ -207,6 +208,12 @@ uint8_t _parse_item(char *item_string, char *value_string)
         return 16;
     }
     
+    if(stricmp(item_string, position_display_180_string)==0)
+    {
+        config.position_display_180 = atoi(value_string);
+        return 17;
+    }
+    
     return 0;
 }
 
@@ -256,6 +263,7 @@ void configFile_readDefault(void)
     config.use_cw_limit = CONFIG_USE_CW_LIMIT;
     config.cw_limit = CONFIG_CW_LIMIT;
     config.beep_duration = CONFIG_BEEP_DURATION;
+    config.position_display_180 = CONFIG_POSITION_DISPLAY_180;
 }
 
 
@@ -323,6 +331,7 @@ void configFile_write(void)
     file_size += _add_item(&use_cw_limit_string, (int32_t) config.use_cw_limit, &ConfigFile_buffer[file_size]);
     file_size += _add_item(&cw_limit_string, (int32_t) config.cw_limit, &ConfigFile_buffer[file_size]);
     file_size += _add_item(&beep_duration_string, (int32_t) config.beep_duration, &ConfigFile_buffer[file_size]);
+    file_size += _add_item(&position_display_180_string, (int32_t) config.position_display_180, &ConfigFile_buffer[file_size]);
 
     //Find and if necessary create or resize file
     file_number = fat_find_file(&configFile_used_name, &configFile_used_extention);
