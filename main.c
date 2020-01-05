@@ -22,6 +22,7 @@
 //User defined code
 #include "application_config.h"
 #include "hardware_config.h"
+
 #include "os.h"
 #include "i2c.h"
 #include "display.h"
@@ -30,6 +31,7 @@
 #include "fat16.h"
 #include "motor.h"
 #include "adc.h"
+
 
 /********************************************************************
  * Function:        void main(void)

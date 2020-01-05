@@ -18,6 +18,13 @@ static uint16_t _encoder_next_arc_step_size(uint16_t old_stepsize);
 static void _divide_jump_size_increment(void);
 static void _divide_jump_size_decrement(void);
 
+static void _encoder_statemachine_main(menuStructure_t structure);
+static void _encoder_statemachine_setup(void);
+static void _encoder_statemachine_divide(void);
+static void _encoder_statemachine_arc(void);
+static void _encoder_statemachine_manual(void);
+static void _encoder_statemachine_zero(void);
+
 
 //Static functions
 
@@ -207,18 +214,11 @@ void encoder_run(void)
     }
 }
 
-void encoder_statemachine(void)
+static void _encoder_statemachine_main(menuStructure_t structure)
 {
-    //Immediately return if there is no user input
-    if(os.encoder1Count==0 && os.encoder2Count==0 && os.button1==0 && os.button2==0)
+    switch(structure)
     {
-        return;
-    }
-    
-    //React according to user input
-    switch(os.displayState & 0xF0)
-    {
-        case DISPLAY_STATE_MAIN:
+        case MENU_STRUCTURE_NOMRAL:
             switch(os.displayState)
             {
                 case DISPLAY_STATE_MAIN_SETUP:
@@ -266,7 +266,43 @@ void encoder_statemachine(void)
                     break;
             }
             break;
+            
+        case MENU_STRUCTURE_SIMPLIFIED:
+            switch(os.displayState)
+            {
+                case DISPLAY_STATE_MAIN_SETUP:
+                    if(os.button1==1 || os.button2==1)
+                        os.displayState = DISPLAY_STATE_SETUP1_CONFIRM;
+                    if(os.encoder1Count+os.encoder2Count>0)
+                        os.displayState = DISPLAY_STATE_MAIN_MANUAL;
+                    if(os.encoder1Count+os.encoder2Count<0)
+                        os.displayState = DISPLAY_STATE_MAIN_ZERO;
+                    break;
+                case DISPLAY_STATE_MAIN_MANUAL:
+                    if(os.button1==1 || os.button2==1)
+                        os.displayState = DISPLAY_STATE_MANUAL_CANCEL;
+                    if(os.encoder1Count+os.encoder2Count>0)
+                        os.displayState = DISPLAY_STATE_MAIN_ZERO;
+                    if(os.encoder1Count+os.encoder2Count<0)
+                        os.displayState = DISPLAY_STATE_MAIN_SETUP;
+                    break;
+                case DISPLAY_STATE_MAIN_ZERO:
+                    if(os.button1==1 || os.button2==1)
+                        os.displayState = DISPLAY_STATE_ZERO_NORMAL;
+                    if(os.encoder1Count+os.encoder2Count>0)
+                        os.displayState = DISPLAY_STATE_MAIN_SETUP;
+                    if(os.encoder1Count+os.encoder2Count<0)
+                        os.displayState = DISPLAY_STATE_MAIN_MANUAL;
+                    break;
+            }
+            break;
+    }
+}
 
+static void _encoder_statemachine_setup(void)
+{
+    switch(os.displayState & 0xF0)
+    {
         case DISPLAY_STATE_SETUP1:
             switch(os.displayState)
             {
@@ -334,7 +370,13 @@ void encoder_statemachine(void)
                     break;
             }
             break;
+    }
+}
 
+static void _encoder_statemachine_divide(void)
+{
+    switch(os.displayState & 0xF0)
+    {
         case DISPLAY_STATE_DIVIDE1:
             switch(os.displayState)
             {
@@ -398,7 +440,13 @@ void encoder_statemachine(void)
                 _divide_jump_size_decrement();
             }
             break;
+    }
+}
 
+static void _encoder_statemachine_arc(void)
+{
+    switch(os.displayState & 0xF0)
+    {
         case DISPLAY_STATE_ARC1:
             switch(os.displayState)
             {
@@ -488,22 +536,13 @@ void encoder_statemachine(void)
                     break;
             }
             break;
+    }
+}
 
-        case DISPLAY_STATE_ZERO:
-            if(os.button2==1)
-            {
-                //Drive to zero
-                motor_goto_steps(MOTOR_DIRECTION_SHORTEST, 0, 0xFFFF, MOTOR_OVERSHOOT_WITH_OVERSHOOT);
-                //Take care of menu and variables
-                os.displayState = DISPLAY_STATE_MAIN_ZERO;
-                os.divide_position = 0;
-            }
-            if(os.button1==1)
-            {
-                os.displayState = DISPLAY_STATE_MAIN_ZERO;  
-            }
-            break;
-
+static void _encoder_statemachine_manual(void)
+{
+    switch(os.displayState & 0xF0)
+    {
         case DISPLAY_STATE_MANUAL:
             if(os.encoder1Count>0)
             {
@@ -550,6 +589,73 @@ void encoder_statemachine(void)
                     break;
             }
             break;
+    }
+}
+
+static void _encoder_statemachine_zero(void)
+{
+    switch(os.displayState & 0xF0)
+    {
+        case DISPLAY_STATE_ZERO:
+            if(os.button2==1)
+            {
+                //Drive to zero
+                motor_goto_steps(MOTOR_DIRECTION_SHORTEST, 0, 0xFFFF, MOTOR_OVERSHOOT_WITH_OVERSHOOT);
+                //Take care of menu and variables
+                os.displayState = DISPLAY_STATE_MAIN_ZERO;
+                os.divide_position = 0;
+            }
+            if(os.button1==1)
+            {
+                os.displayState = DISPLAY_STATE_MAIN_ZERO;  
+            }
+            break;
+    }
+}
+
+
+void encoder_statemachine(void)
+{
+    //Immediately return if there is no user input
+    if(os.encoder1Count==0 && os.encoder2Count==0 && os.button1==0 && os.button2==0)
+    {
+        return;
+    }
+    
+    //React according to user input
+    switch(os.displayState & 0xF0)
+    {
+        case DISPLAY_STATE_MAIN:
+            _encoder_statemachine_main(config.menu_structure);
+            break;
+
+        case DISPLAY_STATE_SETUP1:
+        case DISPLAY_STATE_SETUP2:
+            _encoder_statemachine_setup();
+            break;
+
+        case DISPLAY_STATE_DIVIDE1:
+        case DISPLAY_STATE_DIVIDE2:
+            _encoder_statemachine_divide();
+            break;
+
+        case DISPLAY_STATE_ARC1:
+        case DISPLAY_STATE_ARC2:
+            _encoder_statemachine_arc();
+            break;
+            
+        case DISPLAY_STATE_MANUAL:
+            _encoder_statemachine_manual();
+            break;
+
+        case DISPLAY_STATE_ZERO:
+            _encoder_statemachine_zero();
+            break;
+
+        default:
+            //This should never happen
+            //Reset display to a valid state
+            os.displayState = DISPLAY_STATE_MAIN_SETUP;
     }
     
     //Reset everything

@@ -12,6 +12,7 @@
 #include "motor.h"
 #include "i2c.h"
 #include "spi.h"
+#include "encoder.h"
 
 /*
  * Application configuration
@@ -19,7 +20,7 @@
 
 
 
-#define ROTARY_TABLE_180_16
+#define POLARIZER
 
 #ifdef ROTARY_TABLE_180_16
     #define CONFIG_FULL_CIRCLE_IN_STEPS 576000
@@ -38,6 +39,27 @@
     #define CONFIG_CW_LIMIT 500
     #define CONFIG_BEEP_DURATION 10
     #define CONFIG_POSITION_DISPLAY_180 0
+    #define CONFIG_MENU_STRUCTURE 0
+#endif /*ROTARY_TABLE_180_16*/
+
+#ifdef POLARIZER
+    #define CONFIG_FULL_CIRCLE_IN_STEPS 218880
+    #define CONFIG_INVERSE_DIRECTION 0
+    #define CONFIG_OVERSHOOT_IN_STEPS 3648
+    #define CONFIG_OVERSHOOT_COST_IN_STEPS 3000
+    #define CONFIG_MINIMUM_SPEED 1
+    #define CONFIG_MAXIMUM_SPEED 380
+    #define CONFIG_INITIAL_SPEED_ARC 47
+    #define CONFIG_MAXIMUM_SPEED_ARC 305
+    #define CONFIG_INITIAL_SPEED_MANUAL 99
+    #define CONFIG_MAXIMUM_SPEED_MANUAL 305
+    #define CONFIG_USE_CCW_LIMIT 0
+    #define CONFIG_CCW_LIMIT 9000
+    #define CONFIG_USE_CW_LIMIT 1
+    #define CONFIG_CW_LIMIT 9000
+    #define CONFIG_BEEP_DURATION 10
+    #define CONFIG_POSITION_DISPLAY_180 1
+    #define CONFIG_MENU_STRUCTURE 1
 #endif /*ROTARY_TABLE_180_16*/
 
 #ifdef ROTARY_TABLE_4_16
@@ -57,6 +79,12 @@
 /*
  * Type definitions
  */
+
+typedef enum
+{
+    MENU_STRUCTURE_NOMRAL = 0,
+    MENU_STRUCTURE_SIMPLIFIED = 1
+} menuStructure_t;
 
 typedef enum 
 {
@@ -148,6 +176,7 @@ typedef struct
     int32_t ccw_limit;
     int32_t ccw_limit_in_steps;
     uint8_t position_display_180;
+    menuStructure_t menu_structure;
 } config_t;
 
 

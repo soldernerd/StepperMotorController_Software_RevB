@@ -33,6 +33,11 @@ char dc_startup[4][20] = {DISPLAY_STARTUP_0, DISPLAY_STARTUP_1, DISPLAY_STARTUP_
 #define DISPLAY_MAIN_2 {' ','A','r','c',' ',' ',' ',' ',' ',' ','M','a','n','u','a','l',' ',' ',' ',' '}
 #define DISPLAY_MAIN_3 {' ','G','o','2','Z','e','r','o',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '}
 const char dc_main[4][20] = {DISPLAY_MAIN_0, DISPLAY_MAIN_1, DISPLAY_MAIN_2, DISPLAY_MAIN_3};
+#define DISPLAY_MAIN_SIMPLIFIED_0 {'M','a','i','n',' ','M','e','n','u',':',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '}
+#define DISPLAY_MAIN_SIMPLIFIED_1 {' ','S','e','t','u','p',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '}
+#define DISPLAY_MAIN_SIMPLIFIED_2 {' ','M','o','v','e',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '}
+#define DISPLAY_MAIN_SIMPLIFIED_3 {' ','G','o',' ','t','o',' ','Z','e','r','o',' ',' ',' ',' ',' ',' ',' ',' ',' '}
+const char dc_main_simplified[4][20] = {DISPLAY_MAIN_SIMPLIFIED_0, DISPLAY_MAIN_SIMPLIFIED_1, DISPLAY_MAIN_SIMPLIFIED_2, DISPLAY_MAIN_SIMPLIFIED_3};
 #define DISPLAY_SETUP1_0 {'S','e','t','u','p',':',' ','S','e','t',' ','z','e','r','o',' ','p','o','s','.'}
 #define DISPLAY_SETUP1_1 {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '}
 #define DISPLAY_SETUP1_2 {'S','t','e','p',' ','s','i','z','e',' ',DISPLAY_CC_VERTICALBAR_ADDRESS,' ',' ','C','o','n','f','i','r','m'}
@@ -303,23 +308,44 @@ void display_prepare()
     {
         
         case DISPLAY_STATE_MAIN:
-            memcpy(display_content, dc_main, sizeof display_content);
-            switch(os.displayState)
+            switch(config.menu_structure)
             {
-                case DISPLAY_STATE_MAIN_SETUP:
-                    display_content[1][0] = '>';
+                case MENU_STRUCTURE_NOMRAL:
+                    memcpy(display_content, dc_main, sizeof display_content);
+                    switch(os.displayState)
+                    {
+                        case DISPLAY_STATE_MAIN_SETUP:
+                            display_content[1][0] = '>';
+                            break;
+                        case DISPLAY_STATE_MAIN_DIVIDE:
+                            display_content[1][9] = '>';
+                            break;
+                        case DISPLAY_STATE_MAIN_ARC:
+                            display_content[2][0] = '>';
+                            break;
+                        case DISPLAY_STATE_MAIN_MANUAL:
+                            display_content[2][9] = '>';
+                            break;
+                        case DISPLAY_STATE_MAIN_ZERO:
+                            display_content[3][0] = '>';
+                            break;
+                    }
                     break;
-                case DISPLAY_STATE_MAIN_DIVIDE:
-                    display_content[1][9] = '>';
-                    break;
-                case DISPLAY_STATE_MAIN_ARC:
-                    display_content[2][0] = '>';
-                    break;
-                case DISPLAY_STATE_MAIN_MANUAL:
-                    display_content[2][9] = '>';
-                    break;
-                case DISPLAY_STATE_MAIN_ZERO:
-                    display_content[3][0] = '>';
+                    
+                case MENU_STRUCTURE_SIMPLIFIED:
+                    memcpy(display_content, dc_main_simplified, sizeof display_content);
+                    switch(os.displayState)
+                    {
+                        case DISPLAY_STATE_MAIN_SETUP:
+                            display_content[1][0] = '>';
+                            break;
+                        case DISPLAY_STATE_MAIN_MANUAL:
+                            display_content[2][0] = '>';
+                            break;
+                        case DISPLAY_STATE_MAIN_ZERO:
+                            display_content[3][0] = '>';
+                            break;
+                    }
                     break;
             }
             break;
