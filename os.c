@@ -224,7 +224,6 @@ void system_init(void)
     os.current_position_in_degrees = 0;
     os.displayState = DISPLAY_STATE_MAIN_SETUP;
     os.busy = 0;
-    os.last_approach_direction = MOTOR_DIRECTION_CW;
     os.setup_step_size = 0;
     os.approach_direction = MOTOR_DIRECTION_CW;
     os.division = 36;
@@ -245,7 +244,7 @@ void system_init(void)
     os.fan_on = 0;
     os.brake_on = 0;
     
-    //Read back last position from EEPROM
+    //Read back last position and some other settings from EEPROM
     i2c_eeprom_recover_position();
     if(os.current_position_in_steps>config.full_circle_in_steps)
     {

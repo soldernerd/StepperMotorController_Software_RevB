@@ -129,7 +129,7 @@ EVENT_EP0_REQUEST 3
 EVENT_ATTACH 4
 EVENT_TRANSFER_TERMINATED 5
 ]
-"157 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.h
+"156 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.h
 [e E7983 . `uc
 DISPLAY_STATE_MAIN 0
 DISPLAY_STATE_MAIN_SETUP 1
@@ -175,7 +175,7 @@ SYSTEM_STATE_USB_START 0
 SYSTEM_STATE_USB_SUSPEND 1
 SYSTEM_STATE_USB_RESUME 2
 ]
-"157 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.h
+"156 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.h
 [e E7439 . `uc
 DISPLAY_STATE_MAIN 0
 DISPLAY_STATE_MAIN_SETUP 1
@@ -247,7 +247,7 @@ ADR_PENDING_STATE 8
 ADDRESS_STATE 16
 CONFIGURED_STATE 32
 ]
-"157 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.h
+"156 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.h
 [e E6834 . `uc
 DISPLAY_STATE_MAIN 0
 DISPLAY_STATE_MAIN_SETUP 1
@@ -326,19 +326,19 @@ MOTOR_DIRECTION_CCW -1
 MOTOR_DIRECTION_CW 1
 MOTOR_DIRECTION_SHORTEST 0
 ]
-"143 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\i2c.c
-[e E6955 . `uc
+"141 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\i2c.c
+[e E6954 . `uc
 I2C_ADC_RESOLUTION_12BIT 0
 I2C_ADC_RESOLUTION_14BIT 1
 I2C_ADC_RESOLUTION_16BIT 2
 ]
-[e E6960 . `uc
+[e E6959 . `uc
 I2C_ADC_GAIN_1 0
 I2C_ADC_GAIN_2 1
 I2C_ADC_GAIN_4 2
 I2C_ADC_GAIN_8 3
 ]
-"157 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.h
+"156 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.h
 [e E6989 . `uc
 DISPLAY_STATE_MAIN 0
 DISPLAY_STATE_MAIN_SETUP 1
@@ -418,23 +418,23 @@ MOTOR_DIRECTION_CW 1
 MOTOR_DIRECTION_SHORTEST 0
 ]
 "84 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\flash.c
-[e E7013 . `uc
+[e E7012 . `uc
 FLASH_POWER_STATE_NORMAL 0
 FLASH_POWER_STATE_DEEP_POWER_DOWN 1
 FLASH_POWER_STATE_ULTRA_DEEP_POWER_DOWN 2
 ]
 "100
-[e E7054 . `uc
+[e E7053 . `uc
 FLASH_PAGE_SIZE_512 0
 FLASH_PAGE_SIZE_528 1
 ]
 "155
-[e E7058 . `uc
+[e E7057 . `uc
 FLASH_BUFFER_1 0
 FLASH_BUFFER_2 1
 ]
 "177
-[e E7062 . `uc
+[e E7061 . `uc
 DATA_DOES_MATCH 0
 DATA_DOES_NOT_MATCH 1
 ]
@@ -443,7 +443,7 @@ DATA_DOES_NOT_MATCH 1
 SPI_CONFIGURATION_INTERNAL 0
 SPI_CONFIGURATION_EXTERNAL 1
 ]
-"157 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.h
+"156 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.h
 [e E6919 . `uc
 DISPLAY_STATE_MAIN 0
 DISPLAY_STATE_MAIN_SETUP 1
@@ -484,12 +484,12 @@ MOTOR_DIRECTION_CW 1
 MOTOR_DIRECTION_SHORTEST 0
 ]
 "8 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\external_flash.c
-[e E7022 . `uc
+[e E7021 . `uc
 MEDIA_NO_ERROR 0
 MEDIA_DEVICE_NOT_PRESENT 1
 MEDIA_CANNOT_INITIALIZE 2
 ]
-"157 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.h
+"156 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.h
 [e E6919 . `uc
 DISPLAY_STATE_MAIN 0
 DISPLAY_STATE_MAIN_SETUP 1
@@ -530,11 +530,11 @@ MOTOR_DIRECTION_CW 1
 MOTOR_DIRECTION_SHORTEST 0
 ]
 "1294 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\fat16.c
-[e E7028 . `uc
+[e E7027 . `uc
 DRIVE_NOT_FORMATED 0
 DRIVE_FORMATED 1
 ]
-"157 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.h
+"156 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.h
 [e E6919 . `uc
 DISPLAY_STATE_MAIN 0
 DISPLAY_STATE_MAIN_SETUP 1
@@ -591,7 +591,7 @@ SPI_POLARITY_ACTIVEHIGH 1
 SPI_CONFIGURATION_INTERNAL 0
 SPI_CONFIGURATION_EXTERNAL 1
 ]
-"157 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.h
+"156 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.h
 [e E6977 . `uc
 DISPLAY_STATE_MAIN 0
 DISPLAY_STATE_MAIN_SETUP 1
@@ -668,7 +668,7 @@ COMMAND_JUMP_STEPS_WITH_OVERSHOOT 145
 COMMAND_SET_MANUAL_SPEED 146
 ]
 "205
-[e E7204 . `uc
+[e E7203 . `uc
 TEMPERATURE_SOURCE_INTERNAL 0
 TEMPERATURE_SOURCE_EXTERNAL 1
 ]
@@ -689,7 +689,7 @@ MOTOR_RETURN_VALUE_LIMIT_VIOLATED 7
 MOTOR_RETURN_VALUE_BUFFER_FULL 8
 MOTOR_RETURN_VALUE_INVALID_POSITION 9
 ]
-"157 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.h
+"156 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.h
 [e E6781 . `uc
 DISPLAY_STATE_MAIN 0
 DISPLAY_STATE_MAIN_SETUP 1
@@ -757,7 +757,7 @@ MOTOR_RETURN_VALUE_INVALID_POSITION 9
 MOTOR_OVERSHOOT_WITH_OVERSHOOT 0
 MOTOR_OVERSHOOT_NO_OVERSHOOT 1
 ]
-"157 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.h
+"156 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.h
 [e E6840 . `uc
 DISPLAY_STATE_MAIN 0
 DISPLAY_STATE_MAIN_SETUP 1
@@ -814,7 +814,7 @@ MOTOR_RETURN_VALUE_LIMIT_VIOLATED 7
 MOTOR_RETURN_VALUE_BUFFER_FULL 8
 MOTOR_RETURN_VALUE_INVALID_POSITION 9
 ]
-"157 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.h
+"156 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.h
 [e E6834 . `uc
 DISPLAY_STATE_MAIN 0
 DISPLAY_STATE_MAIN_SETUP 1
@@ -855,11 +855,11 @@ MOTOR_DIRECTION_CW 1
 MOTOR_DIRECTION_SHORTEST 0
 ]
 "17 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\adc.c
-[e E6928 . `uc
+[e E6927 . `uc
 TEMPERATURE_SOURCE_INTERNAL 0
 TEMPERATURE_SOURCE_EXTERNAL 1
 ]
-"157 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.h
+"156 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.h
 [e E7038 . `uc
 DISPLAY_STATE_MAIN 0
 DISPLAY_STATE_MAIN_SETUP 1
@@ -1153,7 +1153,7 @@ MOTOR_DIRECTION_SHORTEST 0
 "1211
 [v __get_root _get_root `(uc  1 s 1 _get_root ]
 "1293
-[v _fat_get_format_status fat_get_format_status `(E7028  1 e 1 0 ]
+[v _fat_get_format_status fat_get_format_status `(E7027  1 e 1 0 ]
 "1321
 [v _fat_restore_mbr_fbr fat_restore_mbr_fbr `(uc  1 e 1 0 ]
 "1404
@@ -1173,7 +1173,7 @@ MOTOR_DIRECTION_SHORTEST 0
 "154
 [v __flash_copy_page_to_buffer _flash_copy_page_to_buffer `(v  1 s 1 _flash_copy_page_to_buffer ]
 "176
-[v __flash_compare_page_to_buffer _flash_compare_page_to_buffer `(E7062  1 s 1 _flash_compare_page_to_buffer ]
+[v __flash_compare_page_to_buffer _flash_compare_page_to_buffer `(E7061  1 s 1 _flash_compare_page_to_buffer ]
 "236
 [v __flash_write_to_buffer _flash_write_to_buffer `(v  1 s 1 _flash_write_to_buffer ]
 "258
@@ -1200,53 +1200,53 @@ MOTOR_DIRECTION_SHORTEST 0
 [v _flash_read_from_buffer flash_read_from_buffer `(v  1 e 1 0 ]
 "498
 [v _flash_write_to_buffer flash_write_to_buffer `(v  1 e 1 0 ]
-"28 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\i2c.c
+"26 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\i2c.c
 [v _i2c_init i2c_init `(v  1 e 1 0 ]
-"44
+"42
 [v __i2c_wait_idle _i2c_wait_idle `(v  1 s 1 _i2c_wait_idle ]
 [v i2__i2c_wait_idle _i2c_wait_idle `(v  1 s 1 i2__i2c_wait_idle ]
-"49
+"47
 [v __i2c_start _i2c_start `(v  1 s 1 _i2c_start ]
 [v i2__i2c_start _i2c_start `(v  1 s 1 i2__i2c_start ]
-"55
+"53
 [v __i2c_send _i2c_send `(v  1 s 1 _i2c_send ]
 [v i2__i2c_send _i2c_send `(v  1 s 1 i2__i2c_send ]
-"60
+"58
 [v __i2c_get _i2c_get `(uc  1 s 1 _i2c_get ]
-"67
+"65
 [v __i2c_stop _i2c_stop `(v  1 s 1 _i2c_stop ]
 [v i2__i2c_stop _i2c_stop `(v  1 s 1 i2__i2c_stop ]
-"73
+"71
 [v __i2c_acknowledge _i2c_acknowledge `(v  1 s 1 _i2c_acknowledge ]
-"80
+"78
 [v __i2c_not_acknowledge _i2c_not_acknowledge `(v  1 s 1 _i2c_not_acknowledge ]
-"88
+"86
 [v __i2c_write _i2c_write `(v  1 s 1 _i2c_write ]
 [v i2__i2c_write _i2c_write `(v  1 s 1 i2__i2c_write ]
-"107
+"105
 [v __i2c_read _i2c_read `(v  1 s 1 _i2c_read ]
-"173
+"171
 [v __i2c_eeprom_busy _i2c_eeprom_busy `(uc  1 s 1 _i2c_eeprom_busy ]
 [v i2__i2c_eeprom_busy _i2c_eeprom_busy `(uc  1 s 1 i2__i2c_eeprom_busy ]
-"258
+"256
 [v _i2c_eeprom_write i2c_eeprom_write `(v  1 e 1 0 ]
-"279
+"277
 [v _i2c_eeprom_read i2c_eeprom_read `(v  1 e 1 0 ]
-"295
+"293
 [v _i2c_eeprom_save_position i2c_eeprom_save_position `(v  1 e 1 0 ]
-"307
+"314
 [v _i2c_eeprom_recover_position i2c_eeprom_recover_position `(v  1 e 1 0 ]
-"361
+"377
 [v _i2c_display_init i2c_display_init `(v  1 e 1 0 ]
-"390
+"406
 [v __ic2_display_set_ddram_address _ic2_display_set_ddram_address `(v  1 s 1 _ic2_display_set_ddram_address ]
-"403
-[v __ic2_display_set_cgram_address _ic2_display_set_cgram_address `(v  1 s 1 _ic2_display_set_cgram_address ]
 "419
+[v __ic2_display_set_cgram_address _ic2_display_set_cgram_address `(v  1 s 1 _ic2_display_set_cgram_address ]
+"435
 [v _i2c_display_cursor i2c_display_cursor `(v  1 e 1 0 ]
-"459
+"475
 [v _i2c_display_write_fixed i2c_display_write_fixed `(v  1 e 1 0 ]
-"484
+"500
 [v _i2c_display_program_custom_character i2c_display_program_custom_character `(v  1 e 1 0 ]
 "49 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\main.c
 [v _main main `(v  1 e 1 0 ]
@@ -1423,9 +1423,9 @@ MOTOR_DIRECTION_SHORTEST 0
 [v _MSDTransferTerminated MSDTransferTerminated `(v  1 e 1 0 ]
 "54 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\usb_events.c
 [v _USER_USB_CALLBACK_EVENT_HANDLER USER_USB_CALLBACK_EVENT_HANDLER `(uc  1 e 1 0 ]
-[s S7638 . 7 `E6928 1 temperature_source 1 0 `[2]ui 1 temperature_adc_sum 4 1 `[2]uc 1 temperature_count 2 5 ]
+[s S7626 . 7 `E6927 1 temperature_source 1 0 `[2]ui 1 temperature_adc_sum 4 1 `[2]uc 1 temperature_count 2 5 ]
 "17 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\adc.c
-[v _params params `S7638  1 e 7 0 ]
+[v _params params `S7626  1 e 7 0 ]
 "28 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\app_device_custom_hid.c
 [v _ReceivedDataBuffer ReceivedDataBuffer `[64]uc  1 e 64 0 ]
 "29
@@ -1445,11 +1445,11 @@ MOTOR_DIRECTION_SHORTEST 0
 [s S2444 . 36 `uc 1 Peripheral 1 0 `uc 1 Removble 1 1 `uc 1 Version 1 2 `uc 1 Response_Data_Format 1 3 `uc 1 AdditionalLength 1 4 `uc 1 Sccstp 1 5 `uc 1 bqueetc 1 6 `uc 1 CmdQue 1 7 `[8]uc 1 vendorID 8 8 `[16]uc 1 productID 16 16 `[4]uc 1 productRev 4 32 ]
 "56
 [v _inq_resp inq_resp `CS2444  1 e 36 0 ]
-[s S3749 . 1 `uc 1 IOLOCK 1 0 :1:0 
+[s S3745 . 1 `uc 1 IOLOCK 1 0 :1:0 
 ]
 "1110 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic18f47j53.h
-[u S3751 . 1 `S3749 1 . 1 0 ]
-[v _PPSCONbits PPSCONbits `VES3751  1 e 1 @3775 ]
+[u S3747 . 1 `S3745 1 . 1 0 ]
+[v _PPSCONbits PPSCONbits `VES3747  1 e 1 @3775 ]
 "1148
 [v _RPOR4 RPOR4 `VEuc  1 e 1 @3780 ]
 "1246
@@ -1504,7 +1504,7 @@ MOTOR_DIRECTION_SHORTEST 0
 [v _UADDR UADDR `VEuc  1 e 1 @3896 ]
 "4760
 [v _UCFG UCFG `VEuc  1 e 1 @3897 ]
-[s S3774 . 1 `uc 1 PCFG0 1 0 :1:0 
+[s S3770 . 1 `uc 1 PCFG0 1 0 :1:0 
 `uc 1 PCFG1 1 0 :1:1 
 `uc 1 PCFG2 1 0 :1:2 
 `uc 1 PCFG3 1 0 :1:3 
@@ -1514,9 +1514,9 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 PCFG7 1 0 :1:7 
 ]
 "5474
-[u S3783 . 1 `S3774 1 . 1 0 ]
-[v _ANCON0bits ANCON0bits `VES3783  1 e 1 @3912 ]
-[s S3572 . 1 `uc 1 PCFG8 1 0 :1:0 
+[u S3779 . 1 `S3770 1 . 1 0 ]
+[v _ANCON0bits ANCON0bits `VES3779  1 e 1 @3912 ]
+[s S3568 . 1 `uc 1 PCFG8 1 0 :1:0 
 `uc 1 PCFG9 1 0 :1:1 
 `uc 1 PCFG10 1 0 :1:2 
 `uc 1 PCFG11 1 0 :1:3 
@@ -1525,17 +1525,17 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 VBGEN 1 0 :1:7 
 ]
 "5539
-[s S3580 . 1 `uc 1 . 1 0 :7:0 
+[s S3576 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 PCFG15 1 0 :1:7 
 ]
-[u S3583 . 1 `S3572 1 . 1 0 `S3580 1 . 1 0 ]
-[v _ANCON1bits ANCON1bits `VES3583  1 e 1 @3913 ]
-[s S7038 . 1 `uc 1 C1TSEL 1 0 :3:0 
+[u S3579 . 1 `S3568 1 . 1 0 `S3576 1 . 1 0 ]
+[v _ANCON1bits ANCON1bits `VES3579  1 e 1 @3913 ]
+[s S7028 . 1 `uc 1 C1TSEL 1 0 :3:0 
 `uc 1 C2TSEL 1 0 :3:3 
 `uc 1 C3TSEL 1 0 :2:6 
 ]
 "5892
-[s S7042 . 1 `uc 1 C1TSEL0 1 0 :1:0 
+[s S7032 . 1 `uc 1 C1TSEL0 1 0 :1:0 
 `uc 1 C1TSEL1 1 0 :1:1 
 `uc 1 C1TSEL2 1 0 :1:2 
 `uc 1 C2TSEL0 1 0 :1:3 
@@ -1544,8 +1544,8 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 C3TSEL0 1 0 :1:6 
 `uc 1 C3TSEL1 1 0 :1:7 
 ]
-[u S7051 . 1 `S7038 1 . 1 0 `S7042 1 . 1 0 ]
-[v _CCPTMRS0bits CCPTMRS0bits `VES7051  1 e 1 @3922 ]
+[u S7041 . 1 `S7028 1 . 1 0 `S7032 1 . 1 0 ]
+[v _CCPTMRS0bits CCPTMRS0bits `VES7041  1 e 1 @3922 ]
 "6736
 [v _UIR UIR `VEuc  1 e 1 @3938 ]
 [s S327 . 1 `uc 1 URSTIF 1 0 :1:0 
@@ -1588,19 +1588,19 @@ MOTOR_DIRECTION_SHORTEST 0
 [v _TXADDRH TXADDRH `VEuc  1 e 1 @3946 ]
 "7054
 [v _TXADDRL TXADDRL `VEuc  1 e 1 @3947 ]
-[s S4386 . 1 `uc 1 SSPM 1 0 :4:0 
+[s S4381 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
 "7470
-[s S4392 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S4387 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
-[s S6296 . 1 `uc 1 SSPM02 1 0 :1:0 
+[s S6288 . 1 `uc 1 SSPM02 1 0 :1:0 
 `uc 1 SSPM12 1 0 :1:1 
 `uc 1 SSPM22 1 0 :1:2 
 `uc 1 SSPM32 1 0 :1:3 
@@ -1609,16 +1609,16 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 SSPOV2 1 0 :1:6 
 `uc 1 WCOL2 1 0 :1:7 
 ]
-[u S6305 . 1 `S4386 1 . 1 0 `S4392 1 . 1 0 `S6296 1 . 1 0 ]
-[v _SSP2CON1bits SSP2CON1bits `VES6305  1 e 1 @3954 ]
-[s S4222 . 1 `uc 1 . 1 0 :2:0 
+[u S6297 . 1 `S4381 1 . 1 0 `S4387 1 . 1 0 `S6288 1 . 1 0 ]
+[v _SSP2CON1bits SSP2CON1bits `VES6297  1 e 1 @3954 ]
+[s S4217 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_NOT_W 1 0 :1:2 
 ]
 "7657
-[s S4225 . 1 `uc 1 . 1 0 :5:0 
+[s S4220 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 D_NOT_A 1 0 :1:5 
 ]
-[s S4228 . 1 `uc 1 BF 1 0 :1:0 
+[s S4223 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -1627,7 +1627,7 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 CKE 1 0 :1:6 
 `uc 1 SMP 1 0 :1:7 
 ]
-[s S6134 . 1 `uc 1 BF2 1 0 :1:0 
+[s S6126 . 1 `uc 1 BF2 1 0 :1:0 
 `uc 1 UA2 1 0 :1:1 
 `uc 1 I2C_READ2 1 0 :1:2 
 `uc 1 I2C_START2 1 0 :1:3 
@@ -1636,61 +1636,61 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 CKE2 1 0 :1:6 
 `uc 1 SMP2 1 0 :1:7 
 ]
-[s S6143 . 1 `uc 1 . 1 0 :2:0 
+[s S6135 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE2 1 0 :1:2 
 `uc 1 S2 1 0 :1:3 
 `uc 1 P2 1 0 :1:4 
 `uc 1 DATA_ADDRESS2 1 0 :1:5 
 ]
-[s S6149 . 1 `uc 1 . 1 0 :2:0 
+[s S6141 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW2 1 0 :1:2 
 `uc 1 START2 1 0 :1:3 
 `uc 1 STOP2 1 0 :1:4 
 `uc 1 D_A2 1 0 :1:5 
 ]
-[s S6155 . 1 `uc 1 . 1 0 :5:0 
+[s S6147 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 D_NOT_A2 1 0 :1:5 
 ]
-[s S6158 . 1 `uc 1 . 1 0 :2:0 
+[s S6150 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_nA2 1 0 :1:5 
 ]
-[s S6163 . 1 `uc 1 . 1 0 :2:0 
+[s S6155 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_NOT_W2 1 0 :1:2 
 ]
-[s S6166 . 1 `uc 1 . 1 0 :2:0 
+[s S6158 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_nW2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 I2C_DAT2 1 0 :1:5 
 ]
-[s S6171 . 1 `uc 1 . 1 0 :2:0 
+[s S6163 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_W2 1 0 :1:2 
 ]
-[s S6174 . 1 `uc 1 . 1 0 :5:0 
+[s S6166 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_A2 1 0 :1:5 
 ]
-[s S6177 . 1 `uc 1 . 1 0 :2:0 
+[s S6169 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA2 1 0 :1:5 
 ]
-[s S6182 . 1 `uc 1 . 1 0 :2:0 
+[s S6174 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_WRITE2 1 0 :1:2 
 ]
-[s S6185 . 1 `uc 1 . 1 0 :5:0 
+[s S6177 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_ADDRESS2 1 0 :1:5 
 ]
-[s S6188 . 1 `uc 1 . 1 0 :2:0 
+[s S6180 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS2 1 0 :1:5 
 ]
-[u S6193 . 1 `S4222 1 . 1 0 `S4225 1 . 1 0 `S4228 1 . 1 0 `S6134 1 . 1 0 `S6143 1 . 1 0 `S6149 1 . 1 0 `S6155 1 . 1 0 `S6158 1 . 1 0 `S6163 1 . 1 0 `S6166 1 . 1 0 `S6171 1 . 1 0 `S6174 1 . 1 0 `S6177 1 . 1 0 `S6182 1 . 1 0 `S6185 1 . 1 0 `S6188 1 . 1 0 ]
-[v _SSP2STATbits SSP2STATbits `VES6193  1 e 1 @3955 ]
+[u S6185 . 1 `S4217 1 . 1 0 `S4220 1 . 1 0 `S4223 1 . 1 0 `S6126 1 . 1 0 `S6135 1 . 1 0 `S6141 1 . 1 0 `S6147 1 . 1 0 `S6150 1 . 1 0 `S6155 1 . 1 0 `S6158 1 . 1 0 `S6163 1 . 1 0 `S6166 1 . 1 0 `S6169 1 . 1 0 `S6174 1 . 1 0 `S6177 1 . 1 0 `S6180 1 . 1 0 ]
+[v _SSP2STATbits SSP2STATbits `VES6185  1 e 1 @3955 ]
 "8971
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
-[s S3821 . 1 `uc 1 RA0 1 0 :1:0 
+[s S3817 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -1700,7 +1700,7 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 RA7 1 0 :1:7 
 ]
 "9047
-[s S3830 . 1 `uc 1 AN0 1 0 :1:0 
+[s S3826 . 1 `uc 1 AN0 1 0 :1:0 
 `uc 1 AN1 1 0 :1:1 
 `uc 1 AN2 1 0 :1:2 
 `uc 1 AN3 1 0 :1:3 
@@ -1709,10 +1709,10 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 OSC2 1 0 :1:6 
 `uc 1 OSC1 1 0 :1:7 
 ]
-[s S3839 . 1 `uc 1 . 1 0 :5:0 
+[s S3835 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_SS1 1 0 :1:5 
 ]
-[s S3842 . 1 `uc 1 C1INA 1 0 :1:0 
+[s S3838 . 1 `uc 1 C1INA 1 0 :1:0 
 `uc 1 C2INA 1 0 :1:1 
 `uc 1 VREF_MINUS 1 0 :1:2 
 `uc 1 VREF_PLUS 1 0 :1:3 
@@ -1721,39 +1721,39 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 CLKO 1 0 :1:6 
 `uc 1 CLKI 1 0 :1:7 
 ]
-[s S3851 . 1 `uc 1 PMA6 1 0 :1:0 
+[s S3847 . 1 `uc 1 PMA6 1 0 :1:0 
 `uc 1 PMA7 1 0 :1:1 
 `uc 1 CVREF 1 0 :1:2 
 `uc 1 C1INB 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 HLVDIN 1 0 :1:5 
 ]
-[s S3858 . 1 `uc 1 RP0 1 0 :1:0 
+[s S3854 . 1 `uc 1 RP0 1 0 :1:0 
 `uc 1 RP1 1 0 :1:1 
 `uc 1 C2INB 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 RCV 1 0 :1:5 
 ]
-[s S3864 . 1 `uc 1 ULPWU 1 0 :1:0 
+[s S3860 . 1 `uc 1 ULPWU 1 0 :1:0 
 `uc 1 VBG 1 0 :1:1 
 `uc 1 C1IND 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 RP2 1 0 :1:5 
 ]
-[s S3870 . 1 `uc 1 . 1 0 :2:0 
+[s S3866 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 C3INB 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 C1INC 1 0 :1:5 
 ]
-[s S3875 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+[s S3871 . 1 `uc 1 ULPWUIN 1 0 :1:0 
 `uc 1 . 1 0 :4:1 
 `uc 1 LVDIN 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 RJPU 1 0 :1:7 
 ]
-[u S3881 . 1 `S3821 1 . 1 0 `S3830 1 . 1 0 `S3839 1 . 1 0 `S3842 1 . 1 0 `S3851 1 . 1 0 `S3858 1 . 1 0 `S3864 1 . 1 0 `S3870 1 . 1 0 `S3875 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES3881  1 e 1 @3968 ]
-[s S4936 . 1 `uc 1 RD0 1 0 :1:0 
+[u S3877 . 1 `S3817 1 . 1 0 `S3826 1 . 1 0 `S3835 1 . 1 0 `S3838 1 . 1 0 `S3847 1 . 1 0 `S3854 1 . 1 0 `S3860 1 . 1 0 `S3866 1 . 1 0 `S3871 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES3877  1 e 1 @3968 ]
+[s S4932 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
 `uc 1 RD3 1 0 :1:3 
@@ -1763,7 +1763,7 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 RD7 1 0 :1:7 
 ]
 "9905
-[s S4945 . 1 `uc 1 PMD0 1 0 :1:0 
+[s S4941 . 1 `uc 1 PMD0 1 0 :1:0 
 `uc 1 PMD1 1 0 :1:1 
 `uc 1 PMD2 1 0 :1:2 
 `uc 1 PMD3 1 0 :1:3 
@@ -1772,7 +1772,7 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 PMD6 1 0 :1:6 
 `uc 1 PMD7 1 0 :1:7 
 ]
-[s S4954 . 1 `uc 1 SCL2 1 0 :1:0 
+[s S4950 . 1 `uc 1 SCL2 1 0 :1:0 
 `uc 1 SDA2 1 0 :1:1 
 `uc 1 RP19 1 0 :1:2 
 `uc 1 RP20 1 0 :1:3 
@@ -1781,48 +1781,48 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 RP23 1 0 :1:6 
 `uc 1 RP24 1 0 :1:7 
 ]
-[s S4963 . 1 `uc 1 . 1 0 :7:0 
+[s S4959 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 SS2 1 0 :1:7 
 ]
-[u S4966 . 1 `S4936 1 . 1 0 `S4945 1 . 1 0 `S4954 1 . 1 0 `S4963 1 . 1 0 ]
-[v _PORTDbits PORTDbits `VES4966  1 e 1 @3971 ]
+[u S4962 . 1 `S4932 1 . 1 0 `S4941 1 . 1 0 `S4950 1 . 1 0 `S4959 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES4962  1 e 1 @3971 ]
 "10035
 [v _PORTE PORTE `VEuc  1 e 1 @3972 ]
-[s S4802 . 1 `uc 1 RE0 1 0 :1:0 
+[s S4798 . 1 `uc 1 RE0 1 0 :1:0 
 `uc 1 RE1 1 0 :1:1 
 `uc 1 RE2 1 0 :1:2 
 ]
 "10076
-[s S4806 . 1 `uc 1 AN5 1 0 :1:0 
+[s S4802 . 1 `uc 1 AN5 1 0 :1:0 
 `uc 1 AN6 1 0 :1:1 
 `uc 1 AN7 1 0 :1:2 
 ]
-[s S4810 . 1 `uc 1 PMPRD 1 0 :1:0 
+[s S4806 . 1 `uc 1 PMPRD 1 0 :1:0 
 `uc 1 PMPWR 1 0 :1:1 
 `uc 1 PMPCS 1 0 :1:2 
 ]
-[s S4814 . 1 `uc 1 PMRD 1 0 :1:0 
+[s S4810 . 1 `uc 1 PMRD 1 0 :1:0 
 `uc 1 PMWR 1 0 :1:1 
 `uc 1 PMCS 1 0 :1:2 
 ]
-[s S4818 . 1 `uc 1 PD2 1 0 :1:0 
+[s S4814 . 1 `uc 1 PD2 1 0 :1:0 
 `uc 1 PC2 1 0 :1:1 
 `uc 1 CCP10 1 0 :1:2 
 ]
-[s S4822 . 1 `uc 1 RDE 1 0 :1:0 
+[s S4818 . 1 `uc 1 RDE 1 0 :1:0 
 `uc 1 WRE 1 0 :1:1 
 `uc 1 CS 1 0 :1:2 
 ]
-[s S4826 . 1 `uc 1 . 1 0 :2:0 
+[s S4822 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PB2 1 0 :1:2 
 ]
-[u S4829 . 1 `S4802 1 . 1 0 `S4806 1 . 1 0 `S4810 1 . 1 0 `S4814 1 . 1 0 `S4818 1 . 1 0 `S4822 1 . 1 0 `S4826 1 . 1 0 ]
-[v _PORTEbits PORTEbits `VES4829  1 e 1 @3972 ]
-[s S6351 . 1 `uc 1 INTLVL 1 0 :4:0 
+[u S4825 . 1 `S4798 1 . 1 0 `S4802 1 . 1 0 `S4806 1 . 1 0 `S4810 1 . 1 0 `S4814 1 . 1 0 `S4818 1 . 1 0 `S4822 1 . 1 0 ]
+[v _PORTEbits PORTEbits `VES4825  1 e 1 @3972 ]
+[s S6343 . 1 `uc 1 INTLVL 1 0 :4:0 
 `uc 1 DLYCYC 1 0 :4:4 
 ]
 "10267
-[s S6354 . 1 `uc 1 INTLVL0 1 0 :1:0 
+[s S6346 . 1 `uc 1 INTLVL0 1 0 :1:0 
 `uc 1 INTLVL1 1 0 :1:1 
 `uc 1 INTLVL2 1 0 :1:2 
 `uc 1 INTLVL3 1 0 :1:3 
@@ -1831,9 +1831,9 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 DLYCYC2 1 0 :1:6 
 `uc 1 DLYCYC3 1 0 :1:7 
 ]
-[u S6363 . 1 `S6351 1 . 1 0 `S6354 1 . 1 0 ]
-[v _DMACON2bits DMACON2bits `VES6363  1 e 1 @3974 ]
-[s S6330 . 1 `uc 1 DMAEN 1 0 :1:0 
+[u S6355 . 1 `S6343 1 . 1 0 `S6346 1 . 1 0 ]
+[v _DMACON2bits DMACON2bits `VES6355  1 e 1 @3974 ]
+[s S6322 . 1 `uc 1 DMAEN 1 0 :1:0 
 `uc 1 DLYINTEN 1 0 :1:1 
 `uc 1 DUPLEX0 1 0 :1:2 
 `uc 1 DUPLEX1 1 0 :1:3 
@@ -1843,9 +1843,9 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 SSCON1 1 0 :1:7 
 ]
 "10379
-[u S6339 . 1 `S6330 1 . 1 0 ]
-[v _DMACON1bits DMACON1bits `VES6339  1 e 1 @3976 ]
-[s S3668 . 1 `uc 1 LATA0 1 0 :1:0 
+[u S6331 . 1 `S6322 1 . 1 0 ]
+[v _DMACON1bits DMACON1bits `VES6331  1 e 1 @3976 ]
+[s S3664 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
 `uc 1 LATA2 1 0 :1:2 
 `uc 1 LATA3 1 0 :1:3 
@@ -1855,7 +1855,7 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 LATA7 1 0 :1:7 
 ]
 "10451
-[s S3677 . 1 `uc 1 LA0 1 0 :1:0 
+[s S3673 . 1 `uc 1 LA0 1 0 :1:0 
 `uc 1 LA1 1 0 :1:1 
 `uc 1 LA2 1 0 :1:2 
 `uc 1 LA3 1 0 :1:3 
@@ -1864,9 +1864,9 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 LA6 1 0 :1:6 
 `uc 1 LA7 1 0 :1:7 
 ]
-[u S3686 . 1 `S3668 1 . 1 0 `S3677 1 . 1 0 ]
-[v _LATAbits LATAbits `VES3686  1 e 1 @3977 ]
-[s S3708 . 1 `uc 1 LATB0 1 0 :1:0 
+[u S3682 . 1 `S3664 1 . 1 0 `S3673 1 . 1 0 ]
+[v _LATAbits LATAbits `VES3682  1 e 1 @3977 ]
+[s S3704 . 1 `uc 1 LATB0 1 0 :1:0 
 `uc 1 LATB1 1 0 :1:1 
 `uc 1 LATB2 1 0 :1:2 
 `uc 1 LATB3 1 0 :1:3 
@@ -1876,7 +1876,7 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 LATB7 1 0 :1:7 
 ]
 "10553
-[s S3717 . 1 `uc 1 LB0 1 0 :1:0 
+[s S3713 . 1 `uc 1 LB0 1 0 :1:0 
 `uc 1 LB1 1 0 :1:1 
 `uc 1 LB2 1 0 :1:2 
 `uc 1 LB3 1 0 :1:3 
@@ -1885,9 +1885,9 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 LB6 1 0 :1:6 
 `uc 1 LB7 1 0 :1:7 
 ]
-[u S3726 . 1 `S3708 1 . 1 0 `S3717 1 . 1 0 ]
-[v _LATBbits LATBbits `VES3726  1 e 1 @3978 ]
-[s S3615 . 1 `uc 1 LATC0 1 0 :1:0 
+[u S3722 . 1 `S3704 1 . 1 0 `S3713 1 . 1 0 ]
+[v _LATBbits LATBbits `VES3722  1 e 1 @3978 ]
+[s S3611 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
@@ -1895,16 +1895,16 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 LATC7 1 0 :1:7 
 ]
 "10661
-[s S3622 . 1 `uc 1 LC0 1 0 :1:0 
+[s S3618 . 1 `uc 1 LC0 1 0 :1:0 
 `uc 1 LC1 1 0 :1:1 
 `uc 1 LC2 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
 `uc 1 LC6 1 0 :1:6 
 `uc 1 LC7 1 0 :1:7 
 ]
-[u S3629 . 1 `S3615 1 . 1 0 `S3622 1 . 1 0 ]
-[v _LATCbits LATCbits `VES3629  1 e 1 @3979 ]
-[s S3511 . 1 `uc 1 LATD0 1 0 :1:0 
+[u S3625 . 1 `S3611 1 . 1 0 `S3618 1 . 1 0 ]
+[v _LATCbits LATCbits `VES3625  1 e 1 @3979 ]
+[s S3507 . 1 `uc 1 LATD0 1 0 :1:0 
 `uc 1 LATD1 1 0 :1:1 
 `uc 1 LATD2 1 0 :1:2 
 `uc 1 LATD3 1 0 :1:3 
@@ -1914,7 +1914,7 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 LATD7 1 0 :1:7 
 ]
 "10743
-[s S3520 . 1 `uc 1 LD0 1 0 :1:0 
+[s S3516 . 1 `uc 1 LD0 1 0 :1:0 
 `uc 1 LD1 1 0 :1:1 
 `uc 1 LD2 1 0 :1:2 
 `uc 1 LD3 1 0 :1:3 
@@ -1923,9 +1923,9 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 LD6 1 0 :1:6 
 `uc 1 LD7 1 0 :1:7 
 ]
-[u S3529 . 1 `S3511 1 . 1 0 `S3520 1 . 1 0 ]
-[v _LATDbits LATDbits `VES3529  1 e 1 @3980 ]
-[s S3647 . 1 `uc 1 TRISA0 1 0 :1:0 
+[u S3525 . 1 `S3507 1 . 1 0 `S3516 1 . 1 0 ]
+[v _LATDbits LATDbits `VES3525  1 e 1 @3980 ]
+[s S3643 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -1935,9 +1935,9 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "11141
-[u S3656 . 1 `S3647 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES3656  1 e 1 @3986 ]
-[s S3551 . 1 `uc 1 TRISB0 1 0 :1:0 
+[u S3652 . 1 `S3643 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES3652  1 e 1 @3986 ]
+[s S3547 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -1947,9 +1947,9 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "11198
-[u S3560 . 1 `S3551 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES3560  1 e 1 @3987 ]
-[s S3598 . 1 `uc 1 TRISC0 1 0 :1:0 
+[u S3556 . 1 `S3547 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES3556  1 e 1 @3987 ]
+[s S3594 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
@@ -1957,9 +1957,9 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "11258
-[u S3605 . 1 `S3598 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES3605  1 e 1 @3988 ]
-[s S3490 . 1 `uc 1 TRISD0 1 0 :1:0 
+[u S3601 . 1 `S3594 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES3601  1 e 1 @3988 ]
+[s S3486 . 1 `uc 1 TRISD0 1 0 :1:0 
 `uc 1 TRISD1 1 0 :1:1 
 `uc 1 TRISD2 1 0 :1:2 
 `uc 1 TRISD3 1 0 :1:3 
@@ -1969,9 +1969,9 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 TRISD7 1 0 :1:7 
 ]
 "11305
-[u S3499 . 1 `S3490 1 . 1 0 ]
-[v _TRISDbits TRISDbits `VES3499  1 e 1 @3989 ]
-[s S3757 . 1 `uc 1 TRISE0 1 0 :1:0 
+[u S3495 . 1 `S3486 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES3495  1 e 1 @3989 ]
+[s S3753 . 1 `uc 1 TRISE0 1 0 :1:0 
 `uc 1 TRISE1 1 0 :1:1 
 `uc 1 TRISE2 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
@@ -1979,23 +1979,23 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 RDPU 1 0 :1:7 
 ]
 "11365
-[u S3764 . 1 `S3757 1 . 1 0 ]
-[v _TRISEbits TRISEbits `VES3764  1 e 1 @3990 ]
-[s S3033 . 1 `uc 1 TUN 1 0 :6:0 
+[u S3760 . 1 `S3753 1 . 1 0 ]
+[v _TRISEbits TRISEbits `VES3760  1 e 1 @3990 ]
+[s S3030 . 1 `uc 1 TUN 1 0 :6:0 
 `uc 1 PLLEN 1 0 :1:6 
 `uc 1 INTSRC 1 0 :1:7 
 ]
 "11738
-[s S3037 . 1 `uc 1 TUN0 1 0 :1:0 
+[s S3034 . 1 `uc 1 TUN0 1 0 :1:0 
 `uc 1 TUN1 1 0 :1:1 
 `uc 1 TUN2 1 0 :1:2 
 `uc 1 TUN3 1 0 :1:3 
 `uc 1 TUN4 1 0 :1:4 
 `uc 1 TUN5 1 0 :1:5 
 ]
-[u S3044 . 1 `S3033 1 . 1 0 `S3037 1 . 1 0 ]
-[v _OSCTUNEbits OSCTUNEbits `VES3044  1 e 1 @3995 ]
-[s S6969 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[u S3041 . 1 `S3030 1 . 1 0 `S3034 1 . 1 0 ]
+[v _OSCTUNEbits OSCTUNEbits `VES3041  1 e 1 @3995 ]
+[s S6959 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSP1IE 1 0 :1:3 
@@ -2005,17 +2005,17 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 PMPIE 1 0 :1:7 
 ]
 "11951
-[s S6978 . 1 `uc 1 . 1 0 :3:0 
+[s S6968 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SSPIE 1 0 :1:3 
 `uc 1 TXIE 1 0 :1:4 
 `uc 1 RCIE 1 0 :1:5 
 ]
-[s S6983 . 1 `uc 1 . 1 0 :7:0 
+[s S6973 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 PSPIE 1 0 :1:7 
 ]
-[u S6986 . 1 `S6969 1 . 1 0 `S6978 1 . 1 0 `S6983 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES6986  1 e 1 @3997 ]
-[s S3061 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S6976 . 1 `S6959 1 . 1 0 `S6968 1 . 1 0 `S6973 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES6976  1 e 1 @3997 ]
+[s S3058 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSP1IF 1 0 :1:3 
@@ -2025,16 +2025,16 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 PMPIF 1 0 :1:7 
 ]
 "12043
-[s S3070 . 1 `uc 1 . 1 0 :3:0 
+[s S3067 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SSPIF 1 0 :1:3 
 `uc 1 TXIF 1 0 :1:4 
 `uc 1 RCIF 1 0 :1:5 
 ]
-[s S3075 . 1 `uc 1 . 1 0 :7:0 
+[s S3072 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 PSPIF 1 0 :1:7 
 ]
-[u S3078 . 1 `S3061 1 . 1 0 `S3070 1 . 1 0 `S3075 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES3078  1 e 1 @3998 ]
+[u S3075 . 1 `S3058 1 . 1 0 `S3067 1 . 1 0 `S3072 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES3075  1 e 1 @3998 ]
 [s S256 . 1 `uc 1 CCP2IE 1 0 :1:0 
 `uc 1 TMR3IE 1 0 :1:1 
 `uc 1 LVDIE 1 0 :1:2 
@@ -2094,12 +2094,12 @@ MOTOR_DIRECTION_SHORTEST 0
 [v _IPR2bits IPR2bits `VES570  1 e 1 @4002 ]
 "12769
 [v _EECON2 EECON2 `VEuc  1 e 1 @4007 ]
-[s S6849 . 1 `uc 1 CCP1M 1 0 :4:0 
+[s S6839 . 1 `uc 1 CCP1M 1 0 :4:0 
 `uc 1 DC1B 1 0 :2:4 
 `uc 1 P1M 1 0 :2:6 
 ]
 "14644
-[s S6853 . 1 `uc 1 CCP1M0 1 0 :1:0 
+[s S6843 . 1 `uc 1 CCP1M0 1 0 :1:0 
 `uc 1 CCP1M1 1 0 :1:1 
 `uc 1 CCP1M2 1 0 :1:2 
 `uc 1 CCP1M3 1 0 :1:3 
@@ -2108,44 +2108,44 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 P1M0 1 0 :1:6 
 `uc 1 P1M1 1 0 :1:7 
 ]
-[s S6862 . 1 `uc 1 . 1 0 :4:0 
+[s S6852 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 CCP1Y 1 0 :1:4 
 `uc 1 CCP1X 1 0 :1:5 
 ]
-[u S6866 . 1 `S6849 1 . 1 0 `S6853 1 . 1 0 `S6862 1 . 1 0 ]
-[v _CCP1CONbits CCP1CONbits `VES6866  1 e 1 @4026 ]
+[u S6856 . 1 `S6839 1 . 1 0 `S6843 1 . 1 0 `S6852 1 . 1 0 ]
+[v _CCP1CONbits CCP1CONbits `VES6856  1 e 1 @4026 ]
 "14811
 [v _CCPR1L CCPR1L `VEuc  1 e 1 @4027 ]
-[s S7720 . 1 `uc 1 ADCS 1 0 :3:0 
+[s S7708 . 1 `uc 1 ADCS 1 0 :3:0 
 `uc 1 ACQT 1 0 :3:3 
 `uc 1 ADCAL 1 0 :1:6 
 `uc 1 ADFM 1 0 :1:7 
 ]
 "15225
-[s S7725 . 1 `uc 1 ADCS0 1 0 :1:0 
+[s S7713 . 1 `uc 1 ADCS0 1 0 :1:0 
 `uc 1 ADCS1 1 0 :1:1 
 `uc 1 ADCS2 1 0 :1:2 
 `uc 1 ACQT0 1 0 :1:3 
 `uc 1 ACQT1 1 0 :1:4 
 `uc 1 ACQT2 1 0 :1:5 
 ]
-[s S7732 . 1 `uc 1 . 1 0 :3:0 
+[s S7720 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CHSN3 1 0 :1:3 
 `uc 1 VCFG01 1 0 :1:4 
 `uc 1 VCFG11 1 0 :1:5 
 ]
-[u S7737 . 1 `S7720 1 . 1 0 `S7725 1 . 1 0 `S7732 1 . 1 0 ]
-[v _ADCON1bits ADCON1bits `VES7737  1 e 1 @4033 ]
-[s S7642 . 1 `uc 1 . 1 0 :1:0 
+[u S7725 . 1 `S7708 1 . 1 0 `S7713 1 . 1 0 `S7720 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES7725  1 e 1 @4033 ]
+[s S7630 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_NOT_DONE 1 0 :1:1 
 ]
 "15344
-[s S7645 . 1 `uc 1 ADON 1 0 :1:0 
+[s S7633 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :4:2 
 `uc 1 VCFG 1 0 :2:6 
 ]
-[s S7650 . 1 `uc 1 . 1 0 :1:0 
+[s S7638 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
@@ -2154,30 +2154,30 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 VCFG0 1 0 :1:6 
 `uc 1 VCFG1 1 0 :1:7 
 ]
-[s S7659 . 1 `uc 1 . 1 0 :1:0 
+[s S7647 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 DONE 1 0 :1:1 
 ]
-[s S7662 . 1 `uc 1 . 1 0 :1:0 
+[s S7650 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 ]
-[s S7665 . 1 `uc 1 . 1 0 :1:0 
+[s S7653 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_DONE 1 0 :1:1 
 ]
-[s S7668 . 1 `uc 1 . 1 0 :1:0 
+[s S7656 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S7671 . 1 `uc 1 . 1 0 :1:0 
+[s S7659 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GODONE 1 0 :1:1 
 `uc 1 . 1 0 :5:2 
 `uc 1 ADCAL 1 0 :1:7 
 ]
-[u S7676 . 1 `S7642 1 . 1 0 `S7645 1 . 1 0 `S7650 1 . 1 0 `S7659 1 . 1 0 `S7662 1 . 1 0 `S7665 1 . 1 0 `S7668 1 . 1 0 `S7671 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES7676  1 e 1 @4034 ]
+[u S7664 . 1 `S7630 1 . 1 0 `S7633 1 . 1 0 `S7638 1 . 1 0 `S7647 1 . 1 0 `S7650 1 . 1 0 `S7653 1 . 1 0 `S7656 1 . 1 0 `S7659 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES7664  1 e 1 @4034 ]
 "15446
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 "15466
 [v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
-[s S4431 . 1 `uc 1 SEN 1 0 :1:0 
+[s S4426 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -2187,14 +2187,14 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 GCEN 1 0 :1:7 
 ]
 "15534
-[s S4440 . 1 `uc 1 . 1 0 :1:0 
+[s S4435 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADMSK1 1 0 :1:1 
 `uc 1 ADMSK2 1 0 :1:2 
 `uc 1 ADMSK3 1 0 :1:3 
 `uc 1 ADMSK4 1 0 :1:4 
 `uc 1 ADMSK5 1 0 :1:5 
 ]
-[s S4447 . 1 `uc 1 SEN1 1 0 :1:0 
+[s S4442 . 1 `uc 1 SEN1 1 0 :1:0 
 `uc 1 ADMSK11 1 0 :1:1 
 `uc 1 ADMSK21 1 0 :1:2 
 `uc 1 ADMSK31 1 0 :1:3 
@@ -2203,17 +2203,17 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 ACKSTAT1 1 0 :1:6 
 `uc 1 GCEN1 1 0 :1:7 
 ]
-[s S4456 . 1 `uc 1 . 1 0 :1:0 
+[s S4451 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RSEN1 1 0 :1:1 
 `uc 1 PEN1 1 0 :1:2 
 `uc 1 RCEN1 1 0 :1:3 
 `uc 1 ADMSK41 1 0 :1:4 
 `uc 1 ADMSK51 1 0 :1:5 
 ]
-[u S4463 . 1 `S4431 1 . 1 0 `S4440 1 . 1 0 `S4447 1 . 1 0 `S4456 1 . 1 0 ]
-[v _SSP1CON2bits SSP1CON2bits `VES4463  1 e 1 @4037 ]
+[u S4458 . 1 `S4426 1 . 1 0 `S4435 1 . 1 0 `S4442 1 . 1 0 `S4451 1 . 1 0 ]
+[v _SSP1CON2bits SSP1CON2bits `VES4458  1 e 1 @4037 ]
 "15875
-[s S4397 . 1 `uc 1 SSPM01 1 0 :1:0 
+[s S4392 . 1 `uc 1 SSPM01 1 0 :1:0 
 `uc 1 SSPM11 1 0 :1:1 
 `uc 1 SSPM21 1 0 :1:2 
 `uc 1 SSPM31 1 0 :1:3 
@@ -2222,47 +2222,47 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 SSPOV1 1 0 :1:6 
 `uc 1 WCOL1 1 0 :1:7 
 ]
-[u S4406 . 1 `S4386 1 . 1 0 `S4392 1 . 1 0 `S4397 1 . 1 0 ]
-[v _SSP1CON1bits SSP1CON1bits `VES4406  1 e 1 @4038 ]
+[u S4401 . 1 `S4381 1 . 1 0 `S4387 1 . 1 0 `S4392 1 . 1 0 ]
+[v _SSP1CON1bits SSP1CON1bits `VES4401  1 e 1 @4038 ]
 "16178
-[s S4237 . 1 `uc 1 . 1 0 :2:0 
+[s S4232 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D 1 0 :1:5 
 ]
-[s S4242 . 1 `uc 1 . 1 0 :2:0 
+[s S4237 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A 1 0 :1:5 
 ]
-[s S4247 . 1 `uc 1 . 1 0 :2:0 
+[s S4242 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA 1 0 :1:5 
 ]
-[s S4252 . 1 `uc 1 . 1 0 :2:0 
+[s S4247 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_WRITE 1 0 :1:2 
 ]
-[s S4255 . 1 `uc 1 . 1 0 :5:0 
+[s S4250 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_ADDRESS 1 0 :1:5 
 ]
-[s S4258 . 1 `uc 1 . 1 0 :2:0 
+[s S4253 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS 1 0 :1:5 
 ]
-[s S4263 . 1 `uc 1 . 1 0 :2:0 
+[s S4258 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 DATA_ADDRESS 1 0 :1:5 
 ]
-[s S4268 . 1 `uc 1 . 1 0 :2:0 
+[s S4263 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 I2C_READ 1 0 :1:2 
 `uc 1 I2C_START 1 0 :1:3 
 `uc 1 I2C_STOP 1 0 :1:4 
 `uc 1 I2C_DAT 1 0 :1:5 
 ]
-[s S4274 . 1 `uc 1 BF1 1 0 :1:0 
+[s S4269 . 1 `uc 1 BF1 1 0 :1:0 
 `uc 1 UA1 1 0 :1:1 
 `uc 1 RW 1 0 :1:2 
 `uc 1 START 1 0 :1:3 
@@ -2271,30 +2271,30 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 CKE1 1 0 :1:6 
 `uc 1 SMP1 1 0 :1:7 
 ]
-[s S4283 . 1 `uc 1 . 1 0 :2:0 
+[s S4278 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW1 1 0 :1:2 
 `uc 1 START1 1 0 :1:3 
 `uc 1 STOP1 1 0 :1:4 
 `uc 1 DA1 1 0 :1:5 
 ]
-[s S4289 . 1 `uc 1 . 1 0 :2:0 
+[s S4284 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_W 1 0 :1:2 
 ]
-[s S4292 . 1 `uc 1 . 1 0 :5:0 
+[s S4287 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_A 1 0 :1:5 
 ]
-[u S4295 . 1 `S4222 1 . 1 0 `S4225 1 . 1 0 `S4228 1 . 1 0 `S4237 1 . 1 0 `S4242 1 . 1 0 `S4247 1 . 1 0 `S4252 1 . 1 0 `S4255 1 . 1 0 `S4258 1 . 1 0 `S4263 1 . 1 0 `S4268 1 . 1 0 `S4274 1 . 1 0 `S4283 1 . 1 0 `S4289 1 . 1 0 `S4292 1 . 1 0 ]
-[v _SSP1STATbits SSP1STATbits `VES4295  1 e 1 @4039 ]
+[u S4290 . 1 `S4217 1 . 1 0 `S4220 1 . 1 0 `S4223 1 . 1 0 `S4232 1 . 1 0 `S4237 1 . 1 0 `S4242 1 . 1 0 `S4247 1 . 1 0 `S4250 1 . 1 0 `S4253 1 . 1 0 `S4258 1 . 1 0 `S4263 1 . 1 0 `S4269 1 . 1 0 `S4278 1 . 1 0 `S4284 1 . 1 0 `S4287 1 . 1 0 ]
+[v _SSP1STATbits SSP1STATbits `VES4290  1 e 1 @4039 ]
 "16676
 [v _SSP1ADD SSP1ADD `VEuc  1 e 1 @4040 ]
 "16976
 [v _SSP1BUF SSP1BUF `VEuc  1 e 1 @4041 ]
-[s S6917 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S6907 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 T2OUTPS 1 0 :4:3 
 ]
 "17035
-[s S6921 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S6911 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
@@ -2302,8 +2302,8 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 T2OUTPS2 1 0 :1:5 
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
-[u S6929 . 1 `S6917 1 . 1 0 `S6921 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES6929  1 e 1 @4042 ]
+[u S6919 . 1 `S6907 1 . 1 0 `S6911 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES6919  1 e 1 @4042 ]
 "17085
 [v _PR2 PR2 `VEuc  1 e 1 @4043 ]
 "17211
@@ -2346,7 +2346,7 @@ MOTOR_DIRECTION_SHORTEST 0
 [v _RCONbits RCONbits `VES511  1 e 1 @4048 ]
 "18060
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
-[s S3795 . 1 `uc 1 T0PS 1 0 :3:0 
+[s S3791 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -2354,12 +2354,12 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "18157
-[s S3802 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S3798 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 ]
-[u S3806 . 1 `S3795 1 . 1 0 `S3802 1 . 1 0 ]
-[v _T0CONbits T0CONbits `VES3806  1 e 1 @4053 ]
+[u S3802 . 1 `S3791 1 . 1 0 `S3798 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES3802  1 e 1 @4053 ]
 "18214
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "18234
@@ -2466,14 +2466,14 @@ MOTOR_DIRECTION_SHORTEST 0
 "18 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\fat16.c
 [v _buffer buffer `[512]uc  1 e 512 0 ]
 "84 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\flash.c
-[v _power_state power_state `E7013  1 e 1 0 ]
+[v _power_state power_state `E7012  1 e 1 0 ]
 "85
 [v _flash_command_pagesize_512 flash_command_pagesize_512 `C[4]uc  1 e 4 0 ]
 "86
 [v _flash_command_pagesize_528 flash_command_pagesize_528 `C[4]uc  1 e 4 0 ]
-[s S6841 . 8 `E6622 1 direction 1 0 `ul 1 distance 4 1 `ui 1 speed 2 5 `E6631 1 type 1 7 ]
+[s S6831 . 8 `E6622 1 direction 1 0 `ul 1 distance 4 1 `ui 1 speed 2 5 `E6631 1 type 1 7 ]
 "12 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\motor.c
-[v _motor_command_cue motor_command_cue `[8]S6841  1 e 64 0 ]
+[v _motor_command_cue motor_command_cue `[8]S6831  1 e 64 0 ]
 "13
 [v _motor_cue_read_index motor_cue_read_index `uc  1 e 1 0 ]
 "14
@@ -2504,17 +2504,17 @@ MOTOR_DIRECTION_SHORTEST 0
 [v _motor_postscaler_lookup motor_postscaler_lookup `C[487]uc  1 e 487 0 ]
 "1966
 [v _motor_speed_lookup motor_speed_lookup `C[487]ui  1 e 974 0 ]
-[s S2792 . 50 `VEuc 1 subTimeSlot 1 0 `VEuc 1 timeSlot 1 1 `VEuc 1 done 1 2 `VEc 1 encoder1Count 1 3 `VEc 1 button1 1 4 `VEc 1 encoder2Count 1 5 `VEc 1 button2 1 6 `VEul 1 current_position_in_steps 4 7 `VEi 1 absolute_position 2 11 `ui 1 current_position_in_degrees 2 13 `E7983 1 displayState 1 15 `uc 1 busy 1 16 `E7771 1 last_approach_direction 1 17 `ui 1 setup_step_size 2 18 `E7771 1 approach_direction 1 20 `i 1 division 2 21 `uc 1 divide_step_size 1 23 `i 1 divide_position 2 24 `i 1 divide_jump_size 2 26 `ui 1 arc_step_size 2 28 `l 1 arc_size 4 30 `ui 1 arc_speed 2 34 `E7771 1 arc_direction 1 36 `ui 1 manual_speed 2 37 `E7771 1 manual_direction 1 39 `uc 1 beep_count 1 40 `[2]i 1 temperature 4 41 `ui 1 external_temperature_adc_sum 2 45 `uc 1 external_temperature_count 1 47 `uc 1 fan_on 1 48 `uc 1 brake_on 1 49 ]
-"157 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.h
-[v _os os `VES2792  1 e 50 0 ]
-[s S2824 . 40 `ul 1 full_circle_in_steps 4 0 `uc 1 inverse_direction 1 4 `ui 1 overshoot_in_steps 2 5 `ui 1 overshoot_cost_in_steps 2 7 `ui 1 minimum_speed 2 9 `ui 1 maximum_speed 2 11 `ui 1 initial_speed_arc 2 13 `ui 1 maximum_speed_arc 2 15 `ui 1 initial_speed_manual 2 17 `ui 1 maximum_speed_manual 2 19 `uc 1 beep_duration 1 21 `uc 1 use_cw_limit 1 22 `l 1 cw_limit 4 23 `l 1 cw_limit_in_steps 4 27 `uc 1 use_ccw_limit 1 31 `l 1 ccw_limit 4 32 `l 1 ccw_limit_in_steps 4 36 ]
-"158
-[v _config config `S2824  1 e 40 0 ]
-[s S6102 . 3 `E6882 1 mode 1 0 `E6886 1 frequency 1 1 `E6889 1 polarity 1 2 ]
+[s S2792 . 49 `VEuc 1 subTimeSlot 1 0 `VEuc 1 timeSlot 1 1 `VEuc 1 done 1 2 `VEc 1 encoder1Count 1 3 `VEc 1 button1 1 4 `VEc 1 encoder2Count 1 5 `VEc 1 button2 1 6 `VEul 1 current_position_in_steps 4 7 `VEi 1 absolute_position 2 11 `ui 1 current_position_in_degrees 2 13 `E7983 1 displayState 1 15 `uc 1 busy 1 16 `ui 1 setup_step_size 2 17 `E7771 1 approach_direction 1 19 `i 1 division 2 20 `uc 1 divide_step_size 1 22 `i 1 divide_position 2 23 `i 1 divide_jump_size 2 25 `ui 1 arc_step_size 2 27 `l 1 arc_size 4 29 `ui 1 arc_speed 2 33 `E7771 1 arc_direction 1 35 `ui 1 manual_speed 2 36 `E7771 1 manual_direction 1 38 `uc 1 beep_count 1 39 `[2]i 1 temperature 4 40 `ui 1 external_temperature_adc_sum 2 44 `uc 1 external_temperature_count 1 46 `uc 1 fan_on 1 47 `uc 1 brake_on 1 48 ]
+"156 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.h
+[v _os os `VES2792  1 e 49 0 ]
+[s S2823 . 40 `ul 1 full_circle_in_steps 4 0 `uc 1 inverse_direction 1 4 `ui 1 overshoot_in_steps 2 5 `ui 1 overshoot_cost_in_steps 2 7 `ui 1 minimum_speed 2 9 `ui 1 maximum_speed 2 11 `ui 1 initial_speed_arc 2 13 `ui 1 maximum_speed_arc 2 15 `ui 1 initial_speed_manual 2 17 `ui 1 maximum_speed_manual 2 19 `uc 1 beep_duration 1 21 `uc 1 use_cw_limit 1 22 `l 1 cw_limit 4 23 `l 1 cw_limit_in_steps 4 27 `uc 1 use_ccw_limit 1 31 `l 1 ccw_limit 4 32 `l 1 ccw_limit_in_steps 4 36 ]
+"157
+[v _config config `S2823  1 e 40 0 ]
+[s S6094 . 3 `E6882 1 mode 1 0 `E6886 1 frequency 1 1 `E6889 1 polarity 1 2 ]
 "12 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\spi.c
-[v _config_internal config_internal `S6102  1 e 3 0 ]
+[v _config_internal config_internal `S6094  1 e 3 0 ]
 "13
-[v _config_external config_external `S6102  1 e 3 0 ]
+[v _config_external config_external `S6094  1 e 3 0 ]
 "14
 [v _active_configuration active_configuration `E6878  1 e 1 0 ]
 [s S650 _USB_DEVICE_DESCRIPTOR 18 `uc 1 bLength 1 0 `uc 1 bDescriptorType 1 1 `ui 1 bcdUSB 2 2 `uc 1 bDeviceClass 1 4 `uc 1 bDeviceSubClass 1 5 `uc 1 bDeviceProtocol 1 6 `uc 1 bMaxPacketSize0 1 7 `ui 1 idVendor 2 8 `ui 1 idProduct 2 10 `ui 1 bcdDevice 2 12 `uc 1 iManufacturer 1 14 `uc 1 iProduct 1 15 `uc 1 iSerialNumber 1 16 `uc 1 bNumConfigurations 1 17 ]
@@ -2785,7 +2785,7 @@ MOTOR_DIRECTION_SHORTEST 0
 "177 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.c
 [v _system_init system_init `(v  1 e 1 0 ]
 {
-"259
+"258
 } 0
 "646 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\motor.c
 [v _motor_init motor_init `(v  1 e 1 0 ]
@@ -2799,64 +2799,66 @@ MOTOR_DIRECTION_SHORTEST 0
 [v motor_calculate_position_in_degrees@tmp tmp `f  1 a 4 49 ]
 "562
 } 0
-"28 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\i2c.c
+"26 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\i2c.c
 [v _i2c_init i2c_init `(v  1 e 1 0 ]
 {
-"42
+"40
 } 0
-"307
+"314
 [v _i2c_eeprom_recover_position i2c_eeprom_recover_position `(v  1 e 1 0 ]
 {
-"317
+"316
+[v i2c_eeprom_recover_position@buffer buffer `[7]uc  1 a 7 25 ]
+"333
 } 0
-"279
+"277
 [v _i2c_eeprom_read i2c_eeprom_read `(v  1 e 1 0 ]
 {
-"281
-[v i2c_eeprom_read@slave_address slave_address `uc  1 a 1 24 ]
-"282
-[v i2c_eeprom_read@addr addr `uc  1 a 1 23 ]
 "279
+[v i2c_eeprom_read@slave_address slave_address `uc  1 a 1 24 ]
+"280
+[v i2c_eeprom_read@addr addr `uc  1 a 1 23 ]
+"277
 [v i2c_eeprom_read@address address `ui  1 p 2 17 ]
 [v i2c_eeprom_read@data data `*.39uc  1 p 2 19 ]
 [v i2c_eeprom_read@length length `uc  1 p 1 21 ]
-"293
+"291
 } 0
-"107
+"105
 [v __i2c_read _i2c_read `(v  1 s 1 _i2c_read ]
 {
 [v __i2c_read@slave_address slave_address `uc  1 a 1 wreg ]
-"109
-[v __i2c_read@cntr cntr `uc  1 a 1 16 ]
 "107
+[v __i2c_read@cntr cntr `uc  1 a 1 16 ]
+"105
 [v __i2c_read@slave_address slave_address `uc  1 a 1 wreg ]
 [v __i2c_read@data data `*.39uc  1 p 2 5 ]
 [v __i2c_read@length length `uc  1 p 1 7 ]
-"111
+"109
 [v __i2c_read@slave_address slave_address `uc  1 a 1 15 ]
-"134
+"132
 } 0
-"80
+"78
 [v __i2c_not_acknowledge _i2c_not_acknowledge `(v  1 s 1 _i2c_not_acknowledge ]
 {
-"85
+"83
 } 0
-"60
+"58
 [v __i2c_get _i2c_get `(uc  1 s 1 _i2c_get ]
 {
-"65
+"63
 } 0
-"73
+"71
 [v __i2c_acknowledge _i2c_acknowledge `(v  1 s 1 _i2c_acknowledge ]
 {
-"78
+"76
 } 0
-"173
+"171
 [v __i2c_eeprom_busy _i2c_eeprom_busy `(uc  1 s 1 _i2c_eeprom_busy ]
 {
-"175
+"173
 [v __i2c_eeprom_busy@busy busy `uc  1 a 1 5 ]
-"188
+"186
 } 0
 "361 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\flash.c
 [v _flash_init flash_init `(v  1 e 1 0 ]
@@ -2874,19 +2876,19 @@ MOTOR_DIRECTION_SHORTEST 0
 "24
 [v __spi_init _spi_init `(v  1 s 1 _spi_init ]
 {
-[s S6102 . 3 `E6882 1 mode 1 0 `E6886 1 frequency 1 1 `E6889 1 polarity 1 2 ]
-[v __spi_init@details details `S6102  1 p 3 0 ]
+[s S6094 . 3 `E6882 1 mode 1 0 `E6886 1 frequency 1 1 `E6889 1 polarity 1 2 ]
+[v __spi_init@details details `S6094  1 p 3 0 ]
 "44
 } 0
 "99 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\flash.c
 [v __flash_set_page_size _flash_set_page_size `(v  1 s 1 _flash_set_page_size ]
 {
-[v __flash_set_page_size@size size `E7054  1 a 1 wreg ]
+[v __flash_set_page_size@size size `E7053  1 a 1 wreg ]
 "101
 [v __flash_set_page_size@command command `[4]uc  1 a 4 19 ]
 "99
-[v __flash_set_page_size@size size `E7054  1 a 1 wreg ]
-[v __flash_set_page_size@size size `E7054  1 a 1 23 ]
+[v __flash_set_page_size@size size `E7053  1 a 1 wreg ]
+[v __flash_set_page_size@size size `E7053  1 a 1 23 ]
 "114
 } 0
 "1404 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\fat16.c
@@ -2902,7 +2904,7 @@ MOTOR_DIRECTION_SHORTEST 0
 "1340
 } 0
 "1293
-[v _fat_get_format_status fat_get_format_status `(E7028  1 e 1 0 ]
+[v _fat_get_format_status fat_get_format_status `(E7027  1 e 1 0 ]
 {
 "1295
 [v fat_get_format_status@cntr cntr `ui  1 a 2 45 ]
@@ -2932,119 +2934,119 @@ MOTOR_DIRECTION_SHORTEST 0
 [v display_update@line line `uc  1 a 1 16 ]
 "626
 } 0
-"459 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\i2c.c
+"475 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\i2c.c
 [v _i2c_display_write_fixed i2c_display_write_fixed `(v  1 e 1 0 ]
 {
-"461
+"477
 [v i2c_display_write_fixed@pos pos `uc  1 a 1 8 ]
-"459
+"475
 [v i2c_display_write_fixed@data data `*.39uc  1 p 2 5 ]
 [v i2c_display_write_fixed@length length `uc  1 p 1 7 ]
-"482
+"498
 } 0
-"419
+"435
 [v _i2c_display_cursor i2c_display_cursor `(v  1 e 1 0 ]
 {
 [v i2c_display_cursor@line line `uc  1 a 1 wreg ]
-"421
+"437
 [v i2c_display_cursor@address address `uc  1 a 1 15 ]
-"419
+"435
 [v i2c_display_cursor@line line `uc  1 a 1 wreg ]
 [v i2c_display_cursor@position position `uc  1 p 1 13 ]
-"424
+"440
 [v i2c_display_cursor@line line `uc  1 a 1 14 ]
-"434
+"450
 } 0
-"390
+"406
 [v __ic2_display_set_ddram_address _ic2_display_set_ddram_address `(v  1 s 1 _ic2_display_set_ddram_address ]
 {
 [v __ic2_display_set_ddram_address@address address `uc  1 a 1 wreg ]
-"392
+"408
 [v __ic2_display_set_ddram_address@data_array data_array `[2]uc  1 a 2 11 ]
-"390
+"406
 [v __ic2_display_set_ddram_address@address address `uc  1 a 1 wreg ]
-"393
+"409
 [v __ic2_display_set_ddram_address@address address `uc  1 a 1 10 ]
-"401
+"417
 } 0
 "256 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\display.c
 [v _display_init display_init `(v  1 e 1 0 ]
 {
 "264
 } 0
-"484 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\i2c.c
+"500 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\i2c.c
 [v _i2c_display_program_custom_character i2c_display_program_custom_character `(v  1 e 1 0 ]
 {
 [v i2c_display_program_custom_character@address address `uc  1 a 1 wreg ]
-"487
+"503
 [v i2c_display_program_custom_character@data_array data_array `[11]uc  1 a 11 20 ]
-"486
+"502
 [v i2c_display_program_custom_character@cntr cntr `uc  1 a 1 32 ]
-"484
+"500
 [v i2c_display_program_custom_character@address address `uc  1 a 1 wreg ]
 [v i2c_display_program_custom_character@bit_pattern bit_pattern `*.32uc  1 p 2 14 ]
-"490
+"506
 [v i2c_display_program_custom_character@address address `uc  1 a 1 31 ]
-"499
+"515
 } 0
-"403
+"419
 [v __ic2_display_set_cgram_address _ic2_display_set_cgram_address `(v  1 s 1 _ic2_display_set_cgram_address ]
 {
 [v __ic2_display_set_cgram_address@address address `uc  1 a 1 wreg ]
-"405
+"421
 [v __ic2_display_set_cgram_address@data_array data_array `[3]uc  1 a 3 10 ]
-"403
+"419
 [v __ic2_display_set_cgram_address@address address `uc  1 a 1 wreg ]
-"410
+"426
 [v __ic2_display_set_cgram_address@address address `uc  1 a 1 13 ]
-"417
+"433
 } 0
-"361
+"377
 [v _i2c_display_init i2c_display_init `(v  1 e 1 0 ]
 {
-"363
+"379
 [v i2c_display_init@init_sequence init_sequence `[9]uc  1 a 9 11 ]
-"362
+"378
 [v i2c_display_init@F7092 F7092 `[9]uc  1 s 9 F7092 ]
-"388
+"404
 } 0
-"88
+"86
 [v __i2c_write _i2c_write `(v  1 s 1 _i2c_write ]
 {
 [v __i2c_write@slave_address slave_address `uc  1 a 1 wreg ]
-"90
-[v __i2c_write@cntr cntr `uc  1 a 1 9 ]
 "88
+[v __i2c_write@cntr cntr `uc  1 a 1 9 ]
+"86
 [v __i2c_write@slave_address slave_address `uc  1 a 1 wreg ]
 [v __i2c_write@data data `*.39uc  1 p 2 5 ]
 [v __i2c_write@length length `uc  1 p 1 7 ]
-"92
+"90
 [v __i2c_write@slave_address slave_address `uc  1 a 1 8 ]
-"105
+"103
 } 0
-"44
+"42
 [v __i2c_wait_idle _i2c_wait_idle `(v  1 s 1 _i2c_wait_idle ]
 {
-"47
+"45
 } 0
-"67
+"65
 [v __i2c_stop _i2c_stop `(v  1 s 1 _i2c_stop ]
 {
-"71
+"69
 } 0
-"49
+"47
 [v __i2c_start _i2c_start `(v  1 s 1 _i2c_start ]
 {
-"53
+"51
 } 0
-"55
+"53
 [v __i2c_send _i2c_send `(v  1 s 1 _i2c_send ]
 {
 [v __i2c_send@dat dat `uc  1 a 1 wreg ]
 [v __i2c_send@dat dat `uc  1 a 1 wreg ]
-"57
+"55
 [v __i2c_send@dat dat `uc  1 a 1 0 ]
-"58
+"56
 } 0
 "266 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\display.c
 [v __display_start _display_start `(v  1 s 1 _display_start ]
@@ -3073,9 +3075,9 @@ MOTOR_DIRECTION_SHORTEST 0
 [v _fat_resize_file fat_resize_file `(uc  1 e 1 0 ]
 {
 [v fat_resize_file@file_number file_number `uc  1 a 1 wreg ]
-[s S5602 . 32 `[8]uc 1 fileName 8 0 `[3]uc 1 fileExtension 3 8 `uc 1 attributes 1 11 `uc 1 reserved1 1 12 `uc 1 secondFractions 1 13 `ui 1 createdTime 2 14 `ui 1 createdDate 2 16 `ui 1 lastAccessDate 2 18 `ui 1 reserved2 2 20 `ui 1 modifiedTime 2 22 `ui 1 modifiedDate 2 24 `ui 1 firstCluster 2 26 `ul 1 fileSize 4 28 ]
+[s S5595 . 32 `[8]uc 1 fileName 8 0 `[3]uc 1 fileExtension 3 8 `uc 1 attributes 1 11 `uc 1 reserved1 1 12 `uc 1 secondFractions 1 13 `ui 1 createdTime 2 14 `ui 1 createdDate 2 16 `ui 1 lastAccessDate 2 18 `ui 1 reserved2 2 20 `ui 1 modifiedTime 2 22 `ui 1 modifiedDate 2 24 `ui 1 firstCluster 2 26 `ul 1 fileSize 4 28 ]
 "913
-[v fat_resize_file@root root `S5602  1 a 32 91 ]
+[v fat_resize_file@root root `S5595  1 a 32 91 ]
 "916
 [v fat_resize_file@first_cluster first_cluster `ui  1 a 2 88 ]
 "915
@@ -3093,9 +3095,9 @@ MOTOR_DIRECTION_SHORTEST 0
 [v _fat_modify_file fat_modify_file `(uc  1 e 1 0 ]
 {
 [v fat_modify_file@file_number file_number `uc  1 a 1 wreg ]
-[s S5602 . 32 `[8]uc 1 fileName 8 0 `[3]uc 1 fileExtension 3 8 `uc 1 attributes 1 11 `uc 1 reserved1 1 12 `uc 1 secondFractions 1 13 `ui 1 createdTime 2 14 `ui 1 createdDate 2 16 `ui 1 lastAccessDate 2 18 `ui 1 reserved2 2 20 `ui 1 modifiedTime 2 22 `ui 1 modifiedDate 2 24 `ui 1 firstCluster 2 26 `ul 1 fileSize 4 28 ]
+[s S5595 . 32 `[8]uc 1 fileName 8 0 `[3]uc 1 fileExtension 3 8 `uc 1 attributes 1 11 `uc 1 reserved1 1 12 `uc 1 secondFractions 1 13 `ui 1 createdTime 2 14 `ui 1 createdDate 2 16 `ui 1 lastAccessDate 2 18 `ui 1 reserved2 2 20 `ui 1 modifiedTime 2 22 `ui 1 modifiedDate 2 24 `ui 1 firstCluster 2 26 `ul 1 fileSize 4 28 ]
 "965
-[v fat_modify_file@root root `S5602  1 a 32 99 ]
+[v fat_modify_file@root root `S5595  1 a 32 99 ]
 "967
 [v fat_modify_file@position position `ul  1 a 4 95 ]
 "970
@@ -3120,9 +3122,9 @@ MOTOR_DIRECTION_SHORTEST 0
 "587
 [v _fat_create_file fat_create_file `(uc  1 e 1 0 ]
 {
-[s S5602 . 32 `[8]uc 1 fileName 8 0 `[3]uc 1 fileExtension 3 8 `uc 1 attributes 1 11 `uc 1 reserved1 1 12 `uc 1 secondFractions 1 13 `ui 1 createdTime 2 14 `ui 1 createdDate 2 16 `ui 1 lastAccessDate 2 18 `ui 1 reserved2 2 20 `ui 1 modifiedTime 2 22 `ui 1 modifiedDate 2 24 `ui 1 firstCluster 2 26 `ul 1 fileSize 4 28 ]
+[s S5595 . 32 `[8]uc 1 fileName 8 0 `[3]uc 1 fileExtension 3 8 `uc 1 attributes 1 11 `uc 1 reserved1 1 12 `uc 1 secondFractions 1 13 `ui 1 createdTime 2 14 `ui 1 createdDate 2 16 `ui 1 lastAccessDate 2 18 `ui 1 reserved2 2 20 `ui 1 modifiedTime 2 22 `ui 1 modifiedDate 2 24 `ui 1 firstCluster 2 26 `ul 1 fileSize 4 28 ]
 "589
-[v fat_create_file@root_entry root_entry `S5602  1 a 32 93 ]
+[v fat_create_file@root_entry root_entry `S5595  1 a 32 93 ]
 "592
 [v fat_create_file@first_cluster first_cluster `ui  1 a 2 90 ]
 "591
@@ -3145,8 +3147,8 @@ MOTOR_DIRECTION_SHORTEST 0
 [v __write_root@sector sector `ui  1 a 2 42 ]
 "474
 [v __write_root@file_number file_number `uc  1 a 1 wreg ]
-[s S5602 . 32 `[8]uc 1 fileName 8 0 `[3]uc 1 fileExtension 3 8 `uc 1 attributes 1 11 `uc 1 reserved1 1 12 `uc 1 secondFractions 1 13 `ui 1 createdTime 2 14 `ui 1 createdDate 2 16 `ui 1 lastAccessDate 2 18 `ui 1 reserved2 2 20 `ui 1 modifiedTime 2 22 `ui 1 modifiedDate 2 24 `ui 1 firstCluster 2 26 `ul 1 fileSize 4 28 ]
-[v __write_root@data data `*.39S5602  1 p 2 40 ]
+[s S5595 . 32 `[8]uc 1 fileName 8 0 `[3]uc 1 fileExtension 3 8 `uc 1 attributes 1 11 `uc 1 reserved1 1 12 `uc 1 secondFractions 1 13 `ui 1 createdTime 2 14 `ui 1 createdDate 2 16 `ui 1 lastAccessDate 2 18 `ui 1 reserved2 2 20 `ui 1 modifiedTime 2 22 `ui 1 modifiedDate 2 24 `ui 1 firstCluster 2 26 `ul 1 fileSize 4 28 ]
+[v __write_root@data data `*.39S5595  1 p 2 40 ]
 "480
 [v __write_root@file_number file_number `uc  1 a 1 46 ]
 "485
@@ -3155,7 +3157,7 @@ MOTOR_DIRECTION_SHORTEST 0
 [v _flash_partial_write flash_partial_write `(v  1 e 1 0 ]
 {
 "462
-[v flash_partial_write@match match `E7062  1 a 1 39 ]
+[v flash_partial_write@match match `E7061  1 a 1 39 ]
 "460
 [v flash_partial_write@page page `ui  1 p 2 31 ]
 [v flash_partial_write@start start `ui  1 p 2 33 ]
@@ -3170,7 +3172,7 @@ MOTOR_DIRECTION_SHORTEST 0
 [v __flash_copy_page_to_buffer@command command `[4]uc  1 a 4 25 ]
 "154
 [v __flash_copy_page_to_buffer@page page `ui  1 p 2 19 ]
-[v __flash_copy_page_to_buffer@buffer buffer `E7058  1 p 1 21 ]
+[v __flash_copy_page_to_buffer@buffer buffer `E7057  1 p 1 21 ]
 "173
 } 0
 "214 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\fat16.c
@@ -3336,9 +3338,9 @@ MOTOR_DIRECTION_SHORTEST 0
 [v _fat_read_from_file fat_read_from_file `(uc  1 e 1 0 ]
 {
 [v fat_read_from_file@file_number file_number `uc  1 a 1 wreg ]
-[s S5602 . 32 `[8]uc 1 fileName 8 0 `[3]uc 1 fileExtension 3 8 `uc 1 attributes 1 11 `uc 1 reserved1 1 12 `uc 1 secondFractions 1 13 `ui 1 createdTime 2 14 `ui 1 createdDate 2 16 `ui 1 lastAccessDate 2 18 `ui 1 reserved2 2 20 `ui 1 modifiedTime 2 22 `ui 1 modifiedDate 2 24 `ui 1 firstCluster 2 26 `ul 1 fileSize 4 28 ]
+[s S5595 . 32 `[8]uc 1 fileName 8 0 `[3]uc 1 fileExtension 3 8 `uc 1 attributes 1 11 `uc 1 reserved1 1 12 `uc 1 secondFractions 1 13 `ui 1 createdTime 2 14 `ui 1 createdDate 2 16 `ui 1 lastAccessDate 2 18 `ui 1 reserved2 2 20 `ui 1 modifiedTime 2 22 `ui 1 modifiedDate 2 24 `ui 1 firstCluster 2 26 `ul 1 fileSize 4 28 ]
 "754
-[v fat_read_from_file@root root `S5602  1 a 32 125 ]
+[v fat_read_from_file@root root `S5595  1 a 32 125 ]
 "756
 [v fat_read_from_file@cluster_number cluster_number `ui  1 a 2 123 ]
 "755
@@ -3442,8 +3444,8 @@ MOTOR_DIRECTION_SHORTEST 0
 [v fat_get_file_information@root_sector root_sector `ui  1 a 2 50 ]
 "1421
 [v fat_get_file_information@file_number file_number `uc  1 a 1 wreg ]
-[s S5602 . 32 `[8]uc 1 fileName 8 0 `[3]uc 1 fileExtension 3 8 `uc 1 attributes 1 11 `uc 1 reserved1 1 12 `uc 1 secondFractions 1 13 `ui 1 createdTime 2 14 `ui 1 createdDate 2 16 `ui 1 lastAccessDate 2 18 `ui 1 reserved2 2 20 `ui 1 modifiedTime 2 22 `ui 1 modifiedDate 2 24 `ui 1 firstCluster 2 26 `ul 1 fileSize 4 28 ]
-[v fat_get_file_information@data data `*.39S5602  1 p 2 47 ]
+[s S5595 . 32 `[8]uc 1 fileName 8 0 `[3]uc 1 fileExtension 3 8 `uc 1 attributes 1 11 `uc 1 reserved1 1 12 `uc 1 secondFractions 1 13 `ui 1 createdTime 2 14 `ui 1 createdDate 2 16 `ui 1 lastAccessDate 2 18 `ui 1 reserved2 2 20 `ui 1 modifiedTime 2 22 `ui 1 modifiedDate 2 24 `ui 1 firstCluster 2 26 `ul 1 fileSize 4 28 ]
+[v fat_get_file_information@data data `*.39S5595  1 p 2 47 ]
 "1426
 [v fat_get_file_information@file_number file_number `uc  1 a 1 54 ]
 "1448
@@ -4014,17 +4016,17 @@ MOTOR_DIRECTION_SHORTEST 0
 "8 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S8283 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S8270 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S8288 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S8291 . 4 `l 1 i 4 0 `d 1 f 4 0 `S8283 1 fAsBytes 4 0 `S8288 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S8291  1 a 4 43 ]
+[s S8275 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S8278 . 4 `l 1 i 4 0 `d 1 f 4 0 `S8270 1 fAsBytes 4 0 `S8275 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S8278  1 a 4 43 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 37 ]
-[s S8359 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S8346 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S8362 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S8359 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S8362  1 a 2 47 ]
+[u S8349 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S8346 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S8349  1 a 2 47 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 42 ]
 "11
@@ -4080,7 +4082,7 @@ MOTOR_DIRECTION_SHORTEST 0
 {
 [v SYSTEM_Initialize@state state `E6623  1 a 1 wreg ]
 "85
-[v SYSTEM_Initialize@pll_startup_counter_3143 pll_startup_counter `ui  1 a 2 2 ]
+[v SYSTEM_Initialize@pll_startup_counter_3140 pll_startup_counter `ui  1 a 2 2 ]
 "51
 [v SYSTEM_Initialize@pll_startup_counter pll_startup_counter `ui  1 a 2 0 ]
 "39
@@ -4153,7 +4155,7 @@ MOTOR_DIRECTION_SHORTEST 0
 [v _flash_sector_write flash_sector_write `(v  1 e 1 0 ]
 {
 "436
-[v flash_sector_write@match match `E7062  1 a 1 35 ]
+[v flash_sector_write@match match `E7061  1 a 1 35 ]
 "434
 [v flash_sector_write@page page `ui  1 p 2 31 ]
 [v flash_sector_write@data data `*.39uc  1 p 2 33 ]
@@ -4168,7 +4170,7 @@ MOTOR_DIRECTION_SHORTEST 0
 [v __flash_write_to_buffer@start start `ui  1 p 2 19 ]
 [v __flash_write_to_buffer@data data `*.39uc  1 p 2 21 ]
 [v __flash_write_to_buffer@data_length data_length `ui  1 p 2 23 ]
-[v __flash_write_to_buffer@buffer buffer `E7058  1 p 1 25 ]
+[v __flash_write_to_buffer@buffer buffer `E7057  1 p 1 25 ]
 "255
 } 0
 "146 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\spi.c
@@ -4187,11 +4189,11 @@ MOTOR_DIRECTION_SHORTEST 0
 [v __flash_write_page_from_buffer@command command `[4]uc  1 a 4 25 ]
 "258
 [v __flash_write_page_from_buffer@page page `ui  1 p 2 19 ]
-[v __flash_write_page_from_buffer@buffer buffer `E7058  1 p 1 21 ]
+[v __flash_write_page_from_buffer@buffer buffer `E7057  1 p 1 21 ]
 "277
 } 0
 "176
-[v __flash_compare_page_to_buffer _flash_compare_page_to_buffer `(E7062  1 s 1 _flash_compare_page_to_buffer ]
+[v __flash_compare_page_to_buffer _flash_compare_page_to_buffer `(E7061  1 s 1 _flash_compare_page_to_buffer ]
 {
 "178
 [v __flash_compare_page_to_buffer@command command `[4]uc  1 a 4 27 ]
@@ -4199,7 +4201,7 @@ MOTOR_DIRECTION_SHORTEST 0
 [v __flash_compare_page_to_buffer@status status `ui  1 a 2 25 ]
 "176
 [v __flash_compare_page_to_buffer@page page `ui  1 p 2 19 ]
-[v __flash_compare_page_to_buffer@buffer buffer `E7058  1 p 1 21 ]
+[v __flash_compare_page_to_buffer@buffer buffer `E7057  1 p 1 21 ]
 "214
 } 0
 "1038 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\usb_device_msd.c
@@ -4756,34 +4758,36 @@ MOTOR_DIRECTION_SHORTEST 0
 [v _motor_isr motor_isr `(v  1 e 1 0 ]
 {
 "674
-[v motor_isr@steps_remaining steps_remaining `ul  1 a 4 57 ]
+[v motor_isr@steps_remaining steps_remaining `ul  1 a 4 64 ]
 "676
-[v motor_isr@steps_until_standstill_if_accelerate steps_until_standstill_if_accelerate `ui  1 a 2 55 ]
+[v motor_isr@steps_until_standstill_if_accelerate steps_until_standstill_if_accelerate `ui  1 a 2 62 ]
 "675
-[v motor_isr@steps_until_standstill steps_until_standstill `ui  1 a 2 53 ]
+[v motor_isr@steps_until_standstill steps_until_standstill `ui  1 a 2 60 ]
 "851
 } 0
-"295 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\i2c.c
+"293 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\i2c.c
 [v _i2c_eeprom_save_position i2c_eeprom_save_position `(v  1 e 1 0 ]
 {
-"305
+"295
+[v i2c_eeprom_save_position@buffer buffer `[7]uc  1 a 7 37 ]
+"312
 } 0
-"258
+"256
 [v _i2c_eeprom_write i2c_eeprom_write `(v  1 e 1 0 ]
 {
-"262
-[v i2c_eeprom_write@dat dat `[17]uc  1 a 17 18 ]
 "260
-[v i2c_eeprom_write@cntr cntr `uc  1 a 1 36 ]
-"261
-[v i2c_eeprom_write@slave_address slave_address `uc  1 a 1 35 ]
+[v i2c_eeprom_write@dat dat `[17]uc  1 a 17 18 ]
 "258
+[v i2c_eeprom_write@cntr cntr `uc  1 a 1 36 ]
+"259
+[v i2c_eeprom_write@slave_address slave_address `uc  1 a 1 35 ]
+"256
 [v i2c_eeprom_write@address address `ui  1 p 2 10 ]
 [v i2c_eeprom_write@data data `*.39uc  1 p 2 12 ]
 [v i2c_eeprom_write@length length `uc  1 p 1 14 ]
-"277
+"275
 } 0
-"88
+"86
 [v i2__i2c_write _i2c_write `(v  1 s 1 i2__i2c_write ]
 {
 [v i2__i2c_write@slave_address slave_address `uc  1 a 1 wreg ]
@@ -4791,39 +4795,39 @@ MOTOR_DIRECTION_SHORTEST 0
 [v i2__i2c_write@slave_address slave_address `uc  1 a 1 wreg ]
 [v i2__i2c_write@data data `*.39uc  1 p 2 5 ]
 [v i2__i2c_write@length length `uc  1 p 1 7 ]
-"92
+"90
 [v i2__i2c_write@slave_address slave_address `uc  1 a 1 8 ]
-"105
+"103
 } 0
-"173
+"171
 [v i2__i2c_eeprom_busy _i2c_eeprom_busy `(uc  1 s 1 i2__i2c_eeprom_busy ]
 {
 [v i2__i2c_eeprom_busy@busy _i2c_eeprom_busy `uc  1 a 1 5 ]
-"188
+"186
 } 0
-"44
+"42
 [v i2__i2c_wait_idle _i2c_wait_idle `(v  1 s 1 i2__i2c_wait_idle ]
 {
-"47
+"45
 } 0
-"67
+"65
 [v i2__i2c_stop _i2c_stop `(v  1 s 1 i2__i2c_stop ]
 {
-"71
+"69
 } 0
-"49
+"47
 [v i2__i2c_start _i2c_start `(v  1 s 1 i2__i2c_start ]
 {
-"53
+"51
 } 0
-"55
+"53
 [v i2__i2c_send _i2c_send `(v  1 s 1 i2__i2c_send ]
 {
 [v i2__i2c_send@dat dat `uc  1 a 1 wreg ]
 [v i2__i2c_send@dat dat `uc  1 a 1 wreg ]
-"57
+"55
 [v i2__i2c_send@dat dat `uc  1 a 1 0 ]
-"58
+"56
 } 0
 "477 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\usb_device.c
 [v _USBDeviceTasks USBDeviceTasks `(v  1 e 1 0 ]
@@ -5001,7 +5005,7 @@ MOTOR_DIRECTION_SHORTEST 0
 [v i2_SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
 {
 [v i2SYSTEM_Initialize@state state `E6623  1 a 1 wreg ]
-[v i2SYSTEM_Initialize@pll_startup_counter_3143 SYSTEM_Initialize `ui  1 a 2 2 ]
+[v i2SYSTEM_Initialize@pll_startup_counter_3140 SYSTEM_Initialize `ui  1 a 2 2 ]
 [v i2SYSTEM_Initialize@pll_startup_counter SYSTEM_Initialize `ui  1 a 2 0 ]
 [v i2SYSTEM_Initialize@state state `E6623  1 a 1 wreg ]
 [v i2SYSTEM_Initialize@state state `E6623  1 a 1 4 ]

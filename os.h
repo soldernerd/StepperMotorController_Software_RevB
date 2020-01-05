@@ -107,7 +107,6 @@ typedef struct
     uint16_t current_position_in_degrees;
     displayState_t displayState;
     uint8_t busy;
-    motorDirection_t last_approach_direction;
     uint16_t setup_step_size;
     motorDirection_t approach_direction;
     int16_t division;

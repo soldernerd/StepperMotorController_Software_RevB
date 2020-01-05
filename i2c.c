@@ -13,8 +13,6 @@
 #define I2C_ADC_SLAVE_ADDRESS 0b11010000
 #define I2C_EEPROM_SLAVE_ADDRESS 0b10100000
 
-uint8_t i2c_buffer[6];
-
 //eeprom_write_task_t task_list[16];
 //uint8_t task_list_read_index = 0;
 //uint8_t task_list_write_index = 0;
@@ -294,26 +292,44 @@ void i2c_eeprom_read(uint16_t address, uint8_t *data, uint8_t length)
 
 void i2c_eeprom_save_position(void)
 {
-//    //Prepare data
-//    memcpy(&i2c_buffer[0], &os.current_position_in_steps, 4);
-//    memcpy(&i2c_buffer[4], &os.absolute_position, 2);
-//    
-//    //Write all at once
-//    i2c_eeprom_write(EEPROM_CURRENT_POSITION, &i2c_buffer[0], 6);
+    uint8_t buffer[7];
     
-    i2c_eeprom_write(EEPROM_CURRENT_POSITION, &os.current_position_in_steps, 6);
+    //Temporarily disable interrupts
+    //INTCONbits.GIE = 0;
+    
+    //Prepare data
+    memcpy(&buffer[0], &os.current_position_in_steps, 4);
+    memcpy(&buffer[4], &os.absolute_position, 2);
+    buffer[6] = os.approach_direction;
+    
+    //Write all at once
+    i2c_eeprom_write(EEPROM_CURRENT_POSITION, &buffer[0], 7);
+
+    //i2c_eeprom_write(EEPROM_CURRENT_POSITION, &os.current_position_in_steps, 6);
+    
+    //Re-enable interrupts
+    //INTCONbits.GIE = 1;
 }
 
 void i2c_eeprom_recover_position(void)
 {
-//    //Read from eeprom
-//    i2c_eeprom_read(EEPROM_CURRENT_POSITION, &i2c_buffer[0], 6);
-//    
-//    //Restore values
-//    memcpy(&os.current_position_in_steps, &i2c_buffer[0], 4);
-//    memcpy(&os.absolute_position, &i2c_buffer[4], 2);
+    uint8_t buffer[7];
     
-    i2c_eeprom_read(EEPROM_CURRENT_POSITION, &os.current_position_in_steps, 6);
+    //Temporarily disable interrupts
+    //INTCONbits.GIE = 0;
+    
+    //Read from eeprom
+    i2c_eeprom_read(EEPROM_CURRENT_POSITION, &buffer[0], 7);
+    
+    //Restore values
+    memcpy(&os.current_position_in_steps, &buffer[0], 4);
+    memcpy(&os.absolute_position, &buffer[4], 2);
+    os.approach_direction = buffer[6];
+    
+    //i2c_eeprom_read(EEPROM_CURRENT_POSITION, &os.current_position_in_steps, 6);
+    
+    //Re-enable interrupts
+    //INTCONbits.GIE = 1;
 }
 
 
