@@ -1298,23 +1298,23 @@ MOTOR_DIRECTION_SHORTEST 0
 [v _motor_decrease_manual_speed motor_decrease_manual_speed `(v  1 e 1 0 ]
 "882
 [v _motor_set_manual_speed motor_set_manual_speed `(v  1 e 1 0 ]
-"899
+"908
 [v _motor_change_speed motor_change_speed `(v  1 e 1 0 ]
-"904
+"913
 [v _motor_divide_jump motor_divide_jump `(v  1 e 1 0 ]
-"935
+"944
 [v _motor_divide_jump_to_nearest motor_divide_jump_to_nearest `(v  1 e 1 0 ]
-"955
+"964
 [v _motor_arc_move motor_arc_move `(v  1 e 1 0 ]
-"968
+"977
 [v _motor_set_zero motor_set_zero `(v  1 e 1 0 ]
-"986
+"995
 [v _motor_move_steps motor_move_steps `(E6782  1 e 1 0 ]
-"1014
-[v _motor_move_degrees_int motor_move_degrees_int `(E6639  1 e 1 0 ]
 "1023
+[v _motor_move_degrees_int motor_move_degrees_int `(E6639  1 e 1 0 ]
+"1032
 [v _motor_goto_steps motor_goto_steps `(E6782  1 e 1 0 ]
-"1100
+"1109
 [v _motor_move_endless motor_move_endless `(E6782  1 e 1 0 ]
 "24 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.c
 [v _tmr0_isr tmr0_isr `(v  1 e 1 0 ]
@@ -1425,9 +1425,9 @@ MOTOR_DIRECTION_SHORTEST 0
 [v _MSDTransferTerminated MSDTransferTerminated `(v  1 e 1 0 ]
 "54 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\usb_events.c
 [v _USER_USB_CALLBACK_EVENT_HANDLER USER_USB_CALLBACK_EVENT_HANDLER `(uc  1 e 1 0 ]
-[s S7643 . 7 `E6928 1 temperature_source 1 0 `[2]ui 1 temperature_adc_sum 4 1 `[2]uc 1 temperature_count 2 5 ]
+[s S7644 . 7 `E6928 1 temperature_source 1 0 `[2]ui 1 temperature_adc_sum 4 1 `[2]uc 1 temperature_count 2 5 ]
 "17 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\adc.c
-[v _params params `S7643  1 e 7 0 ]
+[v _params params `S7644  1 e 7 0 ]
 "28 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\app_device_custom_hid.c
 [v _ReceivedDataBuffer ReceivedDataBuffer `[64]uc  1 e 64 0 ]
 "29
@@ -2118,36 +2118,36 @@ MOTOR_DIRECTION_SHORTEST 0
 [v _CCP1CONbits CCP1CONbits `VES6871  1 e 1 @4026 ]
 "14811
 [v _CCPR1L CCPR1L `VEuc  1 e 1 @4027 ]
-[s S7725 . 1 `uc 1 ADCS 1 0 :3:0 
+[s S7726 . 1 `uc 1 ADCS 1 0 :3:0 
 `uc 1 ACQT 1 0 :3:3 
 `uc 1 ADCAL 1 0 :1:6 
 `uc 1 ADFM 1 0 :1:7 
 ]
 "15225
-[s S7730 . 1 `uc 1 ADCS0 1 0 :1:0 
+[s S7731 . 1 `uc 1 ADCS0 1 0 :1:0 
 `uc 1 ADCS1 1 0 :1:1 
 `uc 1 ADCS2 1 0 :1:2 
 `uc 1 ACQT0 1 0 :1:3 
 `uc 1 ACQT1 1 0 :1:4 
 `uc 1 ACQT2 1 0 :1:5 
 ]
-[s S7737 . 1 `uc 1 . 1 0 :3:0 
+[s S7738 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CHSN3 1 0 :1:3 
 `uc 1 VCFG01 1 0 :1:4 
 `uc 1 VCFG11 1 0 :1:5 
 ]
-[u S7742 . 1 `S7725 1 . 1 0 `S7730 1 . 1 0 `S7737 1 . 1 0 ]
-[v _ADCON1bits ADCON1bits `VES7742  1 e 1 @4033 ]
-[s S7647 . 1 `uc 1 . 1 0 :1:0 
+[u S7743 . 1 `S7726 1 . 1 0 `S7731 1 . 1 0 `S7738 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES7743  1 e 1 @4033 ]
+[s S7648 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_NOT_DONE 1 0 :1:1 
 ]
 "15344
-[s S7650 . 1 `uc 1 ADON 1 0 :1:0 
+[s S7651 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :4:2 
 `uc 1 VCFG 1 0 :2:6 
 ]
-[s S7655 . 1 `uc 1 . 1 0 :1:0 
+[s S7656 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
@@ -2156,25 +2156,25 @@ MOTOR_DIRECTION_SHORTEST 0
 `uc 1 VCFG0 1 0 :1:6 
 `uc 1 VCFG1 1 0 :1:7 
 ]
-[s S7664 . 1 `uc 1 . 1 0 :1:0 
+[s S7665 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 DONE 1 0 :1:1 
 ]
-[s S7667 . 1 `uc 1 . 1 0 :1:0 
+[s S7668 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 ]
-[s S7670 . 1 `uc 1 . 1 0 :1:0 
+[s S7671 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_DONE 1 0 :1:1 
 ]
-[s S7673 . 1 `uc 1 . 1 0 :1:0 
+[s S7674 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S7676 . 1 `uc 1 . 1 0 :1:0 
+[s S7677 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GODONE 1 0 :1:1 
 `uc 1 . 1 0 :5:2 
 `uc 1 ADCAL 1 0 :1:7 
 ]
-[u S7681 . 1 `S7647 1 . 1 0 `S7650 1 . 1 0 `S7655 1 . 1 0 `S7664 1 . 1 0 `S7667 1 . 1 0 `S7670 1 . 1 0 `S7673 1 . 1 0 `S7676 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES7681  1 e 1 @4034 ]
+[u S7682 . 1 `S7648 1 . 1 0 `S7651 1 . 1 0 `S7656 1 . 1 0 `S7665 1 . 1 0 `S7668 1 . 1 0 `S7671 1 . 1 0 `S7674 1 . 1 0 `S7677 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES7682  1 e 1 @4034 ]
 "15446
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 "15466
@@ -3680,20 +3680,20 @@ MOTOR_DIRECTION_SHORTEST 0
 {
 "560
 } 0
-"1014 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\motor.c
+"1023 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\motor.c
 [v _motor_move_degrees_int motor_move_degrees_int `(E6639  1 e 1 0 ]
 {
 [v motor_move_degrees_int@direction direction `E6622  1 a 1 wreg ]
-"1017
+"1026
 [v motor_move_degrees_int@distance_in_steps distance_in_steps `ul  1 a 4 62 ]
-"1014
+"1023
 [v motor_move_degrees_int@direction direction `E6622  1 a 1 wreg ]
 [v motor_move_degrees_int@distance distance `ui  1 p 2 57 ]
 [v motor_move_degrees_int@speed speed `ui  1 p 2 59 ]
 [v motor_move_degrees_int@overshoot overshoot `E6635  1 p 1 61 ]
-"1017
+"1026
 [v motor_move_degrees_int@direction direction `E6622  1 a 1 66 ]
-"1021
+"1030
 } 0
 "426
 [v __motor_steps_from_degrees_int _motor_steps_from_degrees_int `(ul  1 s 4 _motor_steps_from_degrees_int ]
@@ -3709,25 +3709,25 @@ MOTOR_DIRECTION_SHORTEST 0
 {
 "872
 } 0
-"935
+"944
 [v _motor_divide_jump_to_nearest motor_divide_jump_to_nearest `(v  1 e 1 0 ]
 {
-"937
+"946
 [v motor_divide_jump_to_nearest@divide_position_float divide_position_float `f  1 a 4 68 ]
-"939
+"948
 [v motor_divide_jump_to_nearest@nearest_position_in_steps nearest_position_in_steps `ul  1 a 4 62 ]
-"938
+"947
 [v motor_divide_jump_to_nearest@nearest_divide_position nearest_divide_position `i  1 a 2 66 ]
-"953
+"962
 } 0
-"904
+"913
 [v _motor_divide_jump motor_divide_jump `(v  1 e 1 0 ]
 {
-"907
+"916
 [v motor_divide_jump@target_position_in_steps target_position_in_steps `ul  1 a 4 63 ]
-"906
+"915
 [v motor_divide_jump@target_divide_position target_divide_position `i  1 a 2 67 ]
-"933
+"942
 } 0
 "581
 [v __step_position_from_divide_position _step_position_from_divide_position `(ul  1 e 4 0 ]
@@ -3743,17 +3743,17 @@ MOTOR_DIRECTION_SHORTEST 0
 {
 "880
 } 0
-"955
+"964
 [v _motor_arc_move motor_arc_move `(v  1 e 1 0 ]
 {
 [v motor_arc_move@direction direction `E6622  1 a 1 wreg ]
-"957
-[v motor_arc_move@arc_in_steps arc_in_steps `f  1 a 4 53 ]
-"955
-[v motor_arc_move@direction direction `E6622  1 a 1 wreg ]
-"960
-[v motor_arc_move@direction direction `E6622  1 a 1 52 ]
 "966
+[v motor_arc_move@arc_in_steps arc_in_steps `f  1 a 4 53 ]
+"964
+[v motor_arc_move@direction direction `E6622  1 a 1 wreg ]
+"969
+[v motor_arc_move@direction direction `E6622  1 a 1 52 ]
+"975
 } 0
 "24 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\encoder.c
 [v __encoder_next_setup_stepsize _encoder_next_setup_stepsize `(ui  1 s 2 _encoder_next_setup_stepsize ]
@@ -4027,17 +4027,17 @@ MOTOR_DIRECTION_SHORTEST 0
 "8 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S8289 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S8290 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S8294 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S8297 . 4 `l 1 i 4 0 `d 1 f 4 0 `S8289 1 fAsBytes 4 0 `S8294 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S8297  1 a 4 43 ]
+[s S8295 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S8298 . 4 `l 1 i 4 0 `d 1 f 4 0 `S8290 1 fAsBytes 4 0 `S8295 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S8298  1 a 4 43 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 37 ]
-[s S8365 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S8366 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S8368 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S8365 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S8368  1 a 2 47 ]
+[u S8369 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S8366 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S8369  1 a 2 47 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 42 ]
 "11
@@ -4499,14 +4499,14 @@ MOTOR_DIRECTION_SHORTEST 0
 {
 "864
 } 0
-"968
+"977
 [v _motor_set_zero motor_set_zero `(v  1 e 1 0 ]
 {
 [v motor_set_zero@direction direction `E6622  1 a 1 wreg ]
 [v motor_set_zero@direction direction `E6622  1 a 1 wreg ]
-"971
-[v motor_set_zero@direction direction `E6622  1 a 1 10 ]
 "980
+[v motor_set_zero@direction direction `E6622  1 a 1 10 ]
+"989
 } 0
 "296
 [v __motor_move_back_forth _motor_move_back_forth `(E6639  1 s 1 _motor_move_back_forth ]
@@ -4517,30 +4517,30 @@ MOTOR_DIRECTION_SHORTEST 0
 [v __motor_move_back_forth@return_value_1 return_value_1 `E6639  1 a 1 8 ]
 "334
 } 0
-"1100
+"1109
 [v _motor_move_endless motor_move_endless `(E6782  1 e 1 0 ]
 {
 [v motor_move_endless@direction direction `E6622  1 a 1 wreg ]
 [v motor_move_endless@direction direction `E6622  1 a 1 wreg ]
 [v motor_move_endless@speed speed `ui  1 p 2 44 ]
-"1102
+"1111
 [v motor_move_endless@direction direction `E6622  1 a 1 46 ]
-"1103
+"1112
 } 0
-"1023
+"1032
 [v _motor_goto_steps motor_goto_steps `(E6782  1 e 1 0 ]
 {
 [v motor_goto_steps@direction direction `E6622  1 a 1 wreg ]
-"1025
+"1034
 [v motor_goto_steps@distance_in_steps distance_in_steps `ul  1 a 4 57 ]
-"1023
+"1032
 [v motor_goto_steps@direction direction `E6622  1 a 1 wreg ]
 [v motor_goto_steps@position position `ul  1 p 4 50 ]
 [v motor_goto_steps@speed speed `ui  1 p 2 54 ]
 [v motor_goto_steps@overshoot overshoot `E6635  1 p 1 56 ]
-"1027
+"1036
 [v motor_goto_steps@direction direction `E6622  1 a 1 61 ]
-"1044
+"1053
 } 0
 "336
 [v __motor_decide_direction _motor_decide_direction `(E6622  1 s 1 _motor_decide_direction ]
@@ -4591,24 +4591,27 @@ MOTOR_DIRECTION_SHORTEST 0
 [v __parse_set_manual_speed _parse_set_manual_speed `(uc  1 s 1 _parse_set_manual_speed ]
 {
 "563
-[v __parse_set_manual_speed@new_speed new_speed `ui  1 a 2 11 ]
+[v __parse_set_manual_speed@new_speed new_speed `ui  1 a 2 13 ]
 "559
-[v __parse_set_manual_speed@data data `*.39uc  1 p 2 4 ]
-[v __parse_set_manual_speed@out_buffer out_buffer `*.39uc  1 p 2 6 ]
-[v __parse_set_manual_speed@out_idx_ptr out_idx_ptr `*.39uc  1 p 2 8 ]
+[v __parse_set_manual_speed@data data `*.39uc  1 p 2 6 ]
+[v __parse_set_manual_speed@out_buffer out_buffer `*.39uc  1 p 2 8 ]
+[v __parse_set_manual_speed@out_idx_ptr out_idx_ptr `*.39uc  1 p 2 10 ]
 "578
 } 0
 "882 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\motor.c
 [v _motor_set_manual_speed motor_set_manual_speed `(v  1 e 1 0 ]
 {
+"884
+[v motor_set_manual_speed@old_speed old_speed `ui  1 a 2 4 ]
+"882
 [v motor_set_manual_speed@new_speed new_speed `ui  1 p 2 2 ]
-"897
+"906
 } 0
-"899
+"908
 [v _motor_change_speed motor_change_speed `(v  1 e 1 0 ]
 {
 [v motor_change_speed@new_speed new_speed `ui  1 p 2 0 ]
-"902
+"911
 } 0
 "525 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\api.c
 [v __parse_jump_steps_with_overshoot _parse_jump_steps_with_overshoot `(uc  1 s 1 _parse_jump_steps_with_overshoot ]
@@ -4636,7 +4639,7 @@ MOTOR_DIRECTION_SHORTEST 0
 [v __parse_jump_steps@out_idx_ptr out_idx_ptr `*.39uc  1 p 2 56 ]
 "523
 } 0
-"986 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\motor.c
+"995 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\motor.c
 [v _motor_move_steps motor_move_steps `(E6782  1 e 1 0 ]
 {
 [v motor_move_steps@direction direction `E6622  1 a 1 wreg ]
@@ -4644,9 +4647,9 @@ MOTOR_DIRECTION_SHORTEST 0
 [v motor_move_steps@distance distance `ul  1 p 4 44 ]
 [v motor_move_steps@speed speed `ui  1 p 2 48 ]
 [v motor_move_steps@overshoot overshoot `E6635  1 p 1 50 ]
-"989
+"998
 [v motor_move_steps@direction direction `E6622  1 a 1 51 ]
-"990
+"999
 } 0
 "187
 [v __motor_move_steps _motor_move_steps `(E6639  1 s 1 _motor_move_steps ]

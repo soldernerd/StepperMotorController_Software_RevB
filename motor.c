@@ -881,6 +881,9 @@ void motor_decrease_manual_speed(void)
 
 void motor_set_manual_speed(uint16_t new_speed)
 {
+    uint16_t old_speed;
+    old_speed = os.manual_speed;
+    
     if(new_speed>config.maximum_speed_manual)
     {
         os.manual_speed = config.maximum_speed_manual;
@@ -893,7 +896,13 @@ void motor_set_manual_speed(uint16_t new_speed)
     {
         os.manual_speed = new_speed;
     }
-    motor_change_speed(new_speed);
+    
+    //Change speed of current move only if this is a manual move
+    //As an indication, the current speed is identical to the (old) maximum manual speed
+    if(os.busy && motor_maximum_speed==old_speed)
+    {
+        motor_change_speed(os.manual_speed);
+    }
 }
 
 void motor_change_speed(uint16_t new_speed)

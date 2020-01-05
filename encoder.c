@@ -511,7 +511,7 @@ void encoder_statemachine(void)
             }
             if(os.encoder1Count<0)
             {
-                motor_decrease_manual_speed();      
+                motor_decrease_manual_speed();
             }
             switch(os.displayState)
             {
