@@ -337,15 +337,15 @@ static void _parse_command_short(uint8_t cmd)
 //            reboot();
 //            break;
 //            
-//        case COMMAND_REBOT_BOOTLOADER_MODE:
-//            i2c_eeprom_writeByte(EEPROM_BOOTLOADER_BYTE_ADDRESS, BOOTLOADER_BYTE_FORCE_BOOTLOADER_MODE);
-//            reboot();
-//            break;
-//                
-//        case COMMAND_REBOT_NORMAL_MODE:
-//            i2c_eeprom_writeByte(EEPROM_BOOTLOADER_BYTE_ADDRESS, BOOTLOADER_BYTE_FORCE_NORMAL_MODE);
-//            reboot();
-//            break;
+        case COMMAND_REBOT_BOOTLOADER_MODE:
+            i2c_eeprom_writeByte(EEPROM_BOOTLOADER_BYTE_ADDRESS, BOOTLOADER_BYTE_FORCE_BOOTLOADER_MODE);
+            reboot();
+            break;
+                
+        case COMMAND_REBOT_NORMAL_MODE:
+            i2c_eeprom_writeByte(EEPROM_BOOTLOADER_BYTE_ADDRESS, BOOTLOADER_BYTE_FORCE_NORMAL_MODE);
+            reboot();
+            break;
         
         case COMMAND_MAIN_MENU:
             os.displayState = DISPLAY_STATE_MAIN_SETUP;

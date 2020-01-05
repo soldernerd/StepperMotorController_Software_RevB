@@ -865,7 +865,7 @@ void motor_stop(void)
 
 void motor_increase_manual_speed(void)
 {
-    if(os.manual_speed<=0xFFFF)
+    if(os.manual_speed<0xFFFF)
     {
         motor_set_manual_speed(os.manual_speed+1);
     }
