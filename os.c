@@ -252,6 +252,11 @@ void system_init(void)
         os.absolute_position = 0;
     }
     motor_calculate_position_in_degrees();
+    if(os.division>3600 || os.divide_position>=os.division)
+    {
+        os.division = 36;
+        os.divide_position = 0;
+    }
     
     //Set up timer0 for timeSlots
     _system_timer0_init();

@@ -292,7 +292,7 @@ void i2c_eeprom_read(uint16_t address, uint8_t *data, uint8_t length)
 
 void i2c_eeprom_save_position(void)
 {
-    uint8_t buffer[7];
+    uint8_t buffer[11];
     
     //Temporarily disable interrupts
     //INTCONbits.GIE = 0;
@@ -301,9 +301,11 @@ void i2c_eeprom_save_position(void)
     memcpy(&buffer[0], &os.current_position_in_steps, 4);
     memcpy(&buffer[4], &os.absolute_position, 2);
     buffer[6] = os.approach_direction;
+    memcpy(&buffer[7], &os.division, 2);
+    memcpy(&buffer[9], &os.divide_position, 2);
     
     //Write all at once
-    i2c_eeprom_write(EEPROM_CURRENT_POSITION, &buffer[0], 7);
+    i2c_eeprom_write(EEPROM_CURRENT_POSITION, &buffer[0], 11);
 
     //i2c_eeprom_write(EEPROM_CURRENT_POSITION, &os.current_position_in_steps, 6);
     
@@ -313,18 +315,20 @@ void i2c_eeprom_save_position(void)
 
 void i2c_eeprom_recover_position(void)
 {
-    uint8_t buffer[7];
+    uint8_t buffer[11];
     
     //Temporarily disable interrupts
     //INTCONbits.GIE = 0;
     
     //Read from eeprom
-    i2c_eeprom_read(EEPROM_CURRENT_POSITION, &buffer[0], 7);
+    i2c_eeprom_read(EEPROM_CURRENT_POSITION, &buffer[0], 11);
     
     //Restore values
     memcpy(&os.current_position_in_steps, &buffer[0], 4);
     memcpy(&os.absolute_position, &buffer[4], 2);
     os.approach_direction = buffer[6];
+    memcpy(&os.division, &buffer[7], 2);
+    memcpy(&os.divide_position, &buffer[9], 2);
     
     //i2c_eeprom_read(EEPROM_CURRENT_POSITION, &os.current_position_in_steps, 6);
     

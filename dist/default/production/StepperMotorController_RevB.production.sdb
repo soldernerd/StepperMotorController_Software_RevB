@@ -1236,19 +1236,19 @@ MOTOR_DIRECTION_SHORTEST 0
 [v _i2c_eeprom_read i2c_eeprom_read `(v  1 e 1 0 ]
 "293
 [v _i2c_eeprom_save_position i2c_eeprom_save_position `(v  1 e 1 0 ]
-"314
+"316
 [v _i2c_eeprom_recover_position i2c_eeprom_recover_position `(v  1 e 1 0 ]
-"377
+"381
 [v _i2c_display_init i2c_display_init `(v  1 e 1 0 ]
-"406
+"410
 [v __ic2_display_set_ddram_address _ic2_display_set_ddram_address `(v  1 s 1 _ic2_display_set_ddram_address ]
-"419
+"423
 [v __ic2_display_set_cgram_address _ic2_display_set_cgram_address `(v  1 s 1 _ic2_display_set_cgram_address ]
-"435
+"439
 [v _i2c_display_cursor i2c_display_cursor `(v  1 e 1 0 ]
-"475
+"479
 [v _i2c_display_write_fixed i2c_display_write_fixed `(v  1 e 1 0 ]
-"500
+"504
 [v _i2c_display_program_custom_character i2c_display_program_custom_character `(v  1 e 1 0 ]
 "49 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\main.c
 [v _main main `(v  1 e 1 0 ]
@@ -2783,13 +2783,13 @@ MOTOR_DIRECTION_SHORTEST 0
 [v _main main `(v  1 e 1 0 ]
 {
 "51
-[v main@startup_timer startup_timer `uc  1 a 1 157 ]
+[v main@startup_timer startup_timer `uc  1 a 1 158 ]
 "130
 } 0
 "177 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\os.c
 [v _system_init system_init `(v  1 e 1 0 ]
 {
-"258
+"263
 } 0
 "646 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\motor.c
 [v _motor_init motor_init `(v  1 e 1 0 ]
@@ -2808,12 +2808,12 @@ MOTOR_DIRECTION_SHORTEST 0
 {
 "40
 } 0
-"314
+"316
 [v _i2c_eeprom_recover_position i2c_eeprom_recover_position `(v  1 e 1 0 ]
 {
-"316
-[v i2c_eeprom_recover_position@buffer buffer `[7]uc  1 a 7 25 ]
-"333
+"318
+[v i2c_eeprom_recover_position@buffer buffer `[11]uc  1 a 11 25 ]
+"337
 } 0
 "277
 [v _i2c_eeprom_read i2c_eeprom_read `(v  1 e 1 0 ]
@@ -2938,81 +2938,81 @@ MOTOR_DIRECTION_SHORTEST 0
 [v display_update@line line `uc  1 a 1 16 ]
 "644
 } 0
-"475 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\i2c.c
+"479 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\i2c.c
 [v _i2c_display_write_fixed i2c_display_write_fixed `(v  1 e 1 0 ]
 {
-"477
+"481
 [v i2c_display_write_fixed@pos pos `uc  1 a 1 8 ]
-"475
+"479
 [v i2c_display_write_fixed@data data `*.39uc  1 p 2 5 ]
 [v i2c_display_write_fixed@length length `uc  1 p 1 7 ]
-"498
+"502
 } 0
-"435
+"439
 [v _i2c_display_cursor i2c_display_cursor `(v  1 e 1 0 ]
 {
 [v i2c_display_cursor@line line `uc  1 a 1 wreg ]
-"437
+"441
 [v i2c_display_cursor@address address `uc  1 a 1 15 ]
-"435
+"439
 [v i2c_display_cursor@line line `uc  1 a 1 wreg ]
 [v i2c_display_cursor@position position `uc  1 p 1 13 ]
-"440
+"444
 [v i2c_display_cursor@line line `uc  1 a 1 14 ]
-"450
+"454
 } 0
-"406
+"410
 [v __ic2_display_set_ddram_address _ic2_display_set_ddram_address `(v  1 s 1 _ic2_display_set_ddram_address ]
 {
 [v __ic2_display_set_ddram_address@address address `uc  1 a 1 wreg ]
-"408
+"412
 [v __ic2_display_set_ddram_address@data_array data_array `[2]uc  1 a 2 11 ]
-"406
+"410
 [v __ic2_display_set_ddram_address@address address `uc  1 a 1 wreg ]
-"409
+"413
 [v __ic2_display_set_ddram_address@address address `uc  1 a 1 10 ]
-"417
+"421
 } 0
 "274 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\display.c
 [v _display_init display_init `(v  1 e 1 0 ]
 {
 "282
 } 0
-"500 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\i2c.c
+"504 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\i2c.c
 [v _i2c_display_program_custom_character i2c_display_program_custom_character `(v  1 e 1 0 ]
 {
 [v i2c_display_program_custom_character@address address `uc  1 a 1 wreg ]
-"503
+"507
 [v i2c_display_program_custom_character@data_array data_array `[11]uc  1 a 11 20 ]
-"502
+"506
 [v i2c_display_program_custom_character@cntr cntr `uc  1 a 1 32 ]
-"500
+"504
 [v i2c_display_program_custom_character@address address `uc  1 a 1 wreg ]
 [v i2c_display_program_custom_character@bit_pattern bit_pattern `*.32uc  1 p 2 14 ]
-"506
+"510
 [v i2c_display_program_custom_character@address address `uc  1 a 1 31 ]
-"515
+"519
 } 0
-"419
+"423
 [v __ic2_display_set_cgram_address _ic2_display_set_cgram_address `(v  1 s 1 _ic2_display_set_cgram_address ]
 {
 [v __ic2_display_set_cgram_address@address address `uc  1 a 1 wreg ]
-"421
+"425
 [v __ic2_display_set_cgram_address@data_array data_array `[3]uc  1 a 3 10 ]
-"419
+"423
 [v __ic2_display_set_cgram_address@address address `uc  1 a 1 wreg ]
-"426
+"430
 [v __ic2_display_set_cgram_address@address address `uc  1 a 1 13 ]
-"433
+"437
 } 0
-"377
+"381
 [v _i2c_display_init i2c_display_init `(v  1 e 1 0 ]
 {
-"379
+"383
 [v i2c_display_init@init_sequence init_sequence `[9]uc  1 a 9 11 ]
-"378
+"382
 [v i2c_display_init@F7093 F7093 `[9]uc  1 s 9 F7093 ]
-"404
+"408
 } 0
 "86
 [v __i2c_write _i2c_write `(v  1 s 1 _i2c_write ]
@@ -4772,19 +4772,19 @@ MOTOR_DIRECTION_SHORTEST 0
 [v _motor_isr motor_isr `(v  1 e 1 0 ]
 {
 "674
-[v motor_isr@steps_remaining steps_remaining `ul  1 a 4 64 ]
+[v motor_isr@steps_remaining steps_remaining `ul  1 a 4 68 ]
 "676
-[v motor_isr@steps_until_standstill_if_accelerate steps_until_standstill_if_accelerate `ui  1 a 2 62 ]
+[v motor_isr@steps_until_standstill_if_accelerate steps_until_standstill_if_accelerate `ui  1 a 2 66 ]
 "675
-[v motor_isr@steps_until_standstill steps_until_standstill `ui  1 a 2 60 ]
+[v motor_isr@steps_until_standstill steps_until_standstill `ui  1 a 2 64 ]
 "851
 } 0
 "293 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\i2c.c
 [v _i2c_eeprom_save_position i2c_eeprom_save_position `(v  1 e 1 0 ]
 {
 "295
-[v i2c_eeprom_save_position@buffer buffer `[7]uc  1 a 7 37 ]
-"312
+[v i2c_eeprom_save_position@buffer buffer `[11]uc  1 a 11 37 ]
+"314
 } 0
 "256
 [v _i2c_eeprom_write i2c_eeprom_write `(v  1 e 1 0 ]
