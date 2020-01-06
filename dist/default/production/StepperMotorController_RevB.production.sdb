@@ -1139,9 +1139,9 @@ MENU_STRUCTURE_SIMPLIFIED 1
 [v __encoder_statemachine_arc _encoder_statemachine_arc `(v  1 s 1 _encoder_statemachine_arc ]
 "542
 [v __encoder_statemachine_manual _encoder_statemachine_manual `(v  1 s 1 _encoder_statemachine_manual ]
-"595
+"599
 [v __encoder_statemachine_zero _encoder_statemachine_zero `(v  1 s 1 _encoder_statemachine_zero ]
-"617
+"621
 [v _encoder_statemachine encoder_statemachine `(v  1 e 1 0 ]
 "35 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\fileio_media.h
 "39
@@ -3722,15 +3722,15 @@ MENU_STRUCTURE_SIMPLIFIED 1
 [v __motor_run@direction direction `E6622  1 a 1 11 ]
 "131
 } 0
-"617 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\encoder.c
+"621 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\encoder.c
 [v _encoder_statemachine encoder_statemachine `(v  1 e 1 0 ]
 {
-"666
+"670
 } 0
-"595
+"599
 [v __encoder_statemachine_zero _encoder_statemachine_zero `(v  1 s 1 _encoder_statemachine_zero ]
 {
-"614
+"618
 } 0
 "302
 [v __encoder_statemachine_setup _encoder_statemachine_setup `(v  1 s 1 _encoder_statemachine_setup ]
@@ -3770,7 +3770,7 @@ MENU_STRUCTURE_SIMPLIFIED 1
 "542
 [v __encoder_statemachine_manual _encoder_statemachine_manual `(v  1 s 1 _encoder_statemachine_manual ]
 {
-"593
+"597
 } 0
 "866 C:\Users\luke\OneDrive\EmbeddedSystems\MPLAB\StepperMotorController_RevB\motor.c
 [v _motor_increase_manual_speed motor_increase_manual_speed `(v  1 e 1 0 ]

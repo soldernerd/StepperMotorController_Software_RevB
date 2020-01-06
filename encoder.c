@@ -581,6 +581,10 @@ static void _encoder_statemachine_manual(void)
                         os.displayState = DISPLAY_STATE_MANUAL_CANCEL;
                     break;
                 case DISPLAY_STATE_MANUAL_BUSY:
+                    if(!os.busy)
+                    {
+                        os.displayState = DISPLAY_STATE_MANUAL_CANCEL;
+                    }
                     if(os.button2==1)
                     {
                         motor_stop();
@@ -616,11 +620,11 @@ static void _encoder_statemachine_zero(void)
 
 void encoder_statemachine(void)
 {
-    //Immediately return if there is no user input
-    if(os.encoder1Count==0 && os.encoder2Count==0 && os.button1==0 && os.button2==0)
-    {
-        return;
-    }
+//    //Immediately return if there is no user input
+//    if(os.encoder1Count==0 && os.encoder2Count==0 && os.button1==0 && os.button2==0)
+//    {
+//        return;
+//    }
     
     //React according to user input
     switch(os.displayState & 0xF0)
